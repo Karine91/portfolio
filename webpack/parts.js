@@ -1,5 +1,7 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
 
 
 exports.pug = function(){
@@ -60,9 +62,9 @@ exports.js = function(){
             ]
         }
     }
-}
+};
 
-exports.img = function(){
+exports.imgLoad = function(){
     return {
         module: {
             rules: [
@@ -76,7 +78,7 @@ exports.img = function(){
             ]
         }
     }
-}
+};
 
 exports.uglify = function(){
     return {
@@ -84,4 +86,21 @@ exports.uglify = function(){
             new UglifyJSPlugin()
         ]
     }
-}
+};
+exports.lint = function(){
+    return {
+        plugins:[
+            new StyleLintPlugin({
+                configFile: './.stylelintrc',
+            }),
+        ]
+    }
+};
+
+exports.imgCompressed = function(){
+    return {
+        plugins:[
+            new ImageminPlugin(),
+        ],
+    };
+};

@@ -3,7 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const StyleLintPlugin = require('stylelint-webpack-plugin');
 const merge = require('webpack-merge');
 const parts = require('./webpack/parts');
 const devServer = require('./webpack/devserver');
@@ -18,6 +17,8 @@ const common = merge([
         entry: {
             'index': PATHS.source + '/pages/index/index.js',
             'blog': PATHS.source + '/pages/blog/blog.js',
+            'about': PATHS.source + '/pages/about/about.js',
+            'my-works': PATHS.source + '/pages/my-works/my-works.js',
         },
         output: {
             path: PATHS.build,
@@ -34,15 +35,22 @@ const common = merge([
                 chunks: ['blog', 'common'],
                 template: PATHS.source + '/pages/blog/blog.pug',
             }),
+            new HtmlWebpackPlugin({
+                filename: 'about.html',
+                chunks: ['about', 'common'],
+                template: PATHS.source + '/pages/about/about.pug',
+            }),
+            new HtmlWebpackPlugin({
+                filename: 'my-works.html',
+                chunks: ['my-works', 'common'],
+                template: PATHS.source + '/pages/my-works/my-works.pug',
+            }),
             new CleanWebpackPlugin('build'),
             new webpack.optimize.CommonsChunkPlugin({
                 name: 'common',
             }),
             new OptimizeCssAssetsPlugin({
                 cssProcessorOptions: {discardComments: {removeAll: true}},
-            }),
-            new StyleLintPlugin({
-                configFile: './.stylelintrc',
             }),
             new webpack.ProvidePlugin({
                 $: 'jquery',
@@ -53,19 +61,21 @@ const common = merge([
     parts.pug(),
     parts.extractCss(),
     parts.js(),
-    parts.img(),
+    parts.imgLoad(),
 ]);
 
 module.exports = function(env){
     if (env === 'production'){
         return merge([
             common,
-            parts.uglify()
+            parts.uglify(),
+            parts.imgCompressed()
         ]);
     }
     if (env === 'development'){
         return merge([
             common,
+            parts.lint(),
             devServer()
         ]);
     }
