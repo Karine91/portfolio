@@ -25,20 +25,18 @@ exports.extractCss = function(){
         module: {
             rules: [
                 {
+                    test: /\.css$/,
+                    use: ExtractTextPlugin.extract({
+                        fallback: 'style-loader',
+                        use: 'css-loader',
+                    }),
+                },
+                {
                     test: /\.scss$/,
                     use: ExtractTextPlugin.extract({
                         publicPath: '../',
                         fallback: 'style-loader',
-                        use: ['css-loader', { 
-                            loader: 'sass-loader',
-                        }],    
-                    }),
-                },
-                {
-                    test: /\.css$/,
-                    use: ExtractTextPlugin.extract({
-                        fallback: 'style-loader',
-                        use: ['css-loader', 'postcss-loader'],
+                        use: ['css-loader', 'postcss-loader','sass-loader'],    
                     }),
                 },
             ]
