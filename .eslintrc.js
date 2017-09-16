@@ -22,9 +22,7 @@ module.exports = {
             "error",
             "always",
         ],
-        "no-unused-vars": [
-            "warn",
-        ],
+        "no-unused-vars": 0,
         "no-console": 0,
     },
     "globals": {

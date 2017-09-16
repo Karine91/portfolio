@@ -1,0 +1,77 @@
+.parallax{
+    height: 100vh;
+    position: relative;
+}
+.layer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%; 
+}
+.layer1{
+    background-image: url("../images/layer5.jpg");
+}
+.layer2{
+    background-image: url("../images/layer8.png");
+}
+.layer3{
+    background-image: url("../images/layer7.png");
+}
+.cloud{
+    background-size: contain;
+}
+.layer4{
+    background-image: url("../images/cloud-4.png");
+    width: 17%;
+    height: 14%;
+    right: 15%;
+    left: auto;
+    top: 25%;
+}
+.layer5{
+    background-image: url("../images/layer6.png");
+}
+.layer6{
+    background-image: url("../images/layer4.png");
+}
+.layer7{
+    background-image: url("../images/sky.png");
+    width: 22%;
+    height: 17%;
+    left: 15%;
+    top: 37%;
+}
+.layer8{
+    background-image: url("../images/layer2.png");  
+}
+.layer9{
+    background-image: url("../images/layer1.png");  
+}
+.layer10{
+    background-image: url("../images/clouds.png");
+    width: 75%;
+    height: 43%;
+    left: auto;
+    right: 25%; 
+    top: 61%;
+}
+.welcome{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column; 
+}
+
+.welcome__top-right-block{
+    align-self: flex-end;
+    padding-right: 100px;
+}
+.btn-autorization{
+    color: $white;
+}

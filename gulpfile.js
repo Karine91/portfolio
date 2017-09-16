@@ -1,128 +1,173 @@
-const gulp = require('gulp'),
-    webpack = require('webpack'),
-    // sourcemaps = require('gulp-sourcemaps'),
-    WebpackDevServer = require('webpack-dev-server'),
-    webpackConfig = require('./webpack.config.js'),
-    gulpWebpack = require('gulp-webpack'),
-    gutil = require('gulp-util'),
+const gulp = require('gulp');
+const pug = require('gulp-pug');
+const sass = require('gulp-sass');
+const rename = require('gulp-rename');
+const sourcemaps = require('gulp-sourcemaps');
+const del = require('del');
+const browserSync = require('browser-sync').create();
+
+const gulpWebpack = require('gulp-webpack');
+const webpack = require('webpack');
+const webpackConfig = require('./webpack.config.js'),
     svgSprite = require('gulp-svg-sprite'),
     svgmin = require('gulp-svgmin'),
     cheerio = require('gulp-cheerio'),
     replace = require('gulp-replace'),
-    browserSync = require('browser-sync').create();
+    plumber = require('gulp-plumber'),
+    gcmq = require('gulp-group-css-media-queries'),
+    postcss    = require('gulp-postcss');
+
 const paths = {
     root: './build',
     templates: {
-        src: 'source/pages/**/*.pug',
-        dest: 'build/'
+        pages: 'src/templates/pages/*.pug',
+        src: 'src/templates/**/*.pug',
+        dest: 'build/assets/'
     },
     styles:{
-        src: 'source/**/*.scss',
-        dest: 'build/css/'
+        src: 'src/styles/**/*.scss',
+        dest: 'build/assets/styles/'
     },
     images:{
-        src: 'source/pages/**/*.*',
-        dest: 'build/images/'
+        src: 'src/images/**/*.*',
+        dest: 'build/assets/images/'
     },
     scripts:{
-        src: 'source/pages/**/*.js',
-        dest: 'build/js/'
+        src: 'src/scripts/**/*.js',
+        dest: 'build/assets/scripts/'
     },
-    all: 'source/**/*.*',
-    icons: 'source/components/icons/',
-    components: 'source/components/',
+    icons: {
+        src: 'src/icons/',
+        dest: 'src/styles/common/'
+    },
+    fonts: {
+        src: 'src/fonts/',
+        dest: 'build/assets/fonts/'  
+    },
+
 }
 
-gulp.task('svgSpriteBuild', function () {
-    return gulp.src(paths.icons + 'socials/*.svg')
-    // minify svg
-    .pipe(svgmin({
-			js2svg: {
-				pretty: true
-			}
-		}))
-		// remove all fill, style and stroke declarations in out shapes
-		.pipe(cheerio({
-			run: function ($) {
-				$('[fill]').removeAttr('fill');
-				$('[stroke]').removeAttr('stroke');
-				$('[style]').removeAttr('style');
-			},
-			parserOptions: {xmlMode: true}
-		}))
-		// cheerio plugin create unnecessary string '&gt;', so replace it.
-		.pipe(replace('&gt;', '>'))
-		// build svg sprite
-		.pipe(svgSprite({
-			mode: {
-				symbol: {
-					sprite: "../sprite_socials.svg",
-					render: {
-						scss: {
-							dest: './_sprite_socials.scss',
-							template: paths.components + "_sprite_template.scss"
-						}
-					}
-				}
-			}
-		}))
-		.pipe(gulp.dest(paths.components + 'sprite/'));
-});
+//pug
+function templates(){
+    return gulp.src(paths.templates.pages)
+        .pipe(pug({pretty: true}))
+        .pipe(gulp.dest(paths.root));
+}
 
+//scss
+function styles(){
+    return gulp.src('./src/styles/app.scss')
+        .pipe(plumber({
+            errorHandler: function(error){console.log(error); this.end();}
+         }))
+        .pipe(sourcemaps.init())
+        .pipe( postcss([ require('precss'), require('autoprefixer')]) )
+        .pipe(sass({outputStyle: 'compressed'}))
+        .pipe(sourcemaps.write())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest(paths.styles.dest))
+}
+//del
+function clean(){
+    return del(paths.root);
+}
+//images
+function images(){
+    return gulp.src(paths.images.src)
+        .pipe(gulp.dest(paths.images.dest));
+}
 
-var devCompiler = webpack(webpackConfig);
-gulp.task('webpack-dev', function(done) {
-    // run webpack
-    devCompiler.run(function(err, stats) {
-        if(err) throw new gutil.PluginError('webpack:build-dev', err);
-        gutil.log('[webpack:build-dev]', stats.toString({
-            colors: true
-        }));
-    });
-    done();
-});
+//webpack
+function scripts(){
+    return gulp.src('src/scripts/app.js')
+        .pipe(gulpWebpack(webpackConfig, webpack))
+        .pipe(gulp.dest(paths.scripts.dest));
+}
+
+function watch(){
+    gulp.watch(paths.styles.src, styles);
+    gulp.watch(paths.templates.src, templates);
+    gulp.watch(paths.images.src, images);
+    gulp.watch(paths.scripts.src, scripts);
+}
+
+//reload and watch
 
 function server(){
     browserSync.init({
         server: paths.root,
     });
-    //browserSync.watch(paths.root + '/**/*.*', browserSync.reload);
-}
-
-//webpack
-function scripts(){
-    return gulp.src(paths.all)
-        .pipe(gulpWebpack(webpackConfig, webpack))
-        .pipe(gulp.dest(paths.root));
-}
-function watch(){
-    gulp.watch(paths.all, gulp.series(scripts, browserSync.reload));
+    browserSync.watch(paths.root + '/**/*.*', browserSync.reload);
 }
 
 
+//fonts
+function fonts(){
+    return gulp.src(paths.fonts.src)
+        .pipe(gulp.dest(paths.fonts.dest));
+}
 
-// gulp.task('wds', function() {
-//     // modify some webpack config options
-//     var myConfig = Object.create(webpackConfig);
-//     // Start a webpack-dev-server
-//     new WebpackDevServer(webpack(myConfig), {
-//         stats: 'errors-only',
-//         contentBase: 'build/'
-//     }).listen(8080, 'localhost', function(err) {
-//         if(err) throw new gutil.PluginError('webpack-dev-server', err);
-//         gutil.log('[webpack-dev-server]', 'http://localhost:8080/webpack-dev-server/index.html');
-//     });
-// });
-// gulp.task('watch', function() {
-//     gulp.watch(['source/**/*.*'], gulp.series('webpack-dev')).on('change', browserSync.reload);
-// });
-// gulp.task('default', gulp.parallel(
-//     gulp.series('webpack-dev','server'),
-//     gulp.series('watch')
-// ));
+//media quieries
+
+function media() {
+    return gulp.src(paths.root + 'css/*.css')
+        .pipe(gcmq())
+        .pipe(gulp.dest(paths.root  + 'css/'));
+}
+
+function svgSpriteBuild()   {
+    return gulp.src(paths.icons.src + "socials/*.svg")
+        // minify svg
+        .pipe(svgmin({
+                js2svg: {
+                    pretty: true
+                }
+            }))
+            // remove all fill, style and stroke declarations in out shapes
+            .pipe(cheerio({
+                run: function ($) {
+                    $('[fill]').removeAttr('fill');
+                    $('[stroke]').removeAttr('stroke');
+                    $('[style]').removeAttr('style');
+                },
+                parserOptions: {xmlMode: true}
+            }))
+            // cheerio plugin create unnecessary string '&gt;', so replace it.
+            .pipe(replace('&gt;', '>'))
+            // build svg sprite
+            .pipe(svgSprite({
+                mode: {
+                    symbol: {
+                        sprite: "../sprite_socials.svg",
+                        render: {
+                            scss: {
+                                dest: './_sprite_socials.scss',
+                                template: "src/styles/common/_sprite_template.scss"
+                            }
+                        }
+                    }
+                }
+            }))
+            .pipe(gulp.dest(paths.icons.dest));
+}
+
+
+exports.templates = templates;
+exports.styles = styles;
+exports.del = clean;
+exports.images = images;
+exports.fonts = fonts;
+exports.media = media;
+exports.svgsprite = svgSpriteBuild;
+
+//build
+gulp.task('build', gulp.series(
+    clean,
+    gulp.parallel(styles, templates, scripts, images, fonts)
+));
 
 
 gulp.task('default',gulp.series(
-    gulp.parallel(scripts),
+    gulp.parallel(styles, templates, scripts, images, fonts),
     gulp.parallel(watch, server)
 ));

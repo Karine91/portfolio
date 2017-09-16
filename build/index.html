@@ -1,23 +1,52 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8">
+    <title>Добро пожаловать</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Главная</title>
-  <link href="./css/common.css" rel="stylesheet"><link href="./css/index.css" rel="stylesheet"></head>
+    <link rel="stylesheet" href="/assets/styles/app.min.css">
+    <script src="/assets/scripts/bundle.js" defer></script>
+  </head>
   <body>
-    <div class="welcome">
-      <div class="welcome__top-right-block"><a class="btn-autorization" href="#">Авторизоваться</a></div>
-      <div class="welocome__popup">
-        <div class="user-picture"><img class="user-picture__img" src="require(img1.png)"></div>
-        <div class="user-name">Каринэ Гюлумян</div>
-        <div class="user-info">Личный сайт разработчика</div>
-        <div class="socials">Какаяни-будь tertertgfdg</div>
-        <svg class="icon icon-vk ">
-          <use xlink:href="images/sprite_socials.svg#vk"></use>
-        </svg>
+    <div class="parallax">
+      <div class="layer layer1"></div>
+      <div class="layer layer2"></div>
+      <div class="layer layer3"></div>
+      <div class="layer layer4 cloud"></div>
+      <div class="layer layer5"></div>
+      <div class="layer layer6"></div>
+      <div class="layer layer7 cloud"></div>
+      <div class="layer layer8"></div>
+      <div class="layer layer9"></div>
+      <div class="layer layer10 cloud"></div>
+      <div class="welcome">
+        <div class="welcome__top-right-block"><a class="btn-autorization" href="#">Авторизоваться</a></div>
+        <div class="welocome__popup">
+          <div class="user-picture"><img class="user-picture__img" src="assets/images/img1.png"></div>
+          <div class="user-name">Каринэ Гюлумян</div>
+          <div class="user-info">Личный сайт разработчика</div>
+          <div class="socials">Какаяни-будь tertertgfdg</div>
+          <svg class="icon icon-vk ">
+            <use xlink:href="assets/images/icons/sprite_socials.svg#vk"></use>
+          </svg>
+        </div>
       </div>
+      <form action="">
+        <label for="email">email</label>
+        <input id="email" type="email" name="">
+        <label for="password"></label>
+        <input id="password" type="password" name="">
+        <button>Войти    </button>
+      </form>
     </div>
-  <script type="text/javascript" src="./js/common.js"></script><script type="text/javascript" src="./js/index.js"></script></body>
+    <ul class="menu">
+      <li><a href="/index.html">Главная</a></li>
+      <li><a href="/about.html">Обо мне</a></li>
+      <li><a href="/my-works.html">Мои работы</a></li>
+      <li><a href="/blog.html">Блог</a></li>
+    </ul>
+  </body>
 </html>
