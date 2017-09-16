@@ -5,7 +5,6 @@ const webpack = require('webpack');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const merge = require('webpack-merge');
 const parts = require('./webpack/parts');
-const devServer = require('./webpack/devserver');
 
 const PATHS = {
     source: path.join(__dirname, 'source'),
@@ -20,6 +19,7 @@ const common = merge([
             'about': PATHS.source + '/pages/about/about.js',
             'my-works': PATHS.source + '/pages/my-works/my-works.js',
         },
+        devtool: 'source-map',
         output: {
             path: PATHS.build,
             filename: './js/[name].js',
@@ -45,7 +45,7 @@ const common = merge([
                 chunks: ['my-works', 'common'],
                 template: PATHS.source + '/pages/my-works/my-works.pug',
             }),
-            new CleanWebpackPlugin('build'),
+            // new CleanWebpackPlugin('build'),
             new webpack.optimize.CommonsChunkPlugin({
                 name: 'common',
             }),
@@ -62,21 +62,10 @@ const common = merge([
     parts.extractCss(),
     parts.js(),
     parts.imgLoad(),
+    parts.fontLoad(),
+    parts.uglify(),
+    parts.imgCompressed(), 
+    //parts.devServer(),
 ]);
 
-module.exports = function(env){
-    if (env === 'production'){
-        return merge([
-            common,
-            parts.uglify(),
-            parts.imgCompressed()
-        ]);
-    }
-    if (env === 'development'){
-        return merge([
-            common,
-            parts.lint(),
-            devServer()
-        ]);
-    }
-};
+module.exports = common;

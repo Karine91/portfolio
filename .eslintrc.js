@@ -14,10 +14,10 @@ module.exports = {
             "error",
             "always-multiline",
         ],
-        "indent":[
-            "error",
-            4,
-        ],
+        // "indent":[
+        //     "error",
+        //     4,
+        // ],
         "semi":[
             "error",
             "always",

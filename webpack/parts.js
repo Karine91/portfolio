@@ -3,7 +3,6 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 
-
 exports.pug = function(){
     return {
         module: {
@@ -79,7 +78,20 @@ exports.imgLoad = function(){
         }
     }
 };
-
+exports.fontLoad = function(){
+    return {
+        module: {
+            rules: [
+                {
+                    
+                    test: /\.(eot|svg|ttf|woff|woff2)$/,
+                    loader: 'file-loader?name=fonts/[name].[ext]',
+                   
+                },
+            ]
+        }
+    }
+};
 exports.uglify = function(){
     return {
         plugins:[
@@ -102,5 +114,12 @@ exports.imgCompressed = function(){
         plugins:[
             new ImageminPlugin(),
         ],
+    };
+};
+exports.devServer = function(){
+    return {
+        devServer: {
+            stats: 'errors-only'
+        }
     };
 };
