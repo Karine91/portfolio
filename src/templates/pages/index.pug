@@ -4,37 +4,46 @@ block variables
     - var title = "Добро пожаловать"
 
 block content
-    .parallax
-        .layer.layer1
-        .layer.layer2
-        .layer.layer3
-        .layer.layer4.cloud
-        .layer.layer5
-        .layer.layer6
-        .layer.layer7.cloud
-        .layer.layer8
-        .layer.layer9
-        .layer.layer10.cloud
-        .welcome
-            .welcome__main        
-                .welcome-form
-                    .user-picture
-                        img(src="assets/images/img1.png").user-picture__img
-                    .user-name Каринэ Гюлумян
-                    .user-info Личный сайт разработчика
-                    .socials
-                        a.socials__link(href="#"): +icon('vk')
-                        a.socials__link(href="#"): +icon('github')
-                        a.socials__link(href="#"): +icon('in')
-                    .navigation
-                        a(href="#") Мои работы
-                        a(href="#") Обо мне
-                        a(href="#") Блог    
-            .welcome__autorization
-                a(href="#").btn-autorization Авторизоваться    
-        form(action="")
-            label(for="email") email
-            input#email(type="email", name="")
-            label(for="password")
-            input#password(type="password", name="")
-            button Войти    
+    .main-container
+        .parallax
+            .layer.layer1
+            .layer.layer2
+            .layer.layer3
+            .layer.layer4.cloud
+            .layer.layer5
+            .layer.layer6
+            .layer.layer7.cloud
+            .layer.layer8
+            .layer.layer9
+            .layer.layer10.cloud
+        .section-content    
+            header.header
+                a(href="#").btn-autorization Авторизоваться       
+            .welcome
+                .welcome__main        
+                    .welcome-form
+                        .welcome-info
+                            .user-picture
+                                img(src="assets/images/img1.png").user-picture__img
+                            .user-name Каринэ Гюлумян
+                            .user-info Личный сайт разработчика
+                            .socials
+                                a.socials__link(href="#"): +icon('vk')
+                                a.socials__link(href="#"): +icon('github')
+                                a.socials__link(href="#"): +icon('in')
+                        .navigation
+                            a(href="/my-works.html").navigation__item Мои работы
+                            a(href="/about.html").navigation__item Обо мне
+                            a(href="/blog.html").navigation__item Блог        
+            footer.footer
+                .copyright © Каринэ Гюлумян | создано с любовью в LoftSchool | 2017        
+
+            
+            
+            
+            //- form(action="")
+            //-     label(for="email") email
+            //-     input#email(type="email", name="")
+            //-     label(for="password")
+            //-     input#password(type="password", name="")
+            //-     button Войти    

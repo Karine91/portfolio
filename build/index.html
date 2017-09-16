@@ -11,51 +11,48 @@
     <script src="/assets/scripts/bundle.js" defer></script>
   </head>
   <body>
-    <div class="parallax">
-      <div class="layer layer1"></div>
-      <div class="layer layer2"></div>
-      <div class="layer layer3"></div>
-      <div class="layer layer4 cloud"></div>
-      <div class="layer layer5"></div>
-      <div class="layer layer6"></div>
-      <div class="layer layer7 cloud"></div>
-      <div class="layer layer8"></div>
-      <div class="layer layer9"></div>
-      <div class="layer layer10 cloud"></div>
-      <div class="welcome">
-        <div class="welcome__main">       
-          <div class="welcome-form">
-            <div class="user-picture"><img class="user-picture__img" src="assets/images/img1.png"></div>
-            <div class="user-name">Каринэ Гюлумян</div>
-            <div class="user-info">Личный сайт разработчика</div>
-            <div class="socials"><a class="socials__link" href="#">
-                <svg class="socials__icon icon icon-vk " width="30" height="25">
-                  <use xlink:href="assets/images/icons/sprite_socials.svg#vk"></use>
-                </svg></a><a class="socials__link" href="#">
-                <svg class="socials__icon icon icon-github " width="30" height="25">
-                  <use xlink:href="assets/images/icons/sprite_socials.svg#github"></use>
-                </svg></a><a class="socials__link" href="#">
-                <svg class="socials__icon icon icon-in " width="30" height="25">
-                  <use xlink:href="assets/images/icons/sprite_socials.svg#in"></use>
-                </svg></a></div>
-            <div class="navigation"><a href="#">Мои работы</a><a href="#">Обо мне</a><a href="#">Блог    </a></div>
+    <div class="main-container">
+      <div class="parallax">
+        <div class="layer layer1"></div>
+        <div class="layer layer2"></div>
+        <div class="layer layer3"></div>
+        <div class="layer layer4 cloud"></div>
+        <div class="layer layer5"></div>
+        <div class="layer layer6"></div>
+        <div class="layer layer7 cloud"></div>
+        <div class="layer layer8"></div>
+        <div class="layer layer9"></div>
+        <div class="layer layer10 cloud"></div>
+      </div>
+      <div class="section-content">   
+        <header class="header"><a class="btn-autorization" href="#">Авторизоваться       </a></header>
+        <div class="welcome">
+          <div class="welcome__main">       
+            <div class="welcome-form">
+              <div class="welcome-info">
+                <div class="user-picture"><img class="user-picture__img" src="assets/images/img1.png"></div>
+                <div class="user-name">Каринэ Гюлумян</div>
+                <div class="user-info">Личный сайт разработчика</div>
+                <div class="socials"><a class="socials__link" href="#">
+                    <svg class="socials__icon icon icon-vk " width="30" height="25">
+                      <use xlink:href="assets/images/icons/sprite_socials.svg#vk"></use>
+                    </svg></a><a class="socials__link" href="#">
+                    <svg class="socials__icon icon icon-github " width="30" height="25">
+                      <use xlink:href="assets/images/icons/sprite_socials.svg#github"></use>
+                    </svg></a><a class="socials__link" href="#">
+                    <svg class="socials__icon icon icon-in " width="30" height="25">
+                      <use xlink:href="assets/images/icons/sprite_socials.svg#in"></use>
+                    </svg></a></div>
+              </div>
+              <div class="navigation"><a class="navigation__item" href="/my-works.html">Мои работы</a><a class="navigation__item" href="/about.html">Обо мне</a><a class="navigation__item" href="/blog.html">Блог        </a></div>
+            </div>
           </div>
         </div>
-        <div class="welcome__autorization"><a class="btn-autorization" href="#">Авторизоваться    </a></div>
+        <footer class="footer">
+          <div class="copyright">© Каринэ Гюлумян | создано с любовью в LoftSchool | 2017        </div>
+        </footer>
       </div>
-      <form action="">
-        <label for="email">email</label>
-        <input id="email" type="email" name="">
-        <label for="password"></label>
-        <input id="password" type="password" name="">
-        <button>Войти    </button>
-      </form>
     </div>
-    <ul class="menu">
-      <li><a href="/index.html">Главная</a></li>
-      <li><a href="/about.html">Обо мне</a></li>
-      <li><a href="/my-works.html">Мои работы</a></li>
-      <li><a href="/blog.html">Блог</a></li>
-    </ul>
+    <!--include common/menu.pug-->
   </body>
 </html>

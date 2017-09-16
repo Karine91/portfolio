@@ -15,6 +15,7 @@ const webpackConfig = require('./webpack.config.js'),
     replace = require('gulp-replace'),
     plumber = require('gulp-plumber'),
     gcmq = require('gulp-group-css-media-queries'),
+    ghPages = require('gulp-gh-pages'),
     postcss    = require('gulp-postcss');
 
 const paths = {
@@ -166,6 +167,10 @@ gulp.task('build', gulp.series(
     gulp.parallel(styles, templates, scripts, images, fonts)
 ));
 
+gulp.task('deploy', function() {
+    return gulp.src('./build/**/*')
+      .pipe(ghPages());
+  });
 
 gulp.task('default',gulp.series(
     gulp.parallel(styles, templates, scripts, images, fonts),

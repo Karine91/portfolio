@@ -1,6 +1,20 @@
-.parallax{
+.main-container{
     height: 100vh;
     position: relative;
+}
+.section-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.parallax{
+    height: 100%;
+    overflow: hidden;
 }
 .layer{
     position: absolute;
@@ -60,11 +74,6 @@
     top: 61%;
 }
 .welcome{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
 }
 .welcome__main{
     height: 100%;
@@ -73,28 +82,32 @@
     justify-content: center;
     align-items: center; 
 }
-.welcome__autorization{
-    position: absolute;
-    top: 25px;
-    right: 0;
+.header{
+    margin-top: 25px;
     padding-right: 100px;
+    display: flex;
+    justify-content: flex-end;
 }
 .btn-autorization{
     color: $white;
     padding: 10px 25px;
     border: 1px solid $white;
-    border-radius: 5px; 
+    border-radius: 5px;
+    display: block; 
 }
 
 .welcome-form{
     width: 380px;
     height: 395px;
-    background-color: rgba(#fcfcfc,.85);
     border-radius: 5px;
     text-align: center; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow: hidden;
+}
+.welcome-info{
+    background-color: rgba(#fcfcfc,.85);
 }
 .user-picture{
     border-radius: 50%;
@@ -132,6 +145,9 @@
         margin: 0;
     }
 }
+.socials{
+    margin-bottom: 30px;
+}
 .socials__icon{
     width: 30px;
     height: 25px;
@@ -140,5 +156,26 @@
 
 .navigation{
     height: 45px;
-    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    
+    
+}
+.navigation__item{
+    display: block;
+    color: $white;
+    flex-grow: 1;
+    height: 100%;
+    line-height: 45px;
+    border-right: 2px solid rgba($white, .5);
+    background-color: rgba($green, .85);
+    transition: all ease 300ms;
+    &:last-child{
+        border-right:none;
+    }
+    &:hover{
+        background-color: rgba($darkgreen, .85);
+    }
 }
