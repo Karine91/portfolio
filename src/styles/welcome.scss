@@ -71,9 +71,8 @@
     height: 43%;
     left: auto;
     right: 25%; 
-    top: 61%;
-}
-.welcome{
+    top: auto;
+    bottom:0;
 }
 .welcome__main{
     height: 100%;
@@ -93,7 +92,12 @@
     padding: 10px 25px;
     border: 1px solid $white;
     border-radius: 5px;
-    display: block; 
+    display: block;
+    transition: all ease 400ms;
+    &:hover{
+        background-color: $white;
+        color: $darkgreen;
+    } 
 }
 
 .welcome-form{
@@ -178,4 +182,13 @@
     &:hover{
         background-color: rgba($darkgreen, .85);
     }
+}
+.footer{
+    padding-bottom: 40px;
+    text-align: center; 
+}
+.copyright{
+    color: $white;
+    font-family: "Roboto-Light";
+    font-size: 16px;
 }
