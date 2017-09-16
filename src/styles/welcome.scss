@@ -64,14 +64,81 @@
     top: 0;
     left: 0;
     height: 100%;
-    display: flex;
-    flex-direction: column; 
+    width: 100%;
 }
-
-.welcome__top-right-block{
-    align-self: flex-end;
+.welcome__main{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.welcome__autorization{
+    position: absolute;
+    top: 25px;
+    right: 0;
     padding-right: 100px;
 }
 .btn-autorization{
     color: $white;
+    padding: 10px 25px;
+    border: 1px solid $white;
+    border-radius: 5px; 
+}
+
+.welcome-form{
+    width: 380px;
+    height: 395px;
+    background-color: rgba(#fcfcfc,.85);
+    border-radius: 5px;
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.user-picture{
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    margin: 40px auto 10px;
+    background-color: #fff;    
+}
+.user-picture__img{
+    width: 100%;
+}
+.user-name{
+  color: $gray;
+  font-size: 28px;
+  margin-bottom: 10px;  
+}
+.user-info{
+    font-size: 16px;
+    font-family: "Roboto-Regular";
+    color: rgba($gray, .85);
+    margin-bottom: 35px;
+}
+.socials__link{
+    margin-right: 25px;
+    display: inline-block;
+    vertical-align: middle;
+    color: $green;
+    opacity: 0.50;
+    transition: opacity ease 300ms;
+    &:hover{
+        opacity: 1;
+    }
+    &:last-child{
+        margin: 0;
+    }
+}
+.socials__icon{
+    width: 30px;
+    height: 25px;
+    vertical-align: middle;
+}
+
+.navigation{
+    height: 45px;
+    margin-top: auto;
 }
