@@ -7,8 +7,8 @@
     <meta content="" name="keywords">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/assets/styles/app.min.css">
-    <script src="/assets/scripts/bundle.js" defer></script>
+    <link rel="stylesheet" href="assets/styles/app.min.css">
+    <script src="assets/scripts/bundle.js" defer></script>
   </head>
   <body>
     <div class="main-container">
@@ -25,26 +25,29 @@
         <div class="layer layer10 cloud"></div>
       </div>
       <div class="section-content">   
-        <header class="header"><a class="btn-autorization" href="#">Авторизоваться       </a></header>
+        <header class="header"><a class="btn-autorization" id="authorization" href="#">Авторизоваться       </a></header>
         <div class="welcome">
           <div class="welcome__main">       
-            <div class="welcome-form">
-              <div class="welcome-info">
-                <div class="user-picture"><img class="user-picture__img" src="assets/images/img1.png"></div>
-                <div class="user-name">Каринэ Гюлумян</div>
-                <div class="user-info">Личный сайт разработчика</div>
-                <div class="socials"><a class="socials__link" href="#">
-                    <svg class="socials__icon icon icon-vk " width="30" height="25">
-                      <use xlink:href="assets/images/icons/sprite_socials.svg#vk"></use>
-                    </svg></a><a class="socials__link" href="#">
-                    <svg class="socials__icon icon icon-github " width="30" height="25">
-                      <use xlink:href="assets/images/icons/sprite_socials.svg#github"></use>
-                    </svg></a><a class="socials__link" href="#">
-                    <svg class="socials__icon icon icon-in " width="30" height="25">
-                      <use xlink:href="assets/images/icons/sprite_socials.svg#in"></use>
-                    </svg></a></div>
+            <div class="welcome-form" id="auth-form">
+              <div class="welcome-form__front">
+                <div class="welcome-info">
+                  <div class="user-picture"><img class="user-picture__img" src="assets/images/ava.jpg"></div>
+                  <div class="user-name">Каринэ Гюлумян</div>
+                  <div class="user-info">Личный сайт разработчика</div>
+                  <div class="socials"><a class="socials__link" href="#">
+                      <svg class="socials__icon icon icon-vk " width="30" height="25">
+                        <use xlink:href="assets/images/icons/sprite_socials.svg#vk"></use>
+                      </svg></a><a class="socials__link" href="#">
+                      <svg class="socials__icon icon icon-github " width="30" height="25">
+                        <use xlink:href="assets/images/icons/sprite_socials.svg#github"></use>
+                      </svg></a><a class="socials__link" href="#">
+                      <svg class="socials__icon icon icon-in " width="30" height="25">
+                        <use xlink:href="assets/images/icons/sprite_socials.svg#in"></use>
+                      </svg></a></div>
+                </div>
+                <div class="navigation"><a class="navigation__item" href="/my-works.html">Мои работы</a><a class="navigation__item" href="/about.html">Обо мне</a><a class="navigation__item" href="/blog.html">Блог</a></div>
               </div>
-              <div class="navigation"><a class="navigation__item" href="/my-works.html">Мои работы</a><a class="navigation__item" href="/about.html">Обо мне</a><a class="navigation__item" href="/blog.html">Блог        </a></div>
+              <div class="welcome-form__back">Тест</div>
             </div>
           </div>
         </div>

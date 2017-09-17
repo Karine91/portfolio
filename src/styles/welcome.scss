@@ -80,6 +80,7 @@
     display: flex;
     justify-content: center;
     align-items: center; 
+    perspective: 800px;
 }
 .header{
     margin-top: 25px;
@@ -101,14 +102,34 @@
 }
 
 .welcome-form{
-    width: 380px;
-    height: 395px;
-    border-radius: 5px;
+   transform-style: preserve-3d;
+   width: 380px;
+   height: 395px;
+   position: relative;
+   transition: all 0.6s ease;
+}
+.welcome-form__front{
+    height: 100%;
     text-align: center; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow: hidden;
+    transition-delay: 0.3s;
+}
+.welcome-form__front,
+ .welcome-form__back {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 380px;
+ height: 395px;
+ border-radius: 5px; 
+ overflow: hidden;
+ backface-visibility: hidden; 
+}
+.welcome-form__back{
+    background: #fff;
+    transform: rotateY(180deg);
 }
 .welcome-info{
     background-color: rgba(#fcfcfc,.85);

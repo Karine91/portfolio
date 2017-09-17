@@ -18,23 +18,26 @@ block content
             .layer.layer10.cloud
         .section-content    
             header.header
-                a(href="#").btn-autorization Авторизоваться       
+                a#authorization(href="#").btn-autorization Авторизоваться       
             .welcome
                 .welcome__main        
-                    .welcome-form
-                        .welcome-info
-                            .user-picture
-                                img(src="assets/images/img1.png").user-picture__img
-                            .user-name Каринэ Гюлумян
-                            .user-info Личный сайт разработчика
-                            .socials
-                                a.socials__link(href="#"): +icon('vk')
-                                a.socials__link(href="#"): +icon('github')
-                                a.socials__link(href="#"): +icon('in')
-                        .navigation
-                            a(href="/my-works.html").navigation__item Мои работы
-                            a(href="/about.html").navigation__item Обо мне
-                            a(href="/blog.html").navigation__item Блог        
+                    #auth-form.welcome-form
+                        .welcome-form__front
+                            .welcome-info
+                                .user-picture
+                                    img(src="assets/images/ava.jpg").user-picture__img
+                                .user-name Каринэ Гюлумян
+                                .user-info Личный сайт разработчика
+                                .socials
+                                    a.socials__link(href="#"): +icon('vk')
+                                    a.socials__link(href="#"): +icon('github')
+                                    a.socials__link(href="#"): +icon('in')
+                            .navigation
+                                a(href="/my-works.html").navigation__item Мои работы
+                                a(href="/about.html").navigation__item Обо мне
+                                a(href="/blog.html").navigation__item Блог
+                        .welcome-form__back Тест
+                                            
             footer.footer
                 .copyright © Каринэ Гюлумян | создано с любовью в LoftSchool | 2017        
 
