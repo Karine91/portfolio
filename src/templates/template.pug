@@ -1,7 +1,7 @@
-mixin icon(name,mod)
+mixin icon(name,mod, name_group)
     - mod = mod || ''
-    svg(class="socials__icon icon icon-" + name + ' ' + mod width="30" height="25")
-        use(xlink:href="assets/images/icons/sprite_socials.svg#" + name)
+    svg(class= name_group + "__icon icon icon-" + name + ' ' + mod width="30" height="25")
+        use(xlink:href="assets/images/icons/sprite_" + name_group + ".svg#" + name)
 
 block variables
 

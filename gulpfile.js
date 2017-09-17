@@ -77,6 +77,11 @@ function images(){
     return gulp.src(paths.images.src)
         .pipe(gulp.dest(paths.images.dest));
 }
+//icons
+function icons(){
+    return gulp.src(paths.icons.dest + "*.svg")
+        .pipe(gulp.dest(paths.images.dest + "icons/"));
+}
 
 //webpack
 function scripts(){
@@ -117,7 +122,7 @@ function media() {
 }
 
 function svgSpriteBuild()   {
-    return gulp.src(paths.icons.src + "socials/*.svg")
+    return gulp.src(paths.icons.src + "form/*.svg")
         // minify svg
         .pipe(svgmin({
                 js2svg: {
@@ -139,10 +144,10 @@ function svgSpriteBuild()   {
             .pipe(svgSprite({
                 mode: {
                     symbol: {
-                        sprite: "../sprite_socials.svg",
+                        sprite: "../sprite_form.svg",
                         render: {
                             scss: {
-                                dest: './_sprite_socials.scss',
+                                dest: './_sprite_form.scss',
                                 template: "src/styles/common/_sprite_template.scss"
                             }
                         }
@@ -160,7 +165,7 @@ exports.images = images;
 exports.fonts = fonts;
 exports.media = media;
 exports.svgsprite = svgSpriteBuild;
-
+exports.icons = icons;
 //build
 gulp.task('build', gulp.series(
     clean,

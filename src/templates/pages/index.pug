@@ -29,14 +29,48 @@ block content
                                 .user-name Каринэ Гюлумян
                                 .user-info Личный сайт разработчика
                                 .socials
-                                    a.socials__link(href="#"): +icon('vk')
-                                    a.socials__link(href="#"): +icon('github')
-                                    a.socials__link(href="#"): +icon('in')
+                                    a.socials__link(href="https://vk.com/gkarine" target="_blank"): +icon('vk' ,"", "socials")
+                                    a.socials__link(href="https://github.com/Karine91" target="_blank"): +icon('github' ,"", "socials")
+                                    a.socials__link(href="#" target="_blank"): +icon('in' ,"", "socials")
                             .navigation
                                 a(href="/my-works.html").navigation__item Мои работы
                                 a(href="/about.html").navigation__item Обо мне
                                 a(href="/blog.html").navigation__item Блог
-                        .welcome-form__back Тест
+                        .welcome-form__back
+                            .welcome-info
+                                h2.heiding-2 Авторизируйтесь
+                                .form
+                                    form(action="")
+                                        .form__field
+                                            label.form__label
+                                                +icon('login' ,"", "form")
+                                            input#login(type="text", name="login" placeholder="Логин").form__input
+                                        .form__field
+                                            label.form__label
+                                                +icon('password' ,"", "form")
+                                            input#password(type="password", name="password" placeholder="Пароль").form__input
+                                        .checkbox.no-robot
+                                            .checkbox__item
+                                                input(id="no_robot" type="checkbox" name="no_robot").checkbox__input
+                                                label(for="no_robot" class="").checkbox_label
+                                                    +icon('check' ,"form__icon_check", "form")
+                                            label(for="no_robot" class="").form-label_text Я человек
+                                        .confim
+                                            .confim__question Вы точно не робот?
+                                            .comfim__radio
+                                                .radio-group
+                                                    .radio
+                                                        input.form_radio(type="radio" name="comfim_robot" value="1" id="no-robot")
+                                                        label(for="no-robot").radio__label
+                                                        label(for="no-robot").form-label_text Да
+                                                .radio-group
+                                                    .radio
+                                                        input.form_radio(type="radio" name="comfim_robot" value="0" id="robot")
+                                                        label(for="robot").radio__label
+                                                        label(for="robot").form-label_text Не уверен
+                            .navigation
+                                a#onmain(href="#").navigation__item На главную
+                                button(type="submit").navigation__item.submit-btn Войти
                                             
             footer.footer
                 .copyright © Каринэ Гюлумян | создано с любовью в LoftSchool | 2017        
@@ -44,9 +78,4 @@ block content
             
             
             
-            //- form(action="")
-            //-     label(for="email") email
-            //-     input#email(type="email", name="")
-            //-     label(for="password")
-            //-     input#password(type="password", name="")
-            //-     button Войти    
+            
