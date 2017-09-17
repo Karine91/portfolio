@@ -34,20 +34,77 @@
                   <div class="user-picture"><img class="user-picture__img" src="assets/images/ava.jpg"></div>
                   <div class="user-name">Каринэ Гюлумян</div>
                   <div class="user-info">Личный сайт разработчика</div>
-                  <div class="socials"><a class="socials__link" href="#">
+                  <div class="socials"><a class="socials__link" href="https://vk.com/gkarine" target="_blank">
                       <svg class="socials__icon icon icon-vk " width="30" height="25">
                         <use xlink:href="assets/images/icons/sprite_socials.svg#vk"></use>
-                      </svg></a><a class="socials__link" href="#">
+                      </svg></a><a class="socials__link" href="https://github.com/Karine91" target="_blank">
                       <svg class="socials__icon icon icon-github " width="30" height="25">
                         <use xlink:href="assets/images/icons/sprite_socials.svg#github"></use>
-                      </svg></a><a class="socials__link" href="#">
+                      </svg></a><a class="socials__link" href="#" target="_blank">
                       <svg class="socials__icon icon icon-in " width="30" height="25">
                         <use xlink:href="assets/images/icons/sprite_socials.svg#in"></use>
                       </svg></a></div>
                 </div>
                 <div class="navigation"><a class="navigation__item" href="/my-works.html">Мои работы</a><a class="navigation__item" href="/about.html">Обо мне</a><a class="navigation__item" href="/blog.html">Блог</a></div>
               </div>
-              <div class="welcome-form__back">Тест</div>
+              <div class="welcome-form__back">
+                <div class="welcome-info">
+                  <h2 class="heiding-2">Авторизируйтесь</h2>
+                  <div class="form">
+                    <form action="">
+                      <div class="form__field">
+                        <label class="form__label">
+                          <svg class="form__icon icon icon-login " width="30" height="25">
+                            <use xlink:href="assets/images/icons/sprite_form.svg#login"></use>
+                          </svg>
+                        </label>
+                        <input class="form__input" id="login" type="text" name="login" placeholder="Логин">
+                      </div>
+                      <div class="form__field">
+                        <label class="form__label">
+                          <svg class="form__icon icon icon-password " width="30" height="25">
+                            <use xlink:href="assets/images/icons/sprite_form.svg#password"></use>
+                          </svg>
+                        </label>
+                        <input class="form__input" id="password" type="password" name="password" placeholder="Пароль">
+                      </div>
+                      <div class="checkbox no-robot">
+                        <div class="checkbox__item">
+                          <input class="checkbox__input" id="no_robot" type="checkbox" name="no_robot">
+                          <label class="checkbox_label" for="no_robot">
+                            <svg class="form__icon icon icon-check form__icon_check" width="30" height="25">
+                              <use xlink:href="assets/images/icons/sprite_form.svg#check"></use>
+                            </svg>
+                          </label>
+                        </div>
+                        <label class="form-label_text" for="no_robot">Я человек</label>
+                      </div>
+                      <div class="confim">
+                        <div class="confim__question">Вы точно не робот?</div>
+                        <div class="comfim__radio">
+                          <div class="radio-group">
+                            <div class="radio">
+                              <input class="form_radio" type="radio" name="comfim_robot" value="1" id="no-robot">
+                              <label class="radio__label" for="no-robot"></label>
+                              <label class="form-label_text" for="no-robot">Да</label>
+                            </div>
+                          </div>
+                          <div class="radio-group">
+                            <div class="radio">
+                              <input class="form_radio" type="radio" name="comfim_robot" value="0" id="robot">
+                              <label class="radio__label" for="robot"></label>
+                              <label class="form-label_text" for="robot">Не уверен</label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div class="navigation"><a class="navigation__item" id="onmain" href="#">На главную</a>
+                  <button class="navigation__item submit-btn" type="submit">Войти</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
