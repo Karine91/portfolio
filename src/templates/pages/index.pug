@@ -28,14 +28,14 @@ block content
                                     img(src="assets/images/ava.jpg").user-picture__img
                                 .user-name Каринэ Гюлумян
                                 .user-info Личный сайт разработчика
-                                .socials
-                                    a.socials__link(href="https://vk.com/gkarine" target="_blank"): +icon('vk' ,"", "socials")
-                                    a.socials__link(href="https://github.com/Karine91" target="_blank"): +icon('github' ,"", "socials")
-                                    a.socials__link(href="#" target="_blank"): +icon('in' ,"", "socials")
-                            .navigation
-                                a(href="my-works.html").navigation__item Мои работы
-                                a(href="about.html").navigation__item Обо мне
-                                a(href="blog.html").navigation__item Блог
+                                ul.socials
+                                    li.socials__item: a.socials__link(href="https://vk.com/gkarine" target="_blank"): +icon('vk' ,"", "socials")
+                                    li.socials__item: a.socials__link(href="https://github.com/Karine91" target="_blank"): +icon('github' ,"", "socials")
+                                    li.socials__item: a.socials__link(href="#" target="_blank"): +icon('in' ,"", "socials")
+                            ul.navigation
+                                li.navigation__item: a(href="my-works.html").navigation__link Мои работы
+                                li.navigation__item: a(href="about.html").navigation__link Обо мне
+                                li.navigation__item: a(href="blog.html").navigation__link Блог
                         .welcome-form__back
                             .welcome-info
                                 h2.heading-2 Авторизируйтесь

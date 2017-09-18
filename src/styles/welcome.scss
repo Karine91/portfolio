@@ -165,7 +165,7 @@
     color: rgba($gray, .85);
     margin-bottom: 35px;
 }
-.socials__link{
+.socials__item{
     margin-right: 25px;
     display: inline-block;
     text-decoration: none;
@@ -175,6 +175,9 @@
     }
 }
 .socials{
+    margin: 0;
+    padding: 0;
+    list-style: none;
     margin-bottom: 30px;
 }
 .socials__icon{
@@ -193,11 +196,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    display: flex;  
+    display: flex;
+    list-style: none;
+    padding:0;
+    margin:0;  
 }
 .navigation__item{
-    display: block;
-    color: $white;
+    
     flex-grow: 1;
     height: 100%;
     line-height: 45px;
@@ -212,6 +217,13 @@
         background-color: rgba($darkgreen, .85);
     }
    
+}
+.navigation__link{
+    text-decoration: none;
+    color: $white; 
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 .form{
     padding: 0 20px;
