@@ -37,16 +37,36 @@ block content
     section.about-me
         .section-content
             .about-left
-               +bg('about_bg_left' ,"about-left_bg", "common")
-               .about-left-content
+                .about_bg
+                    +bg('about_bg_left' ,"about-left_bg", "common")
+                .about-left-content
                     .about-title
                         .title-bg
                             +bg('about_header' ,"about-header", "common")
                         h1.heading-1 Обо мне
                     .about-content
-                          img(src="assets/images/ava.jpg").user-picture__img   
+                        .about-content__picture  
+                            img(src="assets/images/about.jpg").user-picture__img
+                        h2.heading-2 Кто я
+                        .about-content__text
+                            p.
+                                Я веб разработчик из Ясиноватой. Мне      26 лет. Я занимаюсь разработкой      современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                                Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
 
             .about-right
-               +bg('about_bg_right' ,"about-right_bg", "common") 
+                .about_bg
+                    +bg('about_bg_right' ,"about-right_bg", "common")
+                .about-right-content
+                    h2.heading-2 Чем я могу быть полезна
+                    .about-content__text
+                        p.
+                            Больше всего меня привлекет Frontend разработка, но я также знакома и могу решать не сложные задачи на Backend. Но давайте по порядку.
+                    .skills
+                        .skill-title-group Frontend
+                            
+
+
+
+
 
 

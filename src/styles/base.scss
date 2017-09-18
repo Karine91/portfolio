@@ -5,7 +5,17 @@ $darkgray: #373e42;
 $white: #ffffff;
 $colorLink: #6da3bd;
 
+@mixin large {
+	@media (max-width: 1200px){
+        @content
+	}
+}
 
+@mixin media ($width) {
+	@media (max-width: $width){
+        @content
+	}
+}
 
 body, html{
     width: 100%;
@@ -22,7 +32,10 @@ body, html{
 a{
     color: $colorLink;
 }
-
+p{
+   color: $darkgray;
+   line-height: 1.5; 
+}
 h1, h2, h3, h4, h5, h6{
 font-family: "BERNIERRegular-Regular"
 }
@@ -38,6 +51,13 @@ h2{
     color: $darkgray;
     font-weight: 400;
 }
+h3{
+    font-size: 35px;
+    margin: 40px auto;
+    text-align: center;
+    color: $darkgray;
+    font-weight: 400;
+}
 .heading-1{
     @extend h1;
     display: block;
@@ -47,12 +67,24 @@ h2{
         display: inline-block;
         width: 22px;
         height: 5px;
+        margin: 20px 20px;
+        background-color: rgba($darkgray, .2);
+    }
+}
+.heading-2{
+    @extend h2;
+    display: block;
+    &:after, &:before {
+        content: "";
+        display: inline-block;
+        width: 22px;
+        height: 5px;
         margin: 10px 20px;
         background-color: rgba($darkgray, .2);
     }
 }
-.heiding-2{
-    @extend h2;
+.heading-3{
+    @extend h3;
     display: block;
     &:after, &:before {
         content: "";
