@@ -51,6 +51,9 @@ const paths = {
 //pug
 function templates(){
     return gulp.src(paths.templates.pages)
+        .pipe(plumber({
+            errorHandler: function(error){console.log(error); this.end();}
+         }))
         .pipe(pug({pretty: true}))
         .pipe(gulp.dest(paths.root));
 }
@@ -122,7 +125,7 @@ function media() {
 }
 
 function svgSpriteBuild()   {
-    return gulp.src(paths.icons.src + "form/*.svg")
+    return gulp.src(paths.icons.src + "common/*.svg")
         // minify svg
         .pipe(svgmin({
                 js2svg: {
@@ -144,10 +147,10 @@ function svgSpriteBuild()   {
             .pipe(svgSprite({
                 mode: {
                     symbol: {
-                        sprite: "../sprite_form.svg",
+                        sprite: "../sprite_common.svg",
                         render: {
                             scss: {
-                                dest: './_sprite_form.scss',
+                                dest: './_sprite_common.scss',
                                 template: "src/styles/common/_sprite_template.scss"
                             }
                         }

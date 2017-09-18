@@ -4,7 +4,7 @@ block variables
     - var title = "Добро пожаловать"
 
 block content
-    .main-container
+    .header-main-container
         .parallax
             .layer.layer1
             .layer.layer2
@@ -16,8 +16,8 @@ block content
             .layer.layer8
             .layer.layer9
             .layer.layer10.cloud
-        .section-content    
-            header.header
+        .header-content    
+            header.header-top.header-top_main
                 a#authorization(href="#").btn-autorization Авторизоваться       
             .welcome
                 .welcome__main        
@@ -33,9 +33,9 @@ block content
                                     a.socials__link(href="https://github.com/Karine91" target="_blank"): +icon('github' ,"", "socials")
                                     a.socials__link(href="#" target="_blank"): +icon('in' ,"", "socials")
                             .navigation
-                                a(href="/my-works.html").navigation__item Мои работы
-                                a(href="/about.html").navigation__item Обо мне
-                                a(href="/blog.html").navigation__item Блог
+                                a(href="my-works.html").navigation__item Мои работы
+                                a(href="about.html").navigation__item Обо мне
+                                a(href="blog.html").navigation__item Блог
                         .welcome-form__back
                             .welcome-info
                                 h2.heiding-2 Авторизируйтесь
@@ -72,7 +72,7 @@ block content
                                 a#onmain(href="#").navigation__item На главную
                                 button(type="submit").navigation__item.submit-btn Войти
                                             
-            footer.footer
+            .welcome-bottom
                 .copyright © Каринэ Гюлумян | создано с любовью в LoftSchool | 2017        
 
             

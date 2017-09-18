@@ -4,4 +4,41 @@ block variables
     - var title = "Обо мне"
 
 block content
-    h1 Обо мне
+    header.header-container
+        .parallax
+            .layer.layer1
+            .layer.layer2
+            .layer.layer3
+            .layer.layer4.cloud
+            .layer.layer5
+            .layer.layer6
+            .layer.layer7.cloud
+            .layer.layer8
+            .layer.layer9
+            .layer.layer10.cloud
+            .parallax__color-overlay
+        .header-bg
+            +bg('portfolio_header' ,"", "common")    
+        .header-content
+            .header-top
+                .socials
+                    a.socials__link(href="https://vk.com/gkarine" target="_blank"): +icon('vk' ,"socials__icon_top", "socials")
+                    a.socials__link(href="https://github.com/Karine91" target="_blank"): +icon('github' ,"socials__icon_top", "socials")
+                    a.socials__link(href="#" target="_blank"): +icon('in' ,"socials__icon_top", "socials")   
+                .hamburger-menu
+                    a#menu-button(href="#"): +icon('hamburger' ,"menu", "base")    
+            .hero
+                .user-picture
+                    img(src="assets/images/ava.jpg").user-picture__img
+                .user-name.user-name_white Каринэ Гюлумян
+                .user-info.user-info_white Личный сайт разработчика
+            .header-bottom
+                a#arrow-bottom(href="#"): +icon('arrow_down' ,"header-bottom__arrow", "base")
+    //- section.about-me
+    //-     .section-content
+    //-         .about-left
+    //-            +bg('about_bg_left' ,"about-left_bg", "common") 
+    //-         .about-right
+    //-            +bg('about_bg_right' ,"about-right_bg", "common") 
+
+

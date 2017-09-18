@@ -1,0 +1,80 @@
+.header-container{
+    min-height: 600px;
+    height: 100vh;
+    position: relative;
+}
+.parallax__color-overlay{
+    position: absolute;
+    top: 0;
+    left:0;
+    right: 0;
+    bottom:0;
+    background-color: rgba($darkgreen, .3);
+}
+.menu{
+    height: 35px;
+    width: 40px;
+    color: #ffffff;
+}
+.socials__icon_top{
+    color: rgba($white, .5);
+    &:hover{
+        color:  rgba($white, 1);
+    }
+}
+.header-bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bg-portfolio_header{
+    max-width: 1173px;
+    color: rgba(#fff, .06);
+} 
+.hero{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.user-name_white{
+    color: #fff;
+}
+.user-info_white{
+    color: rgba(#fff, .8);
+}
+.header-bottom{
+    padding-bottom: 70px;
+    display: flex;
+    justify-content: center;
+}
+.header-bottom__arrow{
+    color: rgba(#fff, .7);
+    width: 26px;
+    height: 16px;
+}
+.section-content{
+    height: 100%;
+    display: flex;
+}
+.about-left, .about-right{
+    width: 50%;
+    height: 100%;
+
+}
+.about-left_bg, .about-right_bg{
+    width:100%;
+    height: 100%;
+}
+.about-me{
+    margin-top: -160px;
+    position: relative;
+    height: 100vh;
+}
+.section-content_offset{
+    margin-top: 160px;
+}

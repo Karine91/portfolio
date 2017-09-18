@@ -1,8 +1,8 @@
-.main-container{
+.header-main-container{
     height: 100vh;
     position: relative;
 }
-.section-content {
+.header-content {
     position: absolute;
     top: 0;
     left: 0;
@@ -83,11 +83,17 @@
     perspective: 800px;
     flex-grow: 1;
 }
-.header{
+.header-top{
     margin-top: 25px;
-    padding-right: 100px;
+    padding-right: 30px;
+    padding-left: 30px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    
+}
+.header-top_main{
+    padding-right: 100px;
+    justify-content: flex-end; 
 }
 .btn-autorization{
     color: $white;
@@ -325,6 +331,7 @@ input[type=checkbox], input[type=radio] {
   width: 20px;
   height: 20px;
   border-radius: 50%;
+  vertical-align: middle;
   &:after{
       content: "";
       display: block;
@@ -341,6 +348,7 @@ input[type=checkbox], input[type=radio] {
     cursor: pointer;
     color: rgba($darkgray, .8);
     margin-left: 10px;
+    vertical-align: middle;
 }
 .form_radio[type=radio]:checked + .radio__label:after {
     background-color: $green;
@@ -348,7 +356,7 @@ input[type=checkbox], input[type=radio] {
 .form_radio[type=radio]:checked + .radio__label + .form-label_text{
     color: $green;
 }
-.footer{
+.welcome-bottom{
     padding-bottom: 40px;
     text-align: center; 
 }

@@ -2,7 +2,11 @@ mixin icon(name,mod, name_group)
     - mod = mod || ''
     svg(class= name_group + "__icon icon icon-" + name + ' ' + mod width="30" height="25")
         use(xlink:href="assets/images/icons/sprite_" + name_group + ".svg#" + name)
-
+mixin bg(name,mod, name_group)
+    - mod = mod || ''
+    svg(class= name_group + "__bg bg bg-" + name + ' ' + mod width="100%" height="100%")
+        use(xlink:href="assets/images/icons/sprite_" + name_group + ".svg#" + name)
+        
 block variables
 
 doctype html
