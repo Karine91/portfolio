@@ -34,11 +34,19 @@ block content
                 .user-info.user-info_white Личный сайт разработчика
             .header-bottom
                 a#arrow-bottom(href="#"): +icon('arrow_down' ,"header-bottom__arrow", "base")
-    //- section.about-me
-    //-     .section-content
-    //-         .about-left
-    //-            +bg('about_bg_left' ,"about-left_bg", "common") 
-    //-         .about-right
-    //-            +bg('about_bg_right' ,"about-right_bg", "common") 
+    section.about-me
+        .section-content
+            .about-left
+               +bg('about_bg_left' ,"about-left_bg", "common")
+               .about-left-content
+                    .about-title
+                        .title-bg
+                            +bg('about_header' ,"about-header", "common")
+                        h1.heading-1 Обо мне
+                    .about-content
+                          img(src="assets/images/ava.jpg").user-picture__img   
+
+            .about-right
+               +bg('about_bg_right' ,"about-right_bg", "common") 
 
 

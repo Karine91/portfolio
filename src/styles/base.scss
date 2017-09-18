@@ -28,7 +28,8 @@ font-family: "BERNIERRegular-Regular"
 }
 h1{
     font-size: 63px;
-    margin: 70px 0; 
+    margin: 70px 0;
+    color: $darkgray; 
 }
 h2{
     font-size: 35px;
@@ -36,6 +37,19 @@ h2{
     text-align: center;
     color: $darkgray;
     font-weight: 400;
+}
+.heading-1{
+    @extend h1;
+    display: block;
+    margin-top: 0;
+    &:after, &:before {
+        content: "";
+        display: inline-block;
+        width: 22px;
+        height: 5px;
+        margin: 10px 20px;
+        background-color: rgba($darkgray, .2);
+    }
 }
 .heiding-2{
     @extend h2;
