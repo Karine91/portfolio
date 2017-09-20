@@ -1,8 +1,8 @@
-const auth = document.getElementById('authorization');
-const form = document.getElementById('auth-form');
-const front = document.querySelector('.welcome-form__front');
-const back = document.querySelector('.welcome-form__back');
-const btn = document.getElementById('onmain');
+let auth = document.getElementById('authorization');
+let form = document.getElementById('auth-form');
+let front = document.querySelector('.welcome-form__front');
+let back = document.querySelector('.welcome-form__back');
+let btn = document.getElementById('onmain');
 
 function flipFront(){
     form.style.transform = "rotateY(0deg)";
