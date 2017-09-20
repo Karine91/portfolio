@@ -68,9 +68,9 @@ block content
                                                         input.form_radio(type="radio" name="comfim_robot" value="0" id="robot")
                                                         label(for="robot").radio__label
                                                         label(for="robot").form-label_text Не уверен
-                            .navigation
-                                a#onmain(href="#").navigation__item На главную
-                                button(type="submit").navigation__item.submit-btn Войти
+                            ul.navigation
+                                li.navigation__item: a#onmain(href="#").navigation__link На главную
+                                li.navigation__item: button(type="submit").navigation__link.submit-btn Войти
                                             
             .welcome-bottom
                 .copyright © Каринэ Гюлумян | создано с любовью в LoftSchool | 2017        
