@@ -1,6 +1,7 @@
 @import 'normalize.css';
 @import '../fonts/fonts.css';
 @import 'base.scss';
+@import './common/header.scss';
 @import './common/menu.scss';
 @import './common/slider.scss';
 @import './common/symbol/_sprite_socials.scss';
@@ -10,3 +11,5 @@
 @import './common/symbol/_sprite_common.scss';
 @import "welcome.scss";
 @import "about.scss";
+@import './common/menu.scss';
+@import './common/footer.scss';
