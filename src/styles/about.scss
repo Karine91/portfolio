@@ -3,7 +3,17 @@
     height: 100%;
     display: flex;
 }
-
+.hero{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.user__name_white{ 
+    color: #fff;
+}
+.user__describe_white{
+    color: rgba(#fff, .8);
+}
 .about-left, .about-right{
     width: 50%;
     position: relative;
@@ -79,7 +89,7 @@
     top: -40px;
     left: 0;
 }
-.about-header{  
+.title-bg__elem{  
     max-width: 357px;
     width: 100%;
     height: 100%;
@@ -93,34 +103,46 @@
     height: 390px;
     overflow: hidden;
 }
-.skills{
+.skills-list{
+    padding: 0;
+    list-style: none;
+    margin:0;
+}
+.skills-list__item{
     margin-bottom: 40px;
 }
-.skill-cicles-group{
+.skill-group{
     display: flex;
 
 }
-.skill-title-group{
+.skills-list__title{
     font-size: 28px;
     font-family: "Roboto-Medium", sans-serif;
     color: $darkgray;
     margin-bottom: 20px;
 }
-.skill{
+.skill-group__elem{
     margin-right: 40px;
+    @include large{
+        margin-right: 35px;
+    }
 }
-.circle {
+.skill-circle {
     fill: none;
     stroke-width: 20;
     vertical-align: middle;
     width: 120px;
     height: 120px;
+    @include large{
+        width: 110px;
+        height: 110px;
+    }
 }
-text {
+.skill-circle__text {
     font-size: 13px;
     fill: $green;
   }
-.circle__second{
+.skill-circle__second{
     transform: rotate(-90deg);
     transform-origin: 60px 60px;
     stroke: #1bb696;
@@ -128,7 +150,7 @@ text {
     transition: all 1s;
     vertical-align: middle;
 }
-.circle__first{
+.skill-circle__first{
     stroke: #dfdcd5;
     width: 120px;
     height: 120px; 
@@ -226,7 +248,7 @@ text {
     background-color: rgba(#fcfcfc,.85); 
     z-index: 9;   
 }
-.contacts__item{
+.contacts-info__item{
     display: flex;
     align-items: center;
     margin-bottom: 20px;

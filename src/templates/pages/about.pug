@@ -21,7 +21,7 @@ block content
         .header-bg
             +bg('portfolio_header' ,"", "common")    
         .header-content
-            .header-top
+            .header-content__top
                 ul.socials
                     li.socials__item: a.socials__link(href="https://vk.com/gkarine" target="_blank"): +icon('vk' ,"socials__icon_top", "socials")
                     li.socials__item: a.socials__link(href="https://github.com/Karine91" target="_blank"): +icon('github' ,"socials__icon_top", "socials")
@@ -34,12 +34,13 @@ block content
                             <path fill="#FFFFFF" d="M40,32.5c0,1.381-1.119,2.5-2.5,2.5h-35C1.119,35,0,33.881,0,32.5l0,0C0,31.119,1.119,30,2.5,30h35	C38.881,30,40,31.119,40,32.5L40,32.5z"/>
                         </svg>           
             .hero
-                .user-picture
-                    img(src="assets/images/ava.jpg").user-picture__img
-                .user-name.user-name_white Каринэ Гюлумян
-                .user-info.user-info_white Личный сайт разработчика
-            .header-bottom
-                a#arrow-bottom(href="#"): +icon('arrow_down' ,"header-bottom__arrow", "base")
+                .user
+                    .user__picture
+                        img(src="assets/images/ava.jpg").user__img
+                    .user__name.user__name_white Каринэ Гюлумян
+                    .user__describe.user__describe_white Личный сайт разработчика
+            .header-content__bottom
+                a#arrow-bottom(href="#"): +icon('arrow_down' ,"bottom-arrow", "base")
     section.about-me
         .section-content
             .about-left
@@ -48,15 +49,15 @@ block content
                 .about-left-content
                     .about-title
                         .title-bg
-                            +bg('about_header' ,"about-header", "common")
+                            +bg('about_header' ,"title-bg__elem", "common")
                         h1.heading-1 Обо мне
                     .about-content
                         .about-content__picture  
-                            img(src="assets/images/about.jpg").user-picture__img
+                            img(src="assets/images/about.jpg").user__img
                         h2.heading-2 Кто я
                         .about-content__text
                             p.
-                                Я веб разработчик из Ясиноватой. Мне      26 лет. Я занимаюсь разработкой      современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                                Я веб разработчик из Ясиноватой. Мне  26 лет. Я занимаюсь разработкой      современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
                                 Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
 
             .about-right
@@ -67,93 +68,94 @@ block content
                     .about-content__text
                         p.
                             Больше всего меня привлекет Frontend разработка, но я также знакома и могу решать не сложные задачи на Backend. Но давайте по порядку.
-                    .skills
-                        .skill-title-group Frontend
-                        .skill-cicles-group
-                            .skill
-                                svg(viewBox="0 0 120 120" width="120px" height="120px" class="circle")
-                                    g
-                                        circle(r="50" cx="50%" cy="50%" fill="none" class="circle__first")
-                                        text(x="50%" y="50%" text-anchor="middle" dy="2%") HTML 5
-                                        circle(r="50" cx="50%" cy="50%" fill="none" class="circle__second circle-90")
-                            .skill
-                                svg(viewBox="0 0 120 120" width="120px" height="120px" class="circle")
-                                    g
-                                        circle(r="50" cx="50%" cy="50%" fill="none" class="circle__first")
-                                        text(x="50%" y="50%" text-anchor="middle" dy="2%") CSS3
-                                        circle(r="50" cx="50%" cy="50%" fill="none" class="circle__second circle-85")            
-                            .skill
-                                svg(viewBox="0 0 120 120" width="120px" height="120px" class="circle")
-                                    g
-                                        circle(r="50" cx="50%" cy="50%" fill="none" class="circle__first")
-                                        text(x="50%" y="50%" text-anchor="middle" dy="-2%") JavaScript
-                                        text(x="50%" y="50%" text-anchor="middle" dy="10%") & jQuery
-                                        circle(r="50" cx="50%" cy="50%" fill="none" class="circle__second circle-75")
-                    .skills
-                        .skill-title-group Backend
-                        .skill-cicles-group
-                            .skill
-                                svg(viewBox="0 0 120 120" width="120px" height="120px" class="circle")
-                                    g
-                                        circle(r="50" cx="50%" cy="50%" fill="none" class="circle__first")
-                                        text(x="50%" y="50%" text-anchor="middle" dy="2%") PHP
-                                        circle(r="50" cx="50%" cy="50%" fill="none" class="circle__second circle-40")
-                            .skill
-                                svg(viewBox="0 0 120 120" width="120px" height="120px" class="circle")
-                                    g
-                                        circle(r="50" cx="50%" cy="50%" fill="none" class="circle__first")
-                                        text(x="50%" y="50%" text-anchor="middle" dy="2%") mySQL
-                                        circle(r="50" cx="50%" cy="50%" fill="none" class="circle__second circle-60")            
-                            .skill
-                                svg(viewBox="0 0 120 120" width="120px" height="120px" class="circle")
-                                    g
-                                        circle(r="50" cx="50%" cy="50%" fill="none" class="circle__first")
-                                        text(x="50%" y="50%" text-anchor="middle" dy="-2%") Node.js 
-                                        text(x="50%" y="50%" text-anchor="middle" dy="10%") & npm
-                                        circle(r="50" cx="50%" cy="50%" fill="none" class="circle__second circle-40")
-                            .skill
-                                svg(viewBox="0 0 120 120" width="120px" height="120px" class="circle")
-                                    g
-                                        circle(r="50" cx="50%" cy="50%" fill="none" class="circle__first")
-                                        text(x="50%" y="50%" text-anchor="middle" dy="2%") Mongo.db
-                                        circle(r="50" cx="50%" cy="50%" fill="none" class="circle__second circle-0")
-                    .skills
-                        .skill-title-group WorkFlow
-                        .skill-cicles-group
-                            .skill
-                                svg(viewBox="0 0 120 120" width="120px" height="120px" class="circle")
-                                    g
-                                        circle(r="50" cx="50%" cy="50%" fill="none" class="circle__first")
-                                        text(x="50%" y="50%" text-anchor="middle" dy="2%") Git
-                                        circle(r="50" cx="50%" cy="50%" fill="none" class="circle__second circle-80")
-                            .skill
-                                svg(viewBox="0 0 120 120" width="120px" height="120px" class="circle")
-                                    g
-                                        circle(r="50" cx="50%" cy="50%" fill="none" class="circle__first")
-                                        text(x="50%" y="50%" text-anchor="middle" dy="2%") Gulp
-                                        circle(r="50" cx="50%" cy="50%" fill="none" class="circle__second circle-70")            
-                            .skill
-                                svg(viewBox="0 0 120 120" width="120px" height="120px" class="circle")
-                                    g
-                                        circle(r="50" cx="50%" cy="50%" fill="none" class="circle__first")
-                                        text(x="50%" y="50%" text-anchor="middle" dy="2%") Bower 
-                                        circle(r="50" cx="50%" cy="50%" fill="none" class="circle__second circle-60")
+                    ul.skills-list
+                        .skills-list__item
+                            .skills-list__title Frontend
+                            .skill-group
+                                .skill-group__elem
+                                    svg(viewBox="0 0 120 120" width="120px" height="120px" class="skill-circle")
+                                        g
+                                            circle(r="50" cx="50%" cy="50%" fill="none" class="skill-circle__first")
+                                            text(x="50%" y="50%" text-anchor="middle" dy="2%" class="skill-circle__text") HTML 5
+                                            circle(r="50" cx="50%" cy="50%" fill="none" class="skill-circle__second circle-90")
+                                .skill-group__elem
+                                    svg(viewBox="0 0 120 120" width="120px" height="120px" class="skill-circle")
+                                        g
+                                            circle(r="50" cx="50%" cy="50%" fill="none" class="skill-circle__first")
+                                            text(x="50%" y="50%" text-anchor="middle" dy="2%" class="skill-circle__text") CSS3
+                                            circle(r="50" cx="50%" cy="50%" fill="none" class="skill-circle__second circle-85")            
+                                .skill-group__elem
+                                    svg(viewBox="0 0 120 120" width="120px" height="120px" class="skill-circle")
+                                        g
+                                            circle(r="50" cx="50%" cy="50%" fill="none" class="skill-circle__first")
+                                            text(x="50%" y="50%" text-anchor="middle" dy="-2%" class="skill-circle__text") JavaScript
+                                            text(x="50%" y="50%" text-anchor="middle" dy="10%" class="skill-circle__text") & jQuery
+                                            circle(r="50" cx="50%" cy="50%" fill="none" class="skill-circle__second circle-75")
+                        .skills-list__item
+                            .skills-list__title Backend
+                            .skill-group
+                                .skill-group__elem
+                                    svg(viewBox="0 0 120 120" width="120px" height="120px" class="skill-circle")
+                                        g
+                                            circle(r="50" cx="50%" cy="50%" fill="none" class="skill-circle__first")
+                                            text(x="50%" y="50%" text-anchor="middle" dy="2%" class="skill-circle__text") PHP
+                                            circle(r="50" cx="50%" cy="50%" fill="none" class="skill-circle__second circle-40")
+                                .skill-group__elem
+                                    svg(viewBox="0 0 120 120" width="120px" height="120px" class="skill-circle")
+                                        g
+                                            circle(r="50" cx="50%" cy="50%" fill="none" class="skill-circle__first")
+                                            text(x="50%" y="50%" text-anchor="middle" dy="2%" class="skill-circle__text") mySQL
+                                            circle(r="50" cx="50%" cy="50%" fill="none" class="skill-circle__second circle-60")            
+                                .skill-group__elem
+                                    svg(viewBox="0 0 120 120" width="120px" height="120px" class="skill-circle")
+                                        g
+                                            circle(r="50" cx="50%" cy="50%" fill="none" class="skill-circle__first")
+                                            text(x="50%" y="50%" text-anchor="middle" dy="-2%" class="skill-circle__text") Node.js 
+                                            text(x="50%" y="50%" text-anchor="middle" dy="10%" class="skill-circle__text") & npm
+                                            circle(r="50" cx="50%" cy="50%" fill="none" class="skill-circle__second circle-40")
+                                .skill-group__elem
+                                    svg(viewBox="0 0 120 120" width="120px" height="120px" class="skill-circle")
+                                        g
+                                            circle(r="50" cx="50%" cy="50%" fill="none" class="skill-circle__first")
+                                            text(x="50%" y="50%" text-anchor="middle" dy="2%" class="skill-circle__text") Mongo.db
+                                            circle(r="50" cx="50%" cy="50%" fill="none" class="skill-circle__second circle-0")
+                        .skills-list__item
+                            .skills-list__title WorkFlow
+                            .skill-group
+                                .skill-group__elem
+                                    svg(viewBox="0 0 120 120" width="120px" height="120px" class="skill-circle")
+                                        g
+                                            circle(r="50" cx="50%" cy="50%" fill="none" class="skill-circle__first")
+                                            text(x="50%" y="50%" text-anchor="middle" dy="2%" class="skill-circle__text") Git
+                                            circle(r="50" cx="50%" cy="50%" fill="none" class="skill-circle__second circle-80")
+                                .skill-group__elem
+                                    svg(viewBox="0 0 120 120" width="120px" height="120px" class="skill-circle")
+                                        g
+                                            circle(r="50" cx="50%" cy="50%" fill="none" class="skill-circle__first")
+                                            text(x="50%" y="50%" text-anchor="middle" dy="2%" class="skill-circle__text") Gulp
+                                            circle(r="50" cx="50%" cy="50%" fill="none" class="skill-circle__second circle-70")            
+                                .skill-group__elem
+                                    svg(viewBox="0 0 120 120" width="120px" height="120px" class="skill-circle")
+                                        g
+                                            circle(r="50" cx="50%" cy="50%" fill="none" class="skill-circle__first")
+                                            text(x="50%" y="50%" text-anchor="middle" dy="2%" class="skill-circle__text") Bower 
+                                            circle(r="50" cx="50%" cy="50%" fill="none" class="skill-circle__second circle-60")
     section.map
         .section-container
             #map
             .contacts
                 h2.heading-2 Контакты
                 .contacts-info
-                    .contacts__item
+                    .contacts-info__item
                         +icon('skype' ,"", "contacts") 
                         .contacts-text gkarine91
-                    .contacts__item     
+                    .contacts-info__item     
                         +icon('envelope' ,"", "contacts") 
                         .contacts-text kitana.91@mail.ru
-                    .contacts__item
+                    .contacts-info__item
                         +icon('phone' ,"", "contacts") 
                         .contacts-text +380996575212
-                    .contacts__item
+                    .contacts-info__item
                         +icon('map_marker' ,"", "contacts") 
                         .contacts-text г. Ясиноватая        
     footer.footer

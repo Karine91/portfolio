@@ -17,17 +17,18 @@ block content
             .layer.layer9
             .layer.layer10.cloud
         .header-content    
-            header.header-top.header-top_main
+            header.header-content__top.header-content__top_main
                 a#authorization(href="#").btn-autorization Авторизоваться       
             .welcome
                 .welcome__main        
                     #auth-form.welcome-form
                         .welcome-form__front
-                            .welcome-info
-                                .user-picture
-                                    img(src="assets/images/ava.jpg").user-picture__img
-                                .user-name Каринэ Гюлумян
-                                .user-info Личный сайт разработчика
+                            .user-info
+                                .user
+                                    .user__picture
+                                            img(src="assets/images/ava.jpg").user__img
+                                    .user__name Каринэ Гюлумян
+                                    .user__describe Личный сайт разработчика
                                 ul.socials
                                     li.socials__item: a.socials__link(href="https://vk.com/gkarine" target="_blank"): +icon('vk' ,"", "socials")
                                     li.socials__item: a.socials__link(href="https://github.com/Karine91" target="_blank"): +icon('github' ,"", "socials")
@@ -37,7 +38,7 @@ block content
                                 li.navigation__item: a(href="about.html").navigation__link Обо мне
                                 li.navigation__item: a(href="blog.html").navigation__link Блог
                         .welcome-form__back
-                            .welcome-info
+                            .user-info
                                 h2.heading-2 Авторизируйтесь
                                 .form
                                     form(action="")
@@ -72,8 +73,8 @@ block content
                                 li.navigation__item: a#onmain(href="#").navigation__link На главную
                                 li.navigation__item: button(type="submit").navigation__link.submit-btn Войти
                                             
-            .welcome-bottom
-                .copyright © Каринэ Гюлумян | создано с любовью в LoftSchool | 2017        
+                .welcome__bottom
+                    .copyright © Каринэ Гюлумян | создано с любовью в LoftSchool | 2017        
 
             
             
