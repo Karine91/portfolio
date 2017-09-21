@@ -3,10 +3,10 @@ const gmap = document.getElementById('map');
 /*global initMap google:true*/
 
 function createMap() {
-    var pos = {lat: 40.674, lng: -73.945};
+    var pos = {lat: 48.125988, lng: 37.855483};
     var map = new google.maps.Map(gmap, {
       center: pos,
-      zoom: 12,
+      zoom: 14,
       styles: [
         {
         "elementType": "geometry",
@@ -180,13 +180,15 @@ function createMap() {
     var marker = new google.maps.Marker({
         position: pos,
         map: map,
-        icon: "images/map_marker.svg",
+        icon: "assets/images/map_marker.svg",
     });
 }  
 
 function initMap(){
-    if(gmap){
-    document.body.insertAdjacentHTML('beforeend', '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8YfKYzYCvNpiV1UDFK2_jlHkmxe8tue8&callback=createMap" async defer></script>');    
+    if(gmap){ 
+        $(document).ready(function(){
+            createMap();
+        });
     }
 }
 module.exports = initMap;

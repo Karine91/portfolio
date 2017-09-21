@@ -260,6 +260,13 @@ text {
      height: 100vh;
      position: relative;
  }
+ #map{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left:0;
+ }
 
  .section-container{
     position: absolute;
@@ -277,7 +284,8 @@ text {
     border-radius: 5px;
     padding: 0 30px 40px; 
     overflow: hidden;
-    background-color: rgba(#fcfcfc,.85);    
+    background-color: rgba(#fcfcfc,.85); 
+    z-index: 9;   
 }
 .contacts__item{
     display: flex;
