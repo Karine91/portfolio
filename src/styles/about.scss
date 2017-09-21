@@ -16,27 +16,37 @@
 }
 .about-left, .about-right{
     width: 50%;
+    display: flex;
     position: relative;
 }
 
-.about-left_bg, .about-right_bg{
-    width:100%;
+.triangle{
+    width: 100%;
     height: 100%;
+    fill: #faf8f0;
     flex-grow: 1;
 }
-.about_bg{
+.triangle__left{
+    fill: #efeee9;
+}
+.triangle__right{
+    fill: #eeebdf;
+}
+.about-bg{
     position: absolute;
-    top: 0;
+    top:0;
     left:0;
-    bottom: 0;
     right: 0;
     display: flex;
+    height: 175px;
 }
-.about-left_bg{
-    color: #efeee9;
+.about-left-content{
+    background-color: #efeee9;
+    flex-grow: 1;
 }
-.about-right_bg{
-    color: #eeebdf;
+.about-right-content{
+    background-color: #eeebdf;
+    flex-grow: 1;
 }
 .about-me{
     margin-top: -175px;
@@ -47,7 +57,7 @@
     position: relative;
     padding-left: 40px;
     padding-bottom: 70px;
-    padding-top: 175px;
+    margin-top: 175px;
     width: 100%;
     display: flex;
     max-height: 100%;
@@ -60,7 +70,7 @@
     padding-right: 50px;
     padding-left: 40px;
     padding-bottom: 70px;
-    padding-top: 175px;
+    margin-top: 175px;
     max-height: 100%;
     width: 100%;
 }
@@ -86,8 +96,13 @@
     position: absolute;
     height: 125px;
     width: 100%;
-    top: -40px;
+    top:0;
     left: 0;
+    display: flex;
+    justify-content: center;
+}
+.title-bg_offset{
+    top: -40px;
 }
 .title-bg__elem{  
     max-width: 357px;
