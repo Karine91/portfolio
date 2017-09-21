@@ -31,7 +31,7 @@
         </svg>
       </div>
       <div class="header-content">
-        <div class="header-top">
+        <div class="header-content__top">
           <ul class="socials">
             <li class="socials__item"><a class="socials__link" href="https://vk.com/gkarine" target="_blank">
                 <svg class="socials__icon icon icon-vk socials__icon_top" width="30" height="25">
@@ -53,12 +53,14 @@
 </svg>           </a></div>
         </div>
         <div class="hero">
-          <div class="user-picture"><img class="user-picture__img" src="assets/images/ava.jpg"></div>
-          <div class="user-name user-name_white">Каринэ Гюлумян</div>
-          <div class="user-info user-info_white">Личный сайт разработчика</div>
+          <div class="user">
+            <div class="user__picture"><img class="user__img" src="assets/images/ava.jpg"></div>
+            <div class="user__name user__name_white">Каринэ Гюлумян</div>
+            <div class="user__describe user__describe_white">Личный сайт разработчика</div>
+          </div>
         </div>
-        <div class="header-bottom"><a id="arrow-bottom" href="#">
-            <svg class="base__icon icon icon-arrow_down header-bottom__arrow" width="30" height="25">
+        <div class="header-content__bottom"><a id="arrow-bottom" href="#">
+            <svg class="base__icon icon icon-arrow_down bottom-arrow" width="30" height="25">
               <use xlink:href="assets/images/icons/sprite_base.svg#arrow_down"></use>
             </svg></a></div>
       </div>
@@ -74,18 +76,18 @@
           <div class="about-left-content">
             <div class="about-title">
               <div class="title-bg">
-                <svg class="common__bg bg bg-about_header about-header" width="100%" height="100%">
+                <svg class="common__bg bg bg-about_header title-bg__elem" width="100%" height="100%">
                   <use xlink:href="assets/images/icons/sprite_common.svg#about_header"></use>
                 </svg>
               </div>
               <h1 class="heading-1">Обо мне</h1>
             </div>
             <div class="about-content">
-              <div class="about-content__picture"> <img class="user-picture__img" src="assets/images/about.jpg"></div>
+              <div class="about-content__picture"> <img class="user__img" src="assets/images/about.jpg"></div>
               <h2 class="heading-2">Кто я</h2>
               <div class="about-content__text">
                 <p>
-                  Я веб разработчик из Ясиноватой. Мне      26 лет. Я занимаюсь разработкой      современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                  Я веб разработчик из Ясиноватой. Мне  26 лет. Я занимаюсь разработкой      современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
                   Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
                   
                 </p>
@@ -104,113 +106,115 @@
             <div class="about-content__text">
               <p>Больше всего меня привлекет Frontend разработка, но я также знакома и могу решать не сложные задачи на Backend. Но давайте по порядку.</p>
             </div>
-            <div class="skills">
-              <div class="skill-title-group">Frontend</div>
-              <div class="skill-cicles-group">
-                <div class="skill">
-                  <svg class="circle" viewBox="0 0 120 120" width="120px" height="120px">
-                    <g>
-                      <circle class="circle__first" r="50" cx="50%" cy="50%" fill="none"></circle>
-                      <text x="50%" y="50%" text-anchor="middle" dy="2%">HTML 5</text>
-                      <circle class="circle__second circle-90" r="50" cx="50%" cy="50%" fill="none"></circle>
-                    </g>
-                  </svg>
-                </div>
-                <div class="skill">
-                  <svg class="circle" viewBox="0 0 120 120" width="120px" height="120px">
-                    <g>
-                      <circle class="circle__first" r="50" cx="50%" cy="50%" fill="none"></circle>
-                      <text x="50%" y="50%" text-anchor="middle" dy="2%">CSS3</text>
-                      <circle class="circle__second circle-85" r="50" cx="50%" cy="50%" fill="none">           </circle>
-                    </g>
-                  </svg>
-                </div>
-                <div class="skill">
-                  <svg class="circle" viewBox="0 0 120 120" width="120px" height="120px">
-                    <g>
-                      <circle class="circle__first" r="50" cx="50%" cy="50%" fill="none"></circle>
-                      <text x="50%" y="50%" text-anchor="middle" dy="-2%">JavaScript</text>
-                      <text x="50%" y="50%" text-anchor="middle" dy="10%">& jQuery</text>
-                      <circle class="circle__second circle-75" r="50" cx="50%" cy="50%" fill="none"></circle>
-                    </g>
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <div class="skills">
-              <div class="skill-title-group">Backend</div>
-              <div class="skill-cicles-group">
-                <div class="skill">
-                  <svg class="circle" viewBox="0 0 120 120" width="120px" height="120px">
-                    <g>
-                      <circle class="circle__first" r="50" cx="50%" cy="50%" fill="none"></circle>
-                      <text x="50%" y="50%" text-anchor="middle" dy="2%">PHP</text>
-                      <circle class="circle__second circle-40" r="50" cx="50%" cy="50%" fill="none"></circle>
-                    </g>
-                  </svg>
-                </div>
-                <div class="skill">
-                  <svg class="circle" viewBox="0 0 120 120" width="120px" height="120px">
-                    <g>
-                      <circle class="circle__first" r="50" cx="50%" cy="50%" fill="none"></circle>
-                      <text x="50%" y="50%" text-anchor="middle" dy="2%">mySQL</text>
-                      <circle class="circle__second circle-60" r="50" cx="50%" cy="50%" fill="none">           </circle>
-                    </g>
-                  </svg>
-                </div>
-                <div class="skill">
-                  <svg class="circle" viewBox="0 0 120 120" width="120px" height="120px">
-                    <g>
-                      <circle class="circle__first" r="50" cx="50%" cy="50%" fill="none"></circle>
-                      <text x="50%" y="50%" text-anchor="middle" dy="-2%">Node.js </text>
-                      <text x="50%" y="50%" text-anchor="middle" dy="10%">& npm</text>
-                      <circle class="circle__second circle-40" r="50" cx="50%" cy="50%" fill="none"></circle>
-                    </g>
-                  </svg>
-                </div>
-                <div class="skill">
-                  <svg class="circle" viewBox="0 0 120 120" width="120px" height="120px">
-                    <g>
-                      <circle class="circle__first" r="50" cx="50%" cy="50%" fill="none"></circle>
-                      <text x="50%" y="50%" text-anchor="middle" dy="2%">Mongo.db</text>
-                      <circle class="circle__second circle-0" r="50" cx="50%" cy="50%" fill="none"></circle>
-                    </g>
-                  </svg>
+            <ul class="skills-list">
+              <div class="skills-list__item">
+                <div class="skills-list__title">Frontend</div>
+                <div class="skill-group">
+                  <div class="skill-group__elem">
+                    <svg class="skill-circle" viewBox="0 0 120 120" width="120px" height="120px">
+                      <g>
+                        <circle class="skill-circle__first" r="50" cx="50%" cy="50%" fill="none"></circle>
+                        <text class="skill-circle__text" x="50%" y="50%" text-anchor="middle" dy="2%">HTML 5</text>
+                        <circle class="skill-circle__second circle-90" r="50" cx="50%" cy="50%" fill="none"></circle>
+                      </g>
+                    </svg>
+                  </div>
+                  <div class="skill-group__elem">
+                    <svg class="skill-circle" viewBox="0 0 120 120" width="120px" height="120px">
+                      <g>
+                        <circle class="skill-circle__first" r="50" cx="50%" cy="50%" fill="none"></circle>
+                        <text class="skill-circle__text" x="50%" y="50%" text-anchor="middle" dy="2%">CSS3</text>
+                        <circle class="skill-circle__second circle-85" r="50" cx="50%" cy="50%" fill="none">           </circle>
+                      </g>
+                    </svg>
+                  </div>
+                  <div class="skill-group__elem">
+                    <svg class="skill-circle" viewBox="0 0 120 120" width="120px" height="120px">
+                      <g>
+                        <circle class="skill-circle__first" r="50" cx="50%" cy="50%" fill="none"></circle>
+                        <text class="skill-circle__text" x="50%" y="50%" text-anchor="middle" dy="-2%">JavaScript</text>
+                        <text class="skill-circle__text" x="50%" y="50%" text-anchor="middle" dy="10%">& jQuery</text>
+                        <circle class="skill-circle__second circle-75" r="50" cx="50%" cy="50%" fill="none"></circle>
+                      </g>
+                    </svg>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="skills">
-              <div class="skill-title-group">WorkFlow</div>
-              <div class="skill-cicles-group">
-                <div class="skill">
-                  <svg class="circle" viewBox="0 0 120 120" width="120px" height="120px">
-                    <g>
-                      <circle class="circle__first" r="50" cx="50%" cy="50%" fill="none"></circle>
-                      <text x="50%" y="50%" text-anchor="middle" dy="2%">Git</text>
-                      <circle class="circle__second circle-80" r="50" cx="50%" cy="50%" fill="none"></circle>
-                    </g>
-                  </svg>
-                </div>
-                <div class="skill">
-                  <svg class="circle" viewBox="0 0 120 120" width="120px" height="120px">
-                    <g>
-                      <circle class="circle__first" r="50" cx="50%" cy="50%" fill="none"></circle>
-                      <text x="50%" y="50%" text-anchor="middle" dy="2%">Gulp</text>
-                      <circle class="circle__second circle-70" r="50" cx="50%" cy="50%" fill="none">           </circle>
-                    </g>
-                  </svg>
-                </div>
-                <div class="skill">
-                  <svg class="circle" viewBox="0 0 120 120" width="120px" height="120px">
-                    <g>
-                      <circle class="circle__first" r="50" cx="50%" cy="50%" fill="none"></circle>
-                      <text x="50%" y="50%" text-anchor="middle" dy="2%">Bower </text>
-                      <circle class="circle__second circle-60" r="50" cx="50%" cy="50%" fill="none"></circle>
-                    </g>
-                  </svg>
+              <div class="skills-list__item">
+                <div class="skills-list__title">Backend</div>
+                <div class="skill-group">
+                  <div class="skill-group__elem">
+                    <svg class="skill-circle" viewBox="0 0 120 120" width="120px" height="120px">
+                      <g>
+                        <circle class="skill-circle__first" r="50" cx="50%" cy="50%" fill="none"></circle>
+                        <text class="skill-circle__text" x="50%" y="50%" text-anchor="middle" dy="2%">PHP</text>
+                        <circle class="skill-circle__second circle-40" r="50" cx="50%" cy="50%" fill="none"></circle>
+                      </g>
+                    </svg>
+                  </div>
+                  <div class="skill-group__elem">
+                    <svg class="skill-circle" viewBox="0 0 120 120" width="120px" height="120px">
+                      <g>
+                        <circle class="skill-circle__first" r="50" cx="50%" cy="50%" fill="none"></circle>
+                        <text class="skill-circle__text" x="50%" y="50%" text-anchor="middle" dy="2%">mySQL</text>
+                        <circle class="skill-circle__second circle-60" r="50" cx="50%" cy="50%" fill="none">           </circle>
+                      </g>
+                    </svg>
+                  </div>
+                  <div class="skill-group__elem">
+                    <svg class="skill-circle" viewBox="0 0 120 120" width="120px" height="120px">
+                      <g>
+                        <circle class="skill-circle__first" r="50" cx="50%" cy="50%" fill="none"></circle>
+                        <text class="skill-circle__text" x="50%" y="50%" text-anchor="middle" dy="-2%">Node.js </text>
+                        <text class="skill-circle__text" x="50%" y="50%" text-anchor="middle" dy="10%">& npm</text>
+                        <circle class="skill-circle__second circle-40" r="50" cx="50%" cy="50%" fill="none"></circle>
+                      </g>
+                    </svg>
+                  </div>
+                  <div class="skill-group__elem">
+                    <svg class="skill-circle" viewBox="0 0 120 120" width="120px" height="120px">
+                      <g>
+                        <circle class="skill-circle__first" r="50" cx="50%" cy="50%" fill="none"></circle>
+                        <text class="skill-circle__text" x="50%" y="50%" text-anchor="middle" dy="2%">Mongo.db</text>
+                        <circle class="skill-circle__second circle-0" r="50" cx="50%" cy="50%" fill="none"></circle>
+                      </g>
+                    </svg>
+                  </div>
                 </div>
               </div>
-            </div>
+              <div class="skills-list__item">
+                <div class="skills-list__title">WorkFlow</div>
+                <div class="skill-group">
+                  <div class="skill-group__elem">
+                    <svg class="skill-circle" viewBox="0 0 120 120" width="120px" height="120px">
+                      <g>
+                        <circle class="skill-circle__first" r="50" cx="50%" cy="50%" fill="none"></circle>
+                        <text class="skill-circle__text" x="50%" y="50%" text-anchor="middle" dy="2%">Git</text>
+                        <circle class="skill-circle__second circle-80" r="50" cx="50%" cy="50%" fill="none"></circle>
+                      </g>
+                    </svg>
+                  </div>
+                  <div class="skill-group__elem">
+                    <svg class="skill-circle" viewBox="0 0 120 120" width="120px" height="120px">
+                      <g>
+                        <circle class="skill-circle__first" r="50" cx="50%" cy="50%" fill="none"></circle>
+                        <text class="skill-circle__text" x="50%" y="50%" text-anchor="middle" dy="2%">Gulp</text>
+                        <circle class="skill-circle__second circle-70" r="50" cx="50%" cy="50%" fill="none">           </circle>
+                      </g>
+                    </svg>
+                  </div>
+                  <div class="skill-group__elem">
+                    <svg class="skill-circle" viewBox="0 0 120 120" width="120px" height="120px">
+                      <g>
+                        <circle class="skill-circle__first" r="50" cx="50%" cy="50%" fill="none"></circle>
+                        <text class="skill-circle__text" x="50%" y="50%" text-anchor="middle" dy="2%">Bower </text>
+                        <circle class="skill-circle__second circle-60" r="50" cx="50%" cy="50%" fill="none"></circle>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </ul>
           </div>
         </div>
       </div>
@@ -221,25 +225,25 @@
         <div class="contacts">
           <h2 class="heading-2">Контакты</h2>
           <div class="contacts-info">
-            <div class="contacts__item">
+            <div class="contacts-info__item">
               <svg class="contacts__icon icon icon-skype " width="30" height="25">
                 <use xlink:href="assets/images/icons/sprite_contacts.svg#skype"></use>
               </svg>
               <div class="contacts-text">gkarine91</div>
             </div>
-            <div class="contacts__item">    
+            <div class="contacts-info__item">    
               <svg class="contacts__icon icon icon-envelope " width="30" height="25">
                 <use xlink:href="assets/images/icons/sprite_contacts.svg#envelope"></use>
               </svg>
               <div class="contacts-text">kitana.91@mail.ru</div>
             </div>
-            <div class="contacts__item">
+            <div class="contacts-info__item">
               <svg class="contacts__icon icon icon-phone " width="30" height="25">
                 <use xlink:href="assets/images/icons/sprite_contacts.svg#phone"></use>
               </svg>
               <div class="contacts-text">+380996575212</div>
             </div>
-            <div class="contacts__item">
+            <div class="contacts-info__item">
               <svg class="contacts__icon icon icon-map_marker " width="30" height="25">
                 <use xlink:href="assets/images/icons/sprite_contacts.svg#map_marker"></use>
               </svg>
