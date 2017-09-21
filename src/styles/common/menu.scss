@@ -1,8 +1,57 @@
-.menu{
-    padding:0;
-    li{
-        display: inline-block;
-        list-style: none;
-    }
-
+.hamburger-menu{
+    height: 35px;
+    width: 40px;
+    color: #ffffff;
+    z-index: 30;
 }
+
+.page-menu-wrapper {
+    position: fixed;
+    top: 0;
+    left:0;
+    bottom:0;
+    right:0;
+    background: rgba($green, .87);
+    z-index: 20;
+    display: none;
+}
+.page-menu{
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+}
+.page-menu__item{
+    text-align: center;
+}
+.page-menu__link{
+    color: #fff;
+    text-decoration: none;
+    &:after, &:before {
+        background-color: rgba(#fff, .2);
+        transition: ease 300ms;
+    }
+    &:hover:after, &:hover:before {
+        background-color: rgba(#fff, 1);
+    }
+}
+
+.hamburger-menu-icon path{
+    transition: .25s ease-in-out;
+    transform-origin: right center;
+}
+.hamburger-menu-icon.open{
+    path:first-child{
+       transform: rotate(-45deg) translate(-5px, -3px);
+    }
+    path:nth-child(2){
+        opacity: 0;
+    }
+    path:last-child{
+        transform: rotate(45deg) translate(-4px, 4px);
+    }
+}
+

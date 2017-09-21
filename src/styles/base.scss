@@ -39,26 +39,23 @@ p{
    line-height: 1.5; 
 }
 h1, h2, h3, h4, h5, h6{
-font-family: "BERNIERRegular-Regular"
+    font-family: "BERNIERRegular-Regular";
+    font-weight: 400;
+    color: $darkgray;
+    text-align: center;
 }
 h1{
     font-size: 63px;
-    margin: 70px 0;
-    color: $darkgray; 
+    margin: 70px 0;   
 }
 h2{
     font-size: 35px;
-    margin: 40px auto;
-    text-align: center;
-    color: $darkgray;
-    font-weight: 400;
+    margin: 40px auto; 
 }
 h3{
     font-size: 35px;
     margin: 40px auto;
-    text-align: center;
-    color: $darkgray;
-    font-weight: 400;
+
 }
 .heading-1{
     @extend h1;
@@ -96,4 +93,72 @@ h3{
         margin: 10px 20px;
         background-color: rgba($darkgray, .2);
     }
+}
+
+
+.footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 145px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: rgba($darkgray, .85);
+}
+.footer-top{
+    display: flex;
+    flex-grow: 1;
+    padding: 0 30px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(#fff, .1);
+}
+.footer-socials{
+    margin: 0;
+}
+.navigation__item_footer{
+    background: transparent;
+    border: none;
+    margin-right: 40px;
+    &:hover{
+        background: transparent;
+    }
+}
+.socials__item_footer{
+    margin-right: 10px;
+    &:last-child{
+        margin-right: 0;
+    }
+}
+.socials__link_footer{
+    width: 36px;
+    height: 36px;
+    display: block;
+    &:hover .footer-socials__icon{
+        fill: #fff;
+    }
+    &:hover .footer-socials__icon circle{
+        fill: none;
+    }
+}
+.footer-socials__icon{
+    fill: rgba($darkgray, .85);
+    transition: all .5s;  
+}
+.footer-bottom{
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    padding: 0 30px;
+    justify-content: space-between;
+}
+.footer-info{
+    max-width: 550px;
+    color: rgba(#fff, .5);
+    font-family: "Roboto-Light", sans-serif;
+}
+.copyright_opacity{
+    color: rgba(#fff, .5);
+    font-family: "Roboto-Light", sans-serif;
 }
