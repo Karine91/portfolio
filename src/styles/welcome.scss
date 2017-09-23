@@ -101,15 +101,17 @@
     padding-right: 100px;
     justify-content: flex-end; 
 }
-.btn-autorization{
+.btn{
     color: $white;
     padding: 10px 25px;
-    border: 1px solid $white;
-    border-radius: 5px;
     display: block;
     transition: all ease 400ms;
     text-decoration: none;
     font-family: "Roboto-Medium";
+    border-radius: 5px;
+}
+.btn-autorization{
+    border: 1px solid $white;
     &:hover{
         background-color: $white;
         color: $green;

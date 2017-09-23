@@ -186,9 +186,7 @@ function createMap() {
 
 function initMap(){
     if(gmap){ 
-        $(document).ready(function(){
-            createMap();
-        });
+        createMap();
     }
 }
 module.exports = initMap;

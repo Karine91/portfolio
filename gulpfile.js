@@ -33,6 +33,10 @@ const paths = {
         src: 'src/images/**/*.*',
         dest: 'build/assets/images/'
     },
+    userfiles:{
+        src: 'src/userfiles/**/*.*',
+        dest: 'build/userfiles/'
+    },
     scripts:{
         src: 'src/scripts/**/*.js',
         dest: 'build/assets/scripts/'
@@ -79,6 +83,11 @@ function clean(){
 function images(){
     return gulp.src(paths.images.src)
         .pipe(gulp.dest(paths.images.dest));
+}
+//userfiles
+function userfiles(){
+    return gulp.src(paths.userfiles.src)
+        .pipe(gulp.dest(paths.userfiles.dest));
 }
 //icons
 function icons(){
@@ -165,6 +174,7 @@ exports.templates = templates;
 exports.styles = styles;
 exports.del = clean;
 exports.images = images;
+exports.userfiles = userfiles;
 exports.fonts = fonts;
 exports.media = media;
 exports.svgsprite = svgSpriteBuild;
@@ -172,7 +182,7 @@ exports.icons = icons;
 //build
 gulp.task('build', gulp.series(
     clean,
-    gulp.parallel(styles, templates, scripts, images, fonts)
+    gulp.parallel(styles, templates, scripts, images, userfiles, fonts)
 ));
 
 gulp.task('deploy', function() {
@@ -181,6 +191,6 @@ gulp.task('deploy', function() {
   });
 
 gulp.task('default',gulp.series(
-    gulp.parallel(styles, templates, scripts, images, fonts),
+    gulp.parallel(styles, templates, scripts, images, userfiles, fonts),
     gulp.parallel(watch, server)
 ));
