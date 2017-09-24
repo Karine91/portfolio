@@ -10,7 +10,11 @@ $colorLink: #6da3bd;
         @content
 	}
 }
-
+@mixin tablets() {
+    @media screen and (max-width: 768px) {
+      @content;
+    }
+}
 @mixin media ($width) {
 	@media (max-width: $width){
         @content
@@ -46,15 +50,25 @@ h1, h2, h3, h4, h5, h6{
 }
 h1{
     font-size: 63px;
-    margin: 70px 0;   
+    margin: 70px 0; 
+    @include tablets{
+        margin: 50px 0;
+    }   
 }
 h2{
     font-size: 35px;
-    margin: 40px auto; 
+    margin: 40px auto;
+    @include tablets{
+        margin:0;
+        margin-bottom: 10px;
+    } 
 }
 h3{
     font-size: 35px;
     margin: 40px auto;
+    @include tablets{
+        margin-bottom: 10px;
+    } 
 
 }
 .heading-1{
@@ -78,6 +92,30 @@ h3{
     } 
     &:after{
         right: 0;
+    }
+}
+.heading-1_offset-no{
+    margin: 0;
+    padding: 55px 120px;
+    @include tablets{
+        padding: 35px 120px;
+    } 
+    &:after, &:before{
+        top: 0;
+        bottom: 0;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    &:after{
+        right: 58px;
+    }
+    &:before{
+        left: 58px;
+    }
+}
+.heading-1_multirow{
+    &:after, &:before {
+        margin-top: 90px;
     }
 }
 .heading-2{
@@ -114,6 +152,15 @@ h3{
         background-color: rgba($darkgray, .2);
     }
 }
-
-
+.title{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+.section-title{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
 

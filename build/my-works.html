@@ -73,7 +73,7 @@
 </svg>
         </div>
         <div class="my-works-wrapper">
-          <div class="my-works-title">
+          <div class="title">
             <div class="title-bg title-bg_sizeL">
               <svg class="common__bg bg bg-works_header title-bg__elem title-bg_sizeL" width="100%" height="100%">
                 <use xlink:href="assets/images/icons/sprite_common.svg#works_header"></use>
@@ -83,35 +83,100 @@
           </div>
         </div>
       </div>
-      <div class="section-content slider">
-        <div class="slider-left">
-          <div class="caption">
+      <div class="slider">
+        <div class="caption">
+          <div class="caption-wrapper">
             <div class="caption__title"> 
               <h2 class="heading-2">Сайт школы онлайн образования</h2>
             </div>
             <div class="caption__technology">html, css, javascript</div>
-            <div class="caption__link"><a class="btn btn-slider" href="#">
+            <div class="caption__link"><a class="btn caption__btn" href="#">
                 <svg class="works__icon icon icon-link " width="30" height="25">
                   <use xlink:href="assets/images/icons/sprite_works.svg#link"></use>
                 </svg>Посмотреть сайт  </a></div>
           </div>
         </div>
-        <div class="slider-right">
-          <div class="slider-view"><img class="slider-view__image" src="userfiles/work-1.png"></div>
-          <div class="slider-preview">
-            <div class="slider-preview__element slide-prev"><img class="slider-preview__image" src="userfiles/work-2.png"><a class="slider-preview__link slider-preview__link_prev" href="#">
-                <svg class="works__icon icon icon-portf_arrow_down slider-preview__icon" width="30" height="25">
-                  <use xlink:href="assets/images/icons/sprite_works.svg#portf_arrow_down"></use>
-                </svg></a></div>
-            <div class="slider-preview__element"><img class="slider-preview__image" src="userfiles/work-3.png"><a class="slider-preview__link slider-preview__link_next" href="#">
-                <svg class="works__icon icon icon-portf_arrow_up slider-preview__icon" width="30" height="25">
-                  <use xlink:href="assets/images/icons/sprite_works.svg#portf_arrow_up"></use>
-                </svg></a></div>
-          </div>
+        <div class="slider-view"><img class="slider-view__image" src="userfiles/work-1.png"></div>
+        <div class="slider-preview">
+          <div class="slider-preview__element slide-prev"><img class="slider-preview__image" src="userfiles/work-2.png"><a class="slider-preview__link slider-preview__link_prev" href="#">
+              <svg class="works__icon icon icon-portf_arrow_down slider-preview__icon" width="30" height="25">
+                <use xlink:href="assets/images/icons/sprite_works.svg#portf_arrow_down"></use>
+              </svg></a></div>
+          <div class="slider-preview__element"><img class="slider-preview__image" src="userfiles/work-3.png"><a class="slider-preview__link slider-preview__link_next" href="#">
+              <svg class="works__icon icon icon-portf_arrow_up slider-preview__icon" width="30" height="25">
+                <use xlink:href="assets/images/icons/sprite_works.svg#portf_arrow_up"></use>
+              </svg></a></div>
         </div>
       </div>
     </section>
-    <section class="testimonials"></section>
+    <section class="testimonials">
+      <div class="section-title">
+        <div class="title title-testimonials">
+          <div class="title-bg title-bg_sizeL">
+            <svg class="common__bg bg bg-about_header title-bg__elem title-bg_sizeL" width="100%" height="100%">
+              <use xlink:href="assets/images/icons/sprite_common.svg#about_header"></use>
+            </svg>
+          </div>
+          <h2 class="heading-1 heading-1_offset-no heading-1_multirow">Что обо мне говорят</h2>
+        </div>
+      </div>
+      <div class="section-content section-content_testimonials">
+        <ul class="review">
+          <li class="review__item">
+            <div class="review__quote-icon icon-quote-left"></div>
+            <div class="review__text">
+              <p>Эта девушка проходила обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!</p>
+            </div>
+            <div class="author">
+              <div class="author__picture"><img class="author__image" src="userfiles/author1.jpg"></div>
+              <div class="author__info">
+                <div class="author__name">Ковальчук Дмитрий</div>
+                <div class="author__post">основатель Loftschool</div>
+              </div>
+            </div>
+          </li>
+          <li class="review__item">
+            <div class="review__quote-icon icon-quote-left"></div>
+            <div class="review__text">
+              <p>Этот код выдержит любые испытания. Только пожалуйста, не загружается сайт на слишком старых браузерах!</p>
+            </div>
+            <div class="author">
+              <div class="author__picture"><img class="author__image" src="userfiles/author2.jpg"></div>
+              <div class="author__info">
+                <div class="author__name">Сабанцев Владимир </div>
+                <div class="author__post">преподаватель</div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="contacts-form">
+          <div class="contacts-info">
+            <div class="contacts-info-content"></div>
+            <h2 class="heading-2">Связаться со мной</h2>
+            <div class="form">
+              <form action=""></form>
+              <div class="form__field">
+                <input class="form__input form__input_no-icon" type="text" name="login" placeholder="Имя">
+              </div>
+              <div class="form__field">
+                <input class="form__input form__input_no-icon" type="email" name="email" placeholder="Email">
+              </div>
+              <div class="form__field">
+                <textarea class="form__input form__input_no-icon form__input_textarea" name="message" placeholder="Ваше сообщение"></textarea>
+              </div>
+            </div>
+          </div>
+          <ul class="navigation">
+            <li class="navigation__item">
+              <button class="navigation__link form-btn" type="submit">Отправить</button>
+            </li>
+            <li class="navigation__item">
+              <button class="navigation__link form-btn" type="reset">Очистить</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
     <footer class="footer">
       <div class="footer-top">
         <div class="footer-menu">

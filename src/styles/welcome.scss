@@ -241,7 +241,7 @@
 .form{
     padding: 0 20px;
 }
-.submit-btn{
+.form-btn{
     border: none;
     cursor: pointer;
     background: transparent;
@@ -275,6 +275,7 @@
     color: $darkgray;
     width: 100%;
     padding-left: 65px;
+    padding-right: 20px;
     background-color: #fff;
     &:focus{
         outline: none;
@@ -390,4 +391,14 @@ input[type=checkbox], input[type=radio] {
     color: $white;
     font-family: "Roboto-Light";
     font-size: 16px;
+}
+
+.form__input:focus::-moz-placeholder{
+    color: transparent;
+}
+.form__input:focus:-ms-input-placeholder{
+    color: transparent;
+}
+.form__input:focus::-webkit-input-placeholder{
+    color: transparent;
 }

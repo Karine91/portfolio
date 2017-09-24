@@ -48,34 +48,78 @@ block content
                     <polygon class = "right" points="1000,0   1000,86   500,86   500,75.5"></polygon>
                     </svg>
             .my-works-wrapper
-                .my-works-title
+                .title
                     .title-bg.title-bg_sizeL
                         +bg('works_header' ,"title-bg__elem title-bg_sizeL", "common")
                     h1.heading-1.heading-1_offset-no Мои работы
-        .section-content.slider
-            .slider-left
-                .caption
+        .slider
+            .caption
+                .caption-wrapper
                     .caption__title 
                         h2.heading-2 Сайт школы онлайн образования
                     .caption__technology html, css, javascript
                     .caption__link
-                        a(href="#").btn.btn-slider
+                        a(href="#").btn.caption__btn
                             +icon('link' ,"", "works")
                             | Посмотреть сайт  
-            .slider-right
-                .slider-view
-                    img(src="userfiles/work-1.png").slider-view__image
-                .slider-preview
-                    .slider-preview__element.slide-prev
-                        img(src="userfiles/work-2.png").slider-preview__image
-                        a(href="#").slider-preview__link.slider-preview__link_prev
-                            +icon('portf_arrow_down' ,"slider-preview__icon", "works")
-                    .slider-preview__element
-                        img(src="userfiles/work-3.png").slider-preview__image
-                        a(href="#").slider-preview__link.slider-preview__link_next
-                            +icon('portf_arrow_up' ,"slider-preview__icon", "works")
+            .slider-view
+                img(src="userfiles/work-1.png").slider-view__image
+            .slider-preview
+                .slider-preview__element.slide-prev
+                    img(src="userfiles/work-2.png").slider-preview__image
+                    a(href="#").slider-preview__link.slider-preview__link_prev
+                        +icon('portf_arrow_down' ,"slider-preview__icon", "works")
+                .slider-preview__element
+                    img(src="userfiles/work-3.png").slider-preview__image
+                    a(href="#").slider-preview__link.slider-preview__link_next
+                        +icon('portf_arrow_up' ,"slider-preview__icon", "works")
 
     section.testimonials
+        .section-title
+            .title.title-testimonials
+                .title-bg.title-bg_sizeL
+                    +bg('about_header' ,"title-bg__elem title-bg_sizeL", "common")
+                h2.heading-1.heading-1_offset-no.heading-1_multirow Что обо мне говорят
+        .section-content.section-content_testimonials
+            ul.review
+                li.review__item
+                    .review__quote-icon.icon-quote-left
+                    .review__text
+                        p Эта девушка проходила обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+                    .author
+                        .author__picture
+                            img(src="userfiles/author1.jpg").author__image
+                        .author__info
+                            .author__name Ковальчук Дмитрий
+                            .author__post основатель Loftschool
+                li.review__item
+                    .review__quote-icon.icon-quote-left
+                    .review__text
+                        p Этот код выдержит любые испытания. Только пожалуйста, не загружается сайт на слишком старых браузерах!
+                    .author
+                        .author__picture
+                            img(src="userfiles/author2.jpg").author__image
+                        .author__info
+                            .author__name Сабанцев Владимир 
+                            .author__post преподаватель
+            .contacts-form
+                .contacts-info
+                    //- svg.blur
+                    //-     <defs><filter id="blurFilter"><feGaussianBlur stdDeviation="3" /></filter></defs>
+                    //-     image( x="-50%" y="-50%" viewBox="0 0 100% 100%" preservePerspectiveRatio="none" xlink:href="assets/images/water_bg.png").image-blur
+                    .contacts-info-content
+                    h2.heading-2 Связаться со мной
+                    .form
+                        form(action="")
+                        .form__field
+                            input(type="text", name="login" placeholder="Имя").form__input.form__input_no-icon
+                        .form__field
+                            input(type="email", name="email" placeholder="Email").form__input.form__input_no-icon
+                        .form__field
+                            textarea(name="message" placeholder="Ваше сообщение").form__input.form__input_no-icon.form__input_textarea
+                ul.navigation
+                    li.navigation__item: button(type="submit").navigation__link.form-btn Отправить
+                    li.navigation__item: button(type="reset").navigation__link.form-btn Очистить
 block footer
     footer.footer
         .footer-top
