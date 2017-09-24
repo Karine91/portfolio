@@ -39,18 +39,19 @@ a{
     color: $colorLink;
 }
 p{
-   color: $darkgray;
+   color: $gray;
    line-height: 1.5; 
 }
 h1, h2, h3, h4, h5, h6{
     font-family: "BERNIERRegular-Regular";
     font-weight: 400;
-    color: $darkgray;
+    color: $gray;
     text-align: center;
 }
 h1{
     font-size: 63px;
     margin: 70px 0; 
+    color: $darkgray;
     @include tablets{
         margin: 50px 0;
     }   
@@ -115,6 +116,13 @@ h3{
 .heading-1_multirow{
     &:after, &:before {
         margin-top: 90px;
+    }
+}
+.heding-1_white{
+    color: #fff;
+    margin-bottom: 0;
+    &:after, &:before {
+        background-color: rgba(#fff, .2);
     }
 }
 .heading-2{

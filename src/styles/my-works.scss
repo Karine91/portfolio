@@ -5,20 +5,12 @@
 .bg-works_header{
     color: #f0eee7;
 }
-.my-works{
+.triangle-wrapper{
     margin-top: -175px;
     position: relative;
 }
-.my-works-bg{
-    position: absolute;
-    top:0;
-    left:0;
-    right: 0;
-    display: flex;
-    height: 175px;
-}
 
-.my-works-wrapper{
+.title-wrapper{
     margin-top: 155px;
     width: 100%;
     background-color: #faf8f0;
@@ -143,7 +135,7 @@
     position: relative;
     background-image: url(../images/water_bg.png);
     background-repeat: no-repeat;
-    background-position: center 30%;
+    background-position: center 35%;
     min-height: 100vh;
     padding-bottom: 165px; 
 }
@@ -192,8 +184,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    color: $green;
 }
-
+.author__name{
+    font-family: "Roboto-Bold";
+    margin-bottom: 5px;
+}
 .contacts-form{
     width: 380px;
     border-radius: 5px;
@@ -203,7 +199,7 @@
     justify-content: space-between;
     background: inherit;
 }
-.contacts-info{
+.contacts-form__info{
     position: relative;
     background: inherit;
     &:before{
@@ -216,7 +212,7 @@
         bottom: 0;
         left: -25px;
         background: inherit;
-        background-position: center 40%;
+        background-position: center 42.6%;
         box-shadow: inset 0 0 0 500px rgba(255,255,255,0.2);
         filter: blur(3px);
     }

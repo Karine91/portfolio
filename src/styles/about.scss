@@ -36,7 +36,7 @@
 .triangle__right{
     fill: #eeebdf;
 }
-.about-bg{
+.triangle-bg{
     position: absolute;
     top:0;
     left:0;
@@ -53,7 +53,6 @@
     flex-grow: 1;
 }
 .about-me{
-    margin-top: -175px;
     position: relative;
     min-height: 100vh;
 }
@@ -272,7 +271,9 @@ text-align: left;
     padding: 0 30px 40px; 
     overflow: hidden;
     background-color: rgba(#fcfcfc,.85); 
-    z-index: 9;   
+    z-index: 9; 
+    display: flex;
+    flex-direction: column;  
 }
 .contacts-info__item{
     display: flex;

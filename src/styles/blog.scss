@@ -1,0 +1,71 @@
+.header-content__top_size1200{
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+.triangle_white{
+ fill: #fff;
+}
+.blog{
+    position: relative;
+    margin-top: 175px;
+    display: flex;
+    padding-bottom: 145px;
+}
+.sidebar{
+  width: 390px;
+  position: absolute;
+  top:0;
+  left:0;
+
+}
+.post-list{
+ list-style: none;
+}
+.post-list__item{
+ margin-bottom: 20px;   
+}
+.post-list__item.active .post-list__link{
+    color: $green;
+    border-right: 3px solid $green;
+}
+
+.post-list__link{
+    padding: 15px 20px;
+    display: block;
+    text-align: right;
+    color: $gray;
+    text-decoration: none;
+    line-height: 1.6;
+}
+.post-content{
+    text-align: left;
+    flex-direction: column;
+    margin-left: 390px;
+    padding-left: 120px;
+}
+.post{
+    &:after{
+        content: "";
+        display: block;
+        width: 70%;
+        height: 5px;
+        margin: 70px 0;
+        background-color: rgba($darkgray, .07); 
+
+    }
+}
+.post__name{
+    font-size: 35px;
+    margin: 30px auto;
+    font-family: "BERNIERRegular-Regular";
+    font-weight: 400;
+    color: $gray;
+    @include tablets{
+        margin-bottom: 10px;
+    } 
+}
+.post__date{
+    color: $green;
+    margin-bottom: 30px;
+}

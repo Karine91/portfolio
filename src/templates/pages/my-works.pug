@@ -40,18 +40,19 @@ block content
                     .user__describe.user__describe_white Личный сайт разработчика
             .header-content__bottom
                 a#arrow-bottom(href="#"): +icon('arrow_down' ,"bottom-arrow", "base")
-    section.my-works
+    .triangle-wrapper
         .section-content
-            .my-works-bg
+            .triangle-bg
                     <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 85" preserveaspectratio="none" class="triangle">
                     <polygon class = "left" points="0,0   0,86   500.8,86   500.8,75.5"></polygon>
                     <polygon class = "right" points="1000,0   1000,86   500,86   500,75.5"></polygon>
                     </svg>
-            .my-works-wrapper
+            .title-wrapper
                 .title
                     .title-bg.title-bg_sizeL
                         +bg('works_header' ,"title-bg__elem title-bg_sizeL", "common")
                     h1.heading-1.heading-1_offset-no Мои работы
+    section.slider-section    
         .slider
             .caption
                 .caption-wrapper
@@ -103,7 +104,7 @@ block content
                             .author__name Сабанцев Владимир 
                             .author__post преподаватель
             .contacts-form
-                .contacts-info
+                .contacts-form__info
                     h2.heading-2 Связаться со мной
                     .form
                         form(action="")
