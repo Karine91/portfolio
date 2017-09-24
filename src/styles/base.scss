@@ -59,7 +59,6 @@ h2{
     font-size: 35px;
     margin: 40px auto;
     @include tablets{
-        margin:0;
         margin-bottom: 10px;
     } 
 }
