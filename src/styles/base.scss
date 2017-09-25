@@ -21,8 +21,14 @@ $colorLink: #6da3bd;
 	}
 }
 
+@mixin mobile() {
+    @media screen and (max-width: 320px) {
+      @content;
+    }
+}
 body, html{
     width: 100%;
+    min-width: 310px;
     min-height: 100%;
     font-family: "Roboto-Regular";
     margin: 0;
@@ -40,7 +46,8 @@ a{
 }
 p{
    color: $gray;
-   line-height: 1.5; 
+   line-height: 1.5;
+   margin: 0 0 10px; 
 }
 h1, h2, h3, h4, h5, h6{
     font-family: "BERNIERRegular-Regular";
@@ -54,13 +61,17 @@ h1{
     color: $darkgray;
     @include tablets{
         margin: 50px 0;
+        font-size: 50px;
     }   
 }
 h2{
     font-size: 35px;
     margin: 40px auto;
+    @include media(420px){
+        font-size: 30px;
+    }
     @include tablets{
-        margin-bottom: 10px;
+        margin:0;
     } 
 }
 h3{
@@ -76,7 +87,7 @@ h3{
     display: inline-block;
     margin-top: 0;
     position: relative;
-    padding: 0 62px;
+    padding: 0 2em;
     &:after, &:before {
         content: "";
         display: inline-block;
@@ -129,7 +140,7 @@ h3{
     @extend h2;
     display: inline-block;
     position: relative;
-    padding: 0 62px;
+    padding: 0 2em;
     &:after, &:before {
         content: "";
         display: inline-block;
@@ -145,7 +156,10 @@ h3{
       } 
       &:after{
           right: 0;
-      }
+      } 
+}
+.heading-2_offset-no{
+    margin:0;
 }
 .heading-3{
     @extend h3;

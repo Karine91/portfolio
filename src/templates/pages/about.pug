@@ -55,22 +55,26 @@ block content
                     .about-title
                         .title-bg.title-bg_offset
                             +bg('about_header' ,"title-bg__elem", "common")
-                        h1.heading-1 Обо мне
+                        h1.heading-1.heading-1_about Обо мне
                     .about-content
                         .about-content__picture  
                             img(src="assets/images/about.jpg").user__img
-                        h2.heading-2 Кто я
+                        .about-content__title
+                            h2.heading-2 Кто я
                         .about-content__text
                             p.
                                 Я веб разработчик из Ясиноватой. Мне  26 лет. Я занимаюсь разработкой      современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                            p.  
                                 Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
 
             .about-right
                 .about-right-content
-                    h2.heading-2 Чем я могу быть полезна
-                    .about-content__text
-                        p.
-                            Больше всего меня привлекет Frontend разработка, но я также знакома и могу решать не сложные задачи на Backend. Но давайте по порядку.
+                    .about-text-container
+                        .about-content__title
+                            h2.heading-2 Чем я могу быть полезна
+                        .about-content__text
+                            p.
+                                Больше всего меня привлекет Frontend разработка, но я также знакома и могу решать не сложные задачи на Backend. Но давайте по порядку.
                     ul.skills-list
                         .skills-list__item
                             .skills-list__title Frontend
@@ -147,7 +151,8 @@ block content
         .section-container
             #map
             .contacts
-                h2.heading-2 Контакты
+                .contacts-title
+                    h2.heading-2 Контакты
                 .contacts-info
                     .contacts-info__item
                         +icon('skype' ,"", "contacts") 

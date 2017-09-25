@@ -3,6 +3,9 @@
     height: 100%;
     display: flex;
     text-align: center;
+    @include tablets{
+        flex-direction: column;
+    }
 }
 .section-content_column{
     flex-direction: column;
@@ -22,6 +25,9 @@
     width: 50%;
     display: flex;
     position: relative;
+    @include tablets{
+        width: 100%;
+    }
 }
 
 .triangle{
@@ -35,6 +41,9 @@
 }
 .triangle__right{
     fill: #eeebdf;
+    @include tablets{
+        fill: #efeee9; 
+    }
 }
 .triangle-bg{
     position: absolute;
@@ -61,6 +70,11 @@
     padding-left: 40px;
     padding-bottom: 70px;
     margin-top: 175px;
+    @include tablets{
+        margin-top: 155px;
+        padding-left: 0px;
+        padding-bottom: 0;
+    }
     width: 100%;
     display: flex;
     max-height: 100%;
@@ -76,6 +90,10 @@
     margin-top: 175px;
     max-height: 100%;
     width: 100%;
+    @include tablets{
+        margin-top: 0;
+        padding: 50px 0;  
+    }
 }
 .about-title{
     position: relative;
@@ -94,10 +112,39 @@
     @include media(1485px){
         width: 100%;
     }
+    @include tablets{
+        padding: 0 20%;
+    }
+}
+.about-text-container{
+    @include tablets{
+        padding: 0 20%;
+    }
+}
+.heading-1_about{
+    @include tablets{
+        margin: 0;
+        padding: 35px 120px;
+        &:after, &:before{
+            top: 0;
+            bottom: 0;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+        &:after{
+            right: 58px;
+        }
+        &:before{
+            left: 58px;
+        }
+    }
 }
 .title-bg{
     position: absolute;
     height: 125px;
+    @include tablets{
+        height: 100%;
+    }
     width: 100%;
     top:0;
     left: 0;
@@ -106,6 +153,9 @@
 }
 .title-bg_offset{
     top: -40px;
+    @include tablets{
+        top:0;
+    }
 }
 .title-bg__elem{  
     max-width: 357px;
@@ -115,6 +165,9 @@
         display: flex;
         margin: auto;
     }
+    @include tablets{
+        max-width: 245px;
+    }
 }
 
 .bg-about_header{
@@ -123,9 +176,18 @@
 .about-content__picture {
     height: 390px;
     overflow: hidden;
+    @include tablets{
+        margin-bottom: 50px;
+    }
+}
+.about-content__title{
+    @include tablets{
+        margin-bottom: 10px;
+    }
 }
 .about-content__text{
 text-align: left;
+margin-bottom: 50px;
 }
 .skills-list{
     padding: 0;
@@ -134,10 +196,15 @@ text-align: left;
 }
 .skills-list__item{
     margin-bottom: 40px;
+    &:last-child{
+        margin-bottom: 0;
+    }
 }
 .skill-group{
     display: flex;
-
+    @include tablets{
+        justify-content: center;
+    }
 }
 .skills-list__title{
     font-size: 28px;
@@ -145,9 +212,15 @@ text-align: left;
     color: $darkgray;
     margin-bottom: 20px;
     text-align: left;
+    @include tablets{
+        text-align: center;
+    }
 }
 .skill-group__elem{
     margin-right: 40px;
+    &:last-child{
+        margin-right: 0;
+    }
     @include large{
         margin-right: 35px;
     }
@@ -263,7 +336,10 @@ text-align: left;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-bottom: 145px;    
+    padding-bottom: 145px;
+    @include tablets{
+        padding-bottom: 210px;
+    }    
  }
  .contacts{
     min-width: 380px;
@@ -274,6 +350,12 @@ text-align: left;
     z-index: 9; 
     display: flex;
     flex-direction: column;  
+}
+.contacts-title{
+    text-align: center;
+    @include tablets{
+        padding: 35px 0; 
+    }
 }
 .contacts-info__item{
     display: flex;
@@ -287,6 +369,9 @@ text-align: left;
     color: $green;
     width: 30px;
     margin-right: 10px;
+    @include tablets{
+        width: 24px;
+    }
 }
 .contacts-text{
     color: $darkgray;
