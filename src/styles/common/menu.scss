@@ -1,10 +1,15 @@
 .hamburger-menu{
-    height: 35px;
-    width: 40px;
     color: #ffffff;
     z-index: 30;
 }
-
+.hamburger-menu-icon{
+    height: 35px;
+    width: 40px;
+    @include mobile{
+        width: 25px;
+        height: 22px;
+    } 
+}
 .page-menu-wrapper {
     position: fixed;
     top: 0;

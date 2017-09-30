@@ -8,6 +8,9 @@
 .triangle-wrapper{
     margin-top: -175px;
     position: relative;
+    @include mobile{
+        margin-top: -187px;  
+    }
 }
 
 .title-wrapper{
@@ -226,4 +229,7 @@
     line-height: 1.5;
     height: 140px;
     resize: none;
+}
+.navigation_contact-form{
+    position: relative;
 }

@@ -10,6 +10,9 @@
     @include tablets{
         height: 210px;
     }
+    @include mobile{
+        height: 270px;
+    }
 }
 .footer-top{
     display: flex;
@@ -20,6 +23,9 @@
     border-bottom: 1px solid rgba(#fff, .1);
     @include tablets{
         flex-wrap: wrap;
+    }
+    @include mobile{
+        padding: 0 15px; 
     }
 }
 .footer-menu{
@@ -57,7 +63,11 @@
     }
     @include tablets{
         flex-grow: 0;
-     }  
+    }  
+    @include media(480px){
+        margin-right: 10px;
+        font-size: 13px;
+    }
 }
 .socials__item_footer{
     margin-right: 10px;
@@ -94,6 +104,11 @@
         justify-content: center;
         text-align: center;
     }
+    @include mobile{
+        padding: 0 15px;
+        font-size: 13px;
+        line-height: 1.9; 
+    }
 }
 .footer-info{
     max-width: 550px;
@@ -104,4 +119,14 @@
 .copyright_opacity{
     color: rgba(#fff, .5);
     font-family: "Roboto-Light", sans-serif;
+}
+.new-row{
+    @include mobile{
+        display: block;
+    }    
+}
+.copyright{
+    @include mobile{
+        font-size: 13px; 
+    }
 }

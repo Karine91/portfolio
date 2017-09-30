@@ -11,6 +11,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow: hidden;
 }
 .parallax{
     height: 100%;
@@ -95,6 +96,7 @@
     padding-left: 30px;
     display: flex;
     justify-content: space-between;
+    position: relative;
     
 }
 .header-content__top_main{
@@ -176,6 +178,7 @@
 }
 .user__img{
     width: 100%;
+    display: block;
 }
 .user__name{
   color: $gray;
@@ -204,13 +207,15 @@
     list-style: none;
 }
 .socials__icon{
-    width: 30px;
-    height: 25px;
+    font-size: 25px;
     vertical-align: middle;
     color: rgba($green, .5);
     transition: color ease 300ms;
     &:hover{
         color:  rgba($green, 1);
+    }
+    @include mobile{
+        font-size: 18px; 
     }
 }
 
@@ -223,7 +228,6 @@
     list-style: none;
     padding:0;
     margin:0;
-    position: relative;  
 }
 .navigation__item{
     

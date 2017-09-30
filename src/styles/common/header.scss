@@ -3,14 +3,6 @@
     height: 100vh;
     position: relative;
 }
-.parallax__color-overlay{
-    position: absolute;
-    top: 0;
-    left:0;
-    right: 0;
-    bottom:0;
-    background-color: rgba($darkgreen, .3);
-}
 
 .socials__icon_top{
     color: rgba($white, .5);
@@ -31,8 +23,7 @@
 
 .header-bg__image{
     display: block;
-    max-width: 180%;
-    height: 150%;
+    min-height: 150%;
     @include tablets{
         max-width: none;
     }

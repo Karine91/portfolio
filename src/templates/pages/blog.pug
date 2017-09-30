@@ -4,22 +4,12 @@ block variables
     - var title = "Блог"
 
 block content
-    header.header-container
-        .parallax
-            .layer.layer1
-            .layer.layer2
-            .layer.layer3
-            .layer.layer4.cloud
-            .layer.layer5
-            .layer.layer6
-            .layer.layer7.cloud
-            .layer.layer8
-            .layer.layer9
-            .layer.layer10.cloud
-            .parallax__color-overlay
-        .header-bg
-            +bg('blog_header' ,"", "common")    
+    header.header-container 
         .header-content
+            .header-bg
+                img(src="assets/images/page_bg.jpg", alt="").header-bg__image
+            .header-back-title
+                +bg('blog_header' ,"", "common")
             .header-content__top.header-content__top_size1200
                 ul.socials
                     li.socials__item: a.socials__link(href="https://vk.com/gkarine" target="_blank"): +icon('vk' ,"socials__icon_top", "socials")

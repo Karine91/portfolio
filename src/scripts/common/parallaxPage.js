@@ -12,7 +12,7 @@ function move(block, windowScroll, strafeAmount){
 }   
 function init(wScroll){
     move(bg, wScroll, 45);
-    move(user, wScroll, 6);
+    move(user, wScroll, 3);
     move(title, wScroll, 20);
 }
 
