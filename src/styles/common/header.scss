@@ -18,7 +18,7 @@
         color:  rgba($white, 1);
     }
 }
-.header-bg{
+.header-bg, .header-back-title{
   position: absolute;
   top: 0;
   left: 0;
@@ -28,8 +28,18 @@
   align-items: center;
   justify-content: center;
 }
+
+.header-bg__image{
+    display: block;
+    max-width: 180%;
+    height: 150%;
+    @include tablets{
+        max-width: none;
+    }
+}
 .bg-portfolio_header, .bg-blog_header{
     max-width: 1173px;
+    width: 100%;
     color: rgba(#fff, .06);
 } 
 
@@ -37,6 +47,7 @@
     padding-bottom: 90px;
     display: flex;
     justify-content: center;
+    position: relative;
 }
 .bottom-arrow{
     color: rgba(#fff, .7);

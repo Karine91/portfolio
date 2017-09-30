@@ -31,10 +31,12 @@ var blur =(function(){
 }());
 
 function init(){
-    blur.set();
-    window.onresize = function(){
+    if(document.querySelector('.blur') != null){
         blur.set();
-    };
+        window.onresize = function(){
+            blur.set();
+        };
+    }  
 }
 
 
