@@ -94,7 +94,7 @@ h3{
     display: inline-block;
     margin-top: 0;
     position: relative;
-    padding: 0 2em;
+    padding: 0 1em;
     &:after, &:before {
         content: "";
         display: inline-block;
@@ -111,6 +111,9 @@ h3{
     &:after{
         right: 0;
     }
+}
+.heading-2_margin-top_no{
+    margin-top: 0;
 }
 .heading-1_offset-no{
     margin: 0;
