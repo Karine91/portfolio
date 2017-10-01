@@ -23,8 +23,8 @@ var blur =(function(){
                     }
           
                         var blurCss = form.style;
-               blurCss.backgroundSize = coverWidth + 'px' + " " + coverHeight + 'px';
-               blurCss.backgroundPosition = posLeft + 'px' + " " + posTop + 'px';
+               blurCss.backgroundSize = `${coverWidth}px ${coverHeight}px`;
+               blurCss.backgroundPosition = `${posLeft}px ${posTop}px`;
             }, 
         };
 
@@ -33,9 +33,9 @@ var blur =(function(){
 function init(){
     if(document.querySelector('.blur') != null){
         blur.set();
-        window.onresize = function(){
+        window.addEventListener('resize', () => {
             blur.set();
-        };
+        });
     }  
 }
 

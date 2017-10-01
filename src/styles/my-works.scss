@@ -40,6 +40,9 @@
           "caption"
           "preview";
     }
+    @include mobile {
+        grid-template-rows: 260px 220px 95px;
+    }
 }
 .slider-view, .slider-preview {
     background: #efebe0;
@@ -53,7 +56,10 @@
 .caption__btn{
     background: $green;
     vertical-align: middle;
-    margin-bottom: 10px;   
+    margin-bottom: 10px;
+    @include mobile{
+        font-size: 14px;
+    }   
 }
 .caption, .caption-wrapper{
     display: flex;
@@ -64,14 +70,16 @@
 .caption{
     background: #f0efe9;
     grid-area: caption;
-    @include tablets{
-        padding: 10px 0 50px;
-    } 
 }
 .caption-wrapper{
     max-width: 420px;
     @include tablets{
         max-width: none; 
+    }
+}
+.caption__title{
+    @include tablets{
+        margin-bottom: 20px;
     }
 }
 .caption__technology{
@@ -87,6 +95,10 @@
     text-transform: uppercase;
     font-family: "Roboto-Medium";
     font-size: 16px;
+    @include mobile{
+        padding: 10px;
+        font-size: 14px;
+    }
 }
 .slider-view{
     grid-area: view;
@@ -106,8 +118,11 @@
     padding: 65px 0 50px;
     @include tablets{
         padding: 105px 0 45px;
-        height: 100%;
+        max-height: 100%;
         width: auto;
+    }
+    @include mobile{
+        padding: 50px 45px;
     }
 }
 .slider-view__image, .slider-preview__image{
@@ -140,35 +155,68 @@
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
-    padding-bottom: 165px; 
+    padding-bottom: 165px;
+    @include tablets{
+        padding-bottom: 210px;  
+    }
+    @include media(480px){
+        padding-bottom: 270px;  
+    } 
 }
 .testimonials__bg{
     max-width: 100%;
 }
+.heading-1_testimonials{
+    &:before, &:after{
+        margin-top: auto;
+    }
+}
 .title-testimonials{
     max-width: 570px;
     margin: 0 auto;
+    @include tablets{
+        max-width: 100%;
+    }
 }
-
+.testimonials__content{
+    margin-bottom: 50px;
+}
 .review{
     list-style: none;
     display: flex;
     justify-content: center;
+    padding: 0;
+    margin: 0;
+    @include media(480px){
+        flex-wrap: wrap;
+    } 
 }
 .review__item{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     width: 33.3333%;
-    margin-right: 20px;
+    padding: 0 20px;
+    @include tablets{
+        width: 50%;
+    }
+    @include media(480px){
+        width: 100%;
+        margin-bottom: 30px;
+    }    
 }
 .review__quote-icon{
     font-size: 36px;
     color: rgba($darkgray, .2);
+    margin-bottom: 10px;
+    @include media(480px){
+       align-self: center;
+    }  
 }
 .review__text{
     color: $gray;
     text-align: left;
+    flex-grow: 1;
 }
 .author{
     display: flex;
@@ -181,6 +229,7 @@
     overflow: hidden;
     border-radius: 50%;
     margin-right: 20px;
+    flex-shrink: 0;
 }
 .author__image{
     width: 100%; 
@@ -191,13 +240,22 @@
     justify-content: center;
     align-items: flex-start;
     color: $green;
+    text-align: left;
 }
 .author__name{
     font-family: "Roboto-Bold";
     margin-bottom: 5px;
 }
+.author__post{
+text-align: left;
+}
+.contacts-block{
+    max-width: 380px;
+    width: 100%;
+    padding: 0 10px;
+}
 .contacts-form{
-    width: 380px;
+    width:100%;
     border-radius: 5px;
     overflow: hidden;
     display: flex;
@@ -209,6 +267,11 @@
 .contacts-form__info{
     position: relative;
     
+}
+.contact-form__title  {
+    @include media(480px){
+        padding: 40px 0 30px;
+    }    
 }
 .blur{
     position: absolute;
@@ -232,4 +295,14 @@
 }
 .navigation_contact-form{
     position: relative;
+}
+
+.arrow-up{
+    padding: 70px 0;
+    @include tablets{
+        padding: 100px 0 50px;
+    }
+}
+.arrow-up__icon{
+transform: rotate(180deg);
 }

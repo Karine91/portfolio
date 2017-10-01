@@ -40,8 +40,10 @@
     justify-content: center;
     position: relative;
 }
-.bottom-arrow{
+.arrow{
     color: rgba(#fff, .7);
     width: 26px;
     height: 16px;
+    position: relative;
+    z-index: 5;
 }

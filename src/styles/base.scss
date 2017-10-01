@@ -118,9 +118,6 @@ h3{
 .heading-1_offset-no{
     margin: 0;
     padding: 55px 120px;
-    @include tablets{
-        padding: 35px 120px;
-    } 
     &:after, &:before{
         top: 0;
         bottom: 0;
@@ -133,6 +130,18 @@ h3{
     &:before{
         left: 58px;
     }
+    @include tablets{
+        padding: 35px 120px;
+    }
+    @include media(480px){
+        padding: 35px 60px;
+        &:after{
+            right: 0;
+        }
+        &:before{
+            left: 0;
+        }
+    }  
 }
 .heading-1_multirow{
     &:after, &:before {

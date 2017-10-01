@@ -106,6 +106,9 @@
         align-items: center;
         justify-content: center;
     }
+    @include media(480px){
+        padding: 0;
+    }
 }
 .about-content{
     padding: 0 30px;
@@ -380,7 +383,7 @@ margin-bottom: 50px;
     @include tablets{
         padding-bottom: 210px;
     }
-    @include mobile{
+    @include media(480px){
         padding-bottom: 270px;
     }     
  }
