@@ -5,6 +5,7 @@ const gmap = require('./common/gmaps.js');
 const menu = require('./common/menu.js');
 const blur = require('./common/blur.js');
 const parallaxPage = require('./common/parallaxPage.js');
+const scrollSidebar = require('./common/sidebarScroll.js');
 $(document).ready(function(){
     gmap();
     slider();
@@ -13,7 +14,8 @@ $(document).ready(function(){
     menu();
 });
 
-window.onscroll= function(){
+window.addEventListener('scroll', () =>{
     var wScroll = window.pageYOffset;
     parallaxPage(wScroll);
-};
+    scrollSidebar(wScroll);
+});

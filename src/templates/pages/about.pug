@@ -3,7 +3,7 @@ extends ../template
 block variables
     - var title = "Обо мне"
 block head
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8YfKYzYCvNpiV1UDFK2_jlHkmxe8tue8" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8YfKYzYCvNpiV1UDFK2_jlHkmxe8tue8" async></script>
 block content
     header.header-container
         .header-content
@@ -30,7 +30,7 @@ block content
                     .user__name.user__name_white Каринэ Гюлумян
                     .user__describe.user__describe_white Личный сайт разработчика
             .header-content__bottom
-                a#arrow-bottom(href="#"): +icon('arrow_down' ,"bottom-arrow", "base")
+                a#arrow-bottom(href="#"): +icon('arrow_down' ,"arrow bottom-arrow", "base")
     .triangle-wrapper
         .section-content
             .triangle-bg
