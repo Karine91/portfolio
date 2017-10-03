@@ -16,7 +16,8 @@ const webpackConfig = require('./webpack.config.js'),
     plumber = require('gulp-plumber'),
     gcmq = require('gulp-group-css-media-queries'),
     ghPages = require('gulp-gh-pages'),
-    postcss    = require('gulp-postcss');
+    postcss    = require('gulp-postcss'),
+    babel = require('gulp-babel');
 
 const paths = {
     root: './build',
@@ -99,6 +100,9 @@ function icons(){
 function scripts(){
     return gulp.src('src/scripts/app.js')
         .pipe(gulpWebpack(webpackConfig, webpack))
+        .pipe(babel({
+            presets: ['env']
+        }))
         .pipe(gulp.dest(paths.scripts.dest));
 }
 

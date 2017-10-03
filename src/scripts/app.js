@@ -5,17 +5,21 @@ const gmap = require('./common/gmaps.js');
 const menu = require('./common/menu.js');
 const blur = require('./common/blur.js');
 const parallaxPage = require('./common/parallaxPage.js');
-const scrollSidebar = require('./common/sidebarScroll.js');
+import {sidebarinit, spySidebarLinks} from './common/sidebarScroll.js';
+
 $(document).ready(function(){
     gmap();
     slider();
     authFlip();
     blur();
     menu();
+    if(sidebarinit()){
+        spySidebarLinks();
+    }  
 });
 
 window.addEventListener('scroll', () =>{
     var wScroll = window.pageYOffset;
     parallaxPage(wScroll);
-    scrollSidebar(wScroll);
+    sidebarinit(wScroll);
 });
