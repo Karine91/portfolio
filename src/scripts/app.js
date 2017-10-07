@@ -6,6 +6,7 @@ const menu = require('./common/menu.js');
 const blur = require('./common/blur.js');
 const parallaxPage = require('./common/parallaxPage.js');
 import {sidebarinit, spySidebarLinks, spyPostScroll} from './common/sidebarScroll.js';
+import {arrScroll} from './common/arrowScroll.js';
 
 $(document).ready(function(){
     gmap();
@@ -13,6 +14,7 @@ $(document).ready(function(){
     authFlip();
     blur();
     menu();
+    arrScroll();
     if(sidebarinit()){
         spySidebarLinks();
     }  
