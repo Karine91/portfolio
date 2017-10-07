@@ -5,7 +5,7 @@ const gmap = require('./common/gmaps.js');
 const menu = require('./common/menu.js');
 const blur = require('./common/blur.js');
 const parallaxPage = require('./common/parallaxPage.js');
-import {sidebarinit, spySidebarLinks} from './common/sidebarScroll.js';
+import {sidebarinit, spySidebarLinks, spyPostScroll} from './common/sidebarScroll.js';
 
 $(document).ready(function(){
     gmap();
@@ -22,4 +22,5 @@ window.addEventListener('scroll', () =>{
     var wScroll = window.pageYOffset;
     parallaxPage(wScroll);
     sidebarinit(wScroll);
+    spyPostScroll(wScroll);
 });

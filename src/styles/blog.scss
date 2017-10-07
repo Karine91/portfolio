@@ -21,6 +21,8 @@
 }
 .sidebar_sticky{
     position: fixed;
+    top:0;
+    left:0;
 }
 .post-list{
  list-style: none;
@@ -40,6 +42,7 @@
     color: $gray;
     text-decoration: none;
     line-height: 1.6;
+    border-right: 3px solid transparent;
 }
 .post-content{
     text-align: left;
