@@ -1,8 +1,8 @@
 "use strict";
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -21,6 +21,80 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     return Object.prototype.hasOwnProperty.call(e, t);
   }, t.p = "", t(t.s = 2);
 }([function (e, t, n) {
+  "use strict";
+
+  var r = function () {
+    function r() {
+      _classCallCheck(this, r);
+
+      this.easeOutQuad = this.makeEaseOut(this.easeInQuad), this.easeOutOct = this.makeEaseOut(this.easeInOct), this.easeOutCirc = this.makeEaseOut(this.easeInCirc), this.easeOutBack = this.makeEaseOut(this.easeInBack), this.easeOutBounce = this.makeEaseOut(this.easeInBounce), this.easeOutElastic = this.makeEaseOut(this.easeInElastic);this.makeEaseInOut(this.easeInQuad), this.makeEaseInOut(this.easeInOct), this.makeEaseInOut(this.easeInCirc), this.makeEaseInOut(this.easeInBack), this.makeEaseInOut(this.easeInBounce), this.makeEaseInOut(this.easeInElastic);
+    }
+
+    _createClass(r, [{
+      key: "linear",
+      value: function linear(e) {
+        return e;
+      }
+    }, {
+      key: "easeInQuad",
+      value: function easeInQuad(e) {
+        return Math.pow(e, 2);
+      }
+    }, {
+      key: "easeInOct",
+      value: function easeInOct(e) {
+        return Math.pow(e, 4);
+      }
+    }, {
+      key: "easeInCirc",
+      value: function easeInCirc(e) {
+        return 1 - Math.sin(Math.acos(e));
+      }
+    }, {
+      key: "easeInBack",
+      value: function easeInBack(e) {
+        return Math.pow(e, 2) * (2.5 * e - 1.5);
+      }
+    }, {
+      key: "easeInBounce",
+      value: function easeInBounce(e) {
+        for (var t = 0, n = 1;; t += n, n /= 2) {
+          if (e >= (7 - 4 * t) / 11) return -Math.pow((11 - 6 * t - 11 * e) / 4, 2) + Math.pow(n, 2);
+        }
+      }
+    }, {
+      key: "easeInElastic",
+      value: function easeInElastic(e) {
+        return Math.pow(2, 10 * (e - 1)) * Math.cos(20 * Math.PI * 1.5 / 3 * e);
+      }
+    }, {
+      key: "makeEaseOut",
+      value: function makeEaseOut(e) {
+        return function (t) {
+          return 1 - e(1 - t);
+        };
+      }
+    }, {
+      key: "makeEaseInOut",
+      value: function makeEaseInOut(e) {
+        return function (t) {
+          return t < .5 ? e(2 * t) / 2 : (2 - e(2 * (1 - t))) / 2;
+        };
+      }
+    }, {
+      key: "animate",
+      value: function animate(e) {
+        var t = performance.now();requestAnimationFrame(function n(r) {
+          var i = (r - t) / e.duration;i > 1 && (i = 1);var o = e.timing(i);e.draw(o), i < 1 && requestAnimationFrame(n);
+        });
+      }
+    }]);
+
+    return r;
+  }();
+
+  t.a = r;
+}, function (e, t, n) {
   var r, i; /*!
             * jQuery JavaScript Library v3.2.1
             * https://jquery.com/
@@ -97,7 +171,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       },
           u = s(),
           l = n && n[3] || (ye.cssNumber[t] ? "" : "px"),
-          c = (ye.cssNumber[t] || "px" !== l && +u) && _e.exec(ye.css(e, t));if (c && c[3] !== l) {
+          c = (ye.cssNumber[t] || "px" !== l && +u) && $e.exec(ye.css(e, t));if (c && c[3] !== l) {
         l = l || c[3], n = n || [], c = +u || 1;do {
           c /= o = o || ".5", ye.style(e, t, c + l);
         } while (o !== (o = s() / u) && 1 !== o && --a);
@@ -139,17 +213,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       try {
         return oe.activeElement;
       } catch (e) {}
-    }function N(e, t, n, r, i, o) {
+    }function j(e, t, n, r, i, o) {
       var a, s;if ("object" == (typeof t === "undefined" ? "undefined" : _typeof(t))) {
         "string" != typeof n && (r = r || n, n = void 0);for (s in t) {
-          N(e, s, n, r, t[s], o);
+          j(e, s, n, r, t[s], o);
         }return e;
       }if (null == r && null == i ? (i = n, r = n = void 0) : null == i && ("string" == typeof n ? (i = r, r = void 0) : (i = r, r = n, n = void 0)), !1 === i) i = S;else if (!i) return e;return 1 === o && (a = i, (i = function i(e) {
         return ye().off(e), a.apply(this, arguments);
       }).guid = a.guid || (a.guid = ye.guid++)), e.each(function () {
         ye.event.add(this, t, i, r, n);
       });
-    }function j(e, t) {
+    }function N(e, t) {
       return u(e, "table") && u(11 !== t.nodeType ? t : t.firstChild, "tr") ? ye(">tbody", e)[0] || e : e;
     }function D(e) {
       return e.type = (null !== e.getAttribute("type")) + "/" + e.type, e;
@@ -208,19 +282,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }function R(e) {
       var t = ye.cssProps[e];return t || (t = ye.cssProps[e] = M(e) || e), t;
     }function B(e, t, n) {
-      var r = _e.exec(t);return r ? Math.max(0, r[2] - (n || 0)) + (r[3] || "px") : t;
+      var r = $e.exec(t);return r ? Math.max(0, r[2] - (n || 0)) + (r[3] || "px") : t;
     }function W(e, t, n, r, i) {
       var o,
           a = 0;for (o = n === (r ? "border" : "content") ? 4 : "width" === t ? 1 : 0; o < 4; o += 2) {
-        "margin" === n && (a += ye.css(e, n + $e[o], !0, i)), r ? ("content" === n && (a -= ye.css(e, "padding" + $e[o], !0, i)), "margin" !== n && (a -= ye.css(e, "border" + $e[o] + "Width", !0, i))) : (a += ye.css(e, "padding" + $e[o], !0, i), "padding" !== n && (a += ye.css(e, "border" + $e[o] + "Width", !0, i)));
+        "margin" === n && (a += ye.css(e, n + _e[o], !0, i)), r ? ("content" === n && (a -= ye.css(e, "padding" + _e[o], !0, i)), "margin" !== n && (a -= ye.css(e, "border" + _e[o] + "Width", !0, i))) : (a += ye.css(e, "padding" + _e[o], !0, i), "padding" !== n && (a += ye.css(e, "border" + _e[o] + "Width", !0, i)));
       }return a;
-    }function _(e, t, n) {
+    }function $(e, t, n) {
       var r,
           i = lt(e),
           o = F(e, t, i),
           a = "border-box" === ye.css(e, "boxSizing", !1, i);return ut.test(o) ? o : (r = a && (me.boxSizingReliable() || o === e.style[t]), "auto" === o && (o = e["offset" + t[0].toUpperCase() + t.slice(1)]), (o = parseFloat(o) || 0) + W(e, t, n || (a ? "border" : "content"), r, i) + "px");
-    }function $(e, t, n, r, i) {
-      return new $.prototype.init(e, t, n, r, i);
+    }function _(e, t, n, r, i) {
+      return new _.prototype.init(e, t, n, r, i);
     }function z() {
       yt && (!1 === oe.hidden && n.requestAnimationFrame ? n.requestAnimationFrame(z) : n.setTimeout(z, ye.fx.interval), ye.fx.tick());
     }function X() {
@@ -231,7 +305,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       var n,
           r = 0,
           i = { height: e };for (t = t ? 1 : 0; r < 4; r += 2 - t) {
-        i["margin" + (n = $e[r])] = i["padding" + n] = e;
+        i["margin" + (n = _e[r])] = i["padding" + n] = e;
       }return t && (i.opacity = i.width = e), i;
     }function Y(e, t, n) {
       for (var r, i = (Q.tweeners[t] || []).concat(Q.tweeners["*"]), o = 0, a = i.length; o < a; o++) {
@@ -275,7 +349,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       return e.getAttribute && e.getAttribute("class") || "";
     }function K(e, t, n, r) {
       var i;if (Array.isArray(t)) ye.each(t, function (t, i) {
-        n || jt.test(e) ? r(e, i) : K(e + "[" + ("object" == (typeof i === "undefined" ? "undefined" : _typeof(i)) && null != i ? t : "") + "]", i, n, r);
+        n || Nt.test(e) ? r(e, i) : K(e + "[" + ("object" == (typeof i === "undefined" ? "undefined" : _typeof(i)) && null != i ? t : "") + "]", i, n, r);
       });else if (n || "object" !== ye.type(t)) r(e, t);else for (i in t) {
         K(e + "[" + i + "]", t[i], n, r);
       }
@@ -645,8 +719,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           k,
           S,
           A,
-          N,
           j,
+          N,
           D,
           q,
           L,
@@ -659,11 +733,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           R = e.document,
           B = 0,
           W = 0,
-          _ = n(),
           $ = n(),
+          _ = n(),
           z = n(),
           X = function X(e, t) {
-        return e === t && (j = !0), 0;
+        return e === t && (N = !0), 0;
       },
           U = {}.hasOwnProperty,
           Y = [],
@@ -776,14 +850,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             if (t === e) return !0;
           }return !1;
         }, X = t ? function (e, t) {
-          if (e === t) return j = !0, 0;var n = !e.compareDocumentPosition - !t.compareDocumentPosition;return n || (1 & (n = (e.ownerDocument || e) === (t.ownerDocument || t) ? e.compareDocumentPosition(t) : 1) || !b.sortDetached && t.compareDocumentPosition(e) === n ? e === q || e.ownerDocument === R && P(R, e) ? -1 : t === q || t.ownerDocument === R && P(R, t) ? 1 : N ? K(N, e) - K(N, t) : 0 : 4 & n ? -1 : 1);
+          if (e === t) return N = !0, 0;var n = !e.compareDocumentPosition - !t.compareDocumentPosition;return n || (1 & (n = (e.ownerDocument || e) === (t.ownerDocument || t) ? e.compareDocumentPosition(t) : 1) || !b.sortDetached && t.compareDocumentPosition(e) === n ? e === q || e.ownerDocument === R && P(R, e) ? -1 : t === q || t.ownerDocument === R && P(R, t) ? 1 : j ? K(j, e) - K(j, t) : 0 : 4 & n ? -1 : 1);
         } : function (e, t) {
-          if (e === t) return j = !0, 0;var n,
+          if (e === t) return N = !0, 0;var n,
               r = 0,
               i = e.parentNode,
               o = t.parentNode,
               s = [e],
-              u = [t];if (!i || !o) return e === q ? -1 : t === q ? 1 : i ? -1 : o ? 1 : N ? K(N, e) - K(N, t) : 0;if (i === o) return a(e, t);for (n = e; n = n.parentNode;) {
+              u = [t];if (!i || !o) return e === q ? -1 : t === q ? 1 : i ? -1 : o ? 1 : j ? K(j, e) - K(j, t) : 0;if (i === o) return a(e, t);for (n = e; n = n.parentNode;) {
             s.unshift(n);
           }for (n = t; n = n.parentNode;) {
             u.unshift(n);
@@ -810,13 +884,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         var t,
             n = [],
             r = 0,
-            i = 0;if (j = !b.detectDuplicates, N = !b.sortStable && e.slice(0), e.sort(X), j) {
+            i = 0;if (N = !b.detectDuplicates, j = !b.sortStable && e.slice(0), e.sort(X), N) {
           for (; t = e[i++];) {
             t === e[i] && (r = n.push(i));
           }for (; r--;) {
             e.splice(n[r], 1);
           }
-        }return N = null, e;
+        }return j = null, e;
       }, T = t.getText = function (e) {
         var t,
             n = "",
@@ -844,7 +918,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               return e.nodeName && e.nodeName.toLowerCase() === t;
             };
           }, CLASS: function CLASS(e) {
-            var t = _[e + " "];return t || (t = new RegExp("(^|" + ee + ")" + e + "(" + ee + "|$)")) && _(e, function (e) {
+            var t = $[e + " "];return t || (t = new RegExp("(^|" + ee + ")" + e + "(" + ee + "|$)")) && $(e, function (e) {
               return t.test("string" == typeof e.className && e.className || void 0 !== e.getAttribute && e.getAttribute("class") || "");
             });
           }, ATTR: function ATTR(e, n, r) {
@@ -982,11 +1056,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             s,
             u,
             l,
-            c = $[e + " "];if (c) return n ? 0 : c.slice(0);for (s = e, u = [], l = w.preFilter; s;) {
+            c = _[e + " "];if (c) return n ? 0 : c.slice(0);for (s = e, u = [], l = w.preFilter; s;) {
           r && !(i = ae.exec(s)) || (i && (s = s.slice(i[0].length) || s), u.push(o = [])), r = !1, (i = se.exec(s)) && (r = i.shift(), o.push({ value: r, type: i[0].replace(oe, " ") }), s = s.slice(r.length));for (a in w.filter) {
             !(i = fe[a].exec(s)) || l[a] && !(i = l[a](i)) || (r = i.shift(), o.push({ value: r, type: a, matches: i }), s = s.slice(r.length));
           }if (!r) break;
-        }return n ? s.length : s ? t.error(e) : $(e, u).slice(0);
+        }return n ? s.length : s ? t.error(e) : _(e, u).slice(0);
       }, k = t.compile = function (e, t) {
         var n,
             r = [],
@@ -1012,7 +1086,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             }
           }
         }return (c || k(e, p))(r, t, !O, n, !t || me.test(e) && l(t.parentNode) || t), n;
-      }, b.sortStable = M.split("").sort(X).join("") === M, b.detectDuplicates = !!j, D(), b.sortDetached = i(function (e) {
+      }, b.sortStable = M.split("").sort(X).join("") === M, b.detectDuplicates = !!N, D(), b.sortDetached = i(function (e) {
         return 1 & e.compareDocumentPosition(q.createElement("fieldset"));
       }), i(function (e) {
         return e.innerHTML = "<a href='#'></a>", "#" === e.firstChild.getAttribute("href");
@@ -1062,16 +1136,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         return this.pushStack(l(this, e || [], !0));
       }, is: function is(e) {
         return !!l(this, "string" == typeof e && ke.test(e) ? ye(e) : e || [], !1).length;
-      } });var Ne,
-        je = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]+))$/;(ye.fn.init = function (e, t, n) {
-      var r, i;if (!e) return this;if (n = n || Ne, "string" == typeof e) {
-        if (!(r = "<" === e[0] && ">" === e[e.length - 1] && e.length >= 3 ? [null, e, null] : je.exec(e)) || !r[1] && t) return !t || t.jquery ? (t || n).find(e) : this.constructor(t).find(e);if (r[1]) {
+      } });var je,
+        Ne = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]+))$/;(ye.fn.init = function (e, t, n) {
+      var r, i;if (!e) return this;if (n = n || je, "string" == typeof e) {
+        if (!(r = "<" === e[0] && ">" === e[e.length - 1] && e.length >= 3 ? [null, e, null] : Ne.exec(e)) || !r[1] && t) return !t || t.jquery ? (t || n).find(e) : this.constructor(t).find(e);if (r[1]) {
           if (t = t instanceof ye ? t[0] : t, ye.merge(this, ye.parseHTML(r[1], t && t.nodeType ? t.ownerDocument || t : oe, !0)), Se.test(r[1]) && ye.isPlainObject(t)) for (r in t) {
             ye.isFunction(this[r]) ? this[r](t[r]) : this.attr(r, t[r]);
           }return this;
         }return (i = oe.getElementById(r[2])) && (this[0] = i, this.length = 1), this;
       }return e.nodeType ? (this[0] = e, this.length = 1, this) : ye.isFunction(e) ? void 0 !== n.ready ? n.ready(e) : e(ye) : ye.makeArray(e, this);
-    }).prototype = ye.fn, Ne = ye(oe);var De = /^(?:parents|prev(?:Until|All))/,
+    }).prototype = ye.fn, je = ye(oe);var De = /^(?:parents|prev(?:Until|All))/,
         qe = { children: !0, contents: !0, next: !0, prev: !0 };ye.fn.extend({ has: function has(e) {
         var t = ye(e, this),
             n = t.length;return this.filter(function () {
@@ -1354,8 +1428,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           (n = Pe.get(o[a], e + "queueHooks")) && n.empty && (r++, n.empty.add(s));
         }return s(), i.promise(t);
       } });var We = /[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source,
-        _e = new RegExp("^(?:([+-])=|)(" + We + ")([a-z%]*)$", "i"),
-        $e = ["Top", "Right", "Bottom", "Left"],
+        $e = new RegExp("^(?:([+-])=|)(" + We + ")([a-z%]*)$", "i"),
+        _e = ["Top", "Right", "Bottom", "Left"],
         ze = function ze(e, t) {
       return "none" === (e = t || e).style.display || "" === e.style.display && ye.contains(e.ownerDocument, e) && "none" === ye.css(e, "display");
     },
@@ -1499,9 +1573,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               o = e.handleObj;return i && (i === r || ye.contains(r, i)) || (e.type = o.origType, n = o.handler.apply(this, arguments), e.type = t), n;
         } };
     }), ye.fn.extend({ on: function on(e, t, n, r) {
-        return N(this, e, t, n, r);
+        return j(this, e, t, n, r);
       }, one: function one(e, t, n, r) {
-        return N(this, e, t, n, r, 1);
+        return j(this, e, t, n, r, 1);
       }, off: function off(e, t, n) {
         var r, i;if (e && e.preventDefault && e.handleObj) return r = e.handleObj, ye(e.delegateTarget).off(r.namespace ? r.origType + "." + r.namespace : r.origType, r.selector, r.handler), this;if ("object" == (typeof e === "undefined" ? "undefined" : _typeof(e))) {
           for (i in e) {
@@ -1549,12 +1623,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }, null, e, arguments.length);
       }, append: function append() {
         return H(this, arguments, function (e) {
-          1 !== this.nodeType && 11 !== this.nodeType && 9 !== this.nodeType || j(this, e).appendChild(e);
+          1 !== this.nodeType && 11 !== this.nodeType && 9 !== this.nodeType || N(this, e).appendChild(e);
         });
       }, prepend: function prepend() {
         return H(this, arguments, function (e) {
           if (1 === this.nodeType || 11 === this.nodeType || 9 === this.nodeType) {
-            var t = j(this, e);t.insertBefore(e, t.firstChild);
+            var t = N(this, e);t.insertBefore(e, t.firstChild);
           }
         });
       }, before: function before() {
@@ -1634,7 +1708,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               a,
               s = ye.camelCase(t),
               u = ft.test(t),
-              l = e.style;if (u || (t = R(s)), a = ye.cssHooks[t] || ye.cssHooks[s], void 0 === n) return a && "get" in a && void 0 !== (i = a.get(e, !1, r)) ? i : l[t];"string" == (o = typeof n === "undefined" ? "undefined" : _typeof(n)) && (i = _e.exec(n)) && i[1] && (n = x(e, t, i), o = "number"), null != n && n === n && ("number" === o && (n += i && i[3] || (ye.cssNumber[s] ? "" : "px")), me.clearCloneStyle || "" !== n || 0 !== t.indexOf("background") || (l[t] = "inherit"), a && "set" in a && void 0 === (n = a.set(e, n, r)) || (u ? l.setProperty(t, n) : l[t] = n));
+              l = e.style;if (u || (t = R(s)), a = ye.cssHooks[t] || ye.cssHooks[s], void 0 === n) return a && "get" in a && void 0 !== (i = a.get(e, !1, r)) ? i : l[t];"string" == (o = typeof n === "undefined" ? "undefined" : _typeof(n)) && (i = $e.exec(n)) && i[1] && (n = x(e, t, i), o = "number"), null != n && n === n && ("number" === o && (n += i && i[3] || (ye.cssNumber[s] ? "" : "px")), me.clearCloneStyle || "" !== n || 0 !== t.indexOf("background") || (l[t] = "inherit"), a && "set" in a && void 0 === (n = a.set(e, n, r)) || (u ? l.setProperty(t, n) : l[t] = n));
         }
       }, css: function css(e, t, n, r) {
         var i,
@@ -1643,13 +1717,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             s = ye.camelCase(t);return ft.test(t) || (t = R(s)), (a = ye.cssHooks[t] || ye.cssHooks[s]) && "get" in a && (i = a.get(e, !0, n)), void 0 === i && (i = F(e, t, r)), "normal" === i && t in dt && (i = dt[t]), "" === n || n ? (o = parseFloat(i), !0 === n || isFinite(o) ? o || 0 : i) : i;
       } }), ye.each(["height", "width"], function (e, t) {
       ye.cssHooks[t] = { get: function get(e, n, r) {
-          if (n) return !ct.test(ye.css(e, "display")) || e.getClientRects().length && e.getBoundingClientRect().width ? _(e, t, r) : Xe(e, pt, function () {
-            return _(e, t, r);
+          if (n) return !ct.test(ye.css(e, "display")) || e.getClientRects().length && e.getBoundingClientRect().width ? $(e, t, r) : Xe(e, pt, function () {
+            return $(e, t, r);
           });
         }, set: function set(e, n, r) {
           var i,
               o = r && lt(e),
-              a = r && W(e, t, r, "border-box" === ye.css(e, "boxSizing", !1, o), o);return a && (i = _e.exec(n)) && "px" !== (i[3] || "px") && (e.style[t] = n, n = ye.css(e, t)), B(0, n, a);
+              a = r && W(e, t, r, "border-box" === ye.css(e, "boxSizing", !1, o), o);return a && (i = $e.exec(n)) && "px" !== (i[3] || "px") && (e.style[t] = n, n = ye.css(e, t)), B(0, n, a);
         } };
     }), ye.cssHooks.marginLeft = P(me.reliableMarginLeft, function (e, t) {
       if (t) return (parseFloat(F(e, "marginLeft")) || e.getBoundingClientRect().left - Xe(e, { marginLeft: 0 }, function () {
@@ -1658,7 +1732,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }), ye.each({ margin: "", padding: "", border: "Width" }, function (e, t) {
       ye.cssHooks[e + t] = { expand: function expand(n) {
           for (var r = 0, i = {}, o = "string" == typeof n ? n.split(" ") : [n]; r < 4; r++) {
-            i[e + $e[r] + t] = o[r] || o[r - 2] || o[0];
+            i[e + _e[r] + t] = o[r] || o[r - 2] || o[0];
           }return i;
         } }, st.test(e) || (ye.cssHooks[e + t].set = B);
     }), ye.fn.extend({ css: function css(e, t) {
@@ -1672,28 +1746,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             }return o;
           }return void 0 !== n ? ye.style(e, t, n) : ye.css(e, t);
         }, e, t, arguments.length > 1);
-      } }), ye.Tween = $, $.prototype = { constructor: $, init: function init(e, t, n, r, i, o) {
+      } }), ye.Tween = _, _.prototype = { constructor: _, init: function init(e, t, n, r, i, o) {
         this.elem = e, this.prop = n, this.easing = i || ye.easing._default, this.options = t, this.start = this.now = this.cur(), this.end = r, this.unit = o || (ye.cssNumber[n] ? "" : "px");
       }, cur: function cur() {
-        var e = $.propHooks[this.prop];return e && e.get ? e.get(this) : $.propHooks._default.get(this);
+        var e = _.propHooks[this.prop];return e && e.get ? e.get(this) : _.propHooks._default.get(this);
       }, run: function run(e) {
         var t,
-            n = $.propHooks[this.prop];return this.options.duration ? this.pos = t = ye.easing[this.easing](e, this.options.duration * e, 0, 1, this.options.duration) : this.pos = t = e, this.now = (this.end - this.start) * t + this.start, this.options.step && this.options.step.call(this.elem, this.now, this), n && n.set ? n.set(this) : $.propHooks._default.set(this), this;
-      } }, $.prototype.init.prototype = $.prototype, $.propHooks = { _default: { get: function get(e) {
+            n = _.propHooks[this.prop];return this.options.duration ? this.pos = t = ye.easing[this.easing](e, this.options.duration * e, 0, 1, this.options.duration) : this.pos = t = e, this.now = (this.end - this.start) * t + this.start, this.options.step && this.options.step.call(this.elem, this.now, this), n && n.set ? n.set(this) : _.propHooks._default.set(this), this;
+      } }, _.prototype.init.prototype = _.prototype, _.propHooks = { _default: { get: function get(e) {
           var t;return 1 !== e.elem.nodeType || null != e.elem[e.prop] && null == e.elem.style[e.prop] ? e.elem[e.prop] : (t = ye.css(e.elem, e.prop, "")) && "auto" !== t ? t : 0;
         }, set: function set(e) {
           ye.fx.step[e.prop] ? ye.fx.step[e.prop](e) : 1 !== e.elem.nodeType || null == e.elem.style[ye.cssProps[e.prop]] && !ye.cssHooks[e.prop] ? e.elem[e.prop] = e.now : ye.style(e.elem, e.prop, e.now + e.unit);
-        } } }, $.propHooks.scrollTop = $.propHooks.scrollLeft = { set: function set(e) {
+        } } }, _.propHooks.scrollTop = _.propHooks.scrollLeft = { set: function set(e) {
         e.elem.nodeType && e.elem.parentNode && (e.elem[e.prop] = e.now);
       } }, ye.easing = { linear: function linear(e) {
         return e;
       }, swing: function swing(e) {
         return .5 - Math.cos(e * Math.PI) / 2;
-      }, _default: "swing" }, ye.fx = $.prototype.init, ye.fx.step = {};var mt,
+      }, _default: "swing" }, ye.fx = _.prototype.init, ye.fx.step = {};var mt,
         yt,
         vt = /^(?:toggle|show|hide)$/,
         xt = /queueHooks$/;ye.Animation = ye.extend(Q, { tweeners: { "*": [function (e, t) {
-          var n = this.createTween(e, t);return x(n.elem, e, _e.exec(t), n), n;
+          var n = this.createTween(e, t);return x(n.elem, e, $e.exec(t), n), n;
         }] }, tweener: function tweener(e, t) {
         ye.isFunction(e) ? (t = e, e = ["*"]) : e = e.match(Le);for (var n, r = 0, i = e.length; r < i; r++) {
           n = e[r], Q.tweeners[n] = Q.tweeners[n] || [], Q.tweeners[n].unshift(t);
@@ -1983,13 +2057,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         } };
     });var St = n.location,
         At = ye.now(),
-        Nt = /\?/;ye.parseXML = function (e) {
+        jt = /\?/;ye.parseXML = function (e) {
       var t;if (!e || "string" != typeof e) return null;try {
         t = new n.DOMParser().parseFromString(e, "text/xml");
       } catch (e) {
         t = void 0;
       }return t && !t.getElementsByTagName("parsererror").length || ye.error("Invalid XML: " + e), t;
-    };var jt = /\[\]$/,
+    };var Nt = /\[\]$/,
         Dt = /\r?\n/g,
         qt = /^(?:submit|button|image|reset|file)$/i,
         Lt = /^(?:input|select|textarea|keygen)/i;ye.param = function (e, t) {
@@ -2023,8 +2097,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         Rt = /^\/\//,
         Bt = {},
         Wt = {},
-        _t = "*/".concat("*"),
-        $t = oe.createElement("a");$t.href = St.href, ye.extend({ active: 0, lastModified: {}, etag: {}, ajaxSettings: { url: St.href, type: "GET", isLocal: Pt.test(St.protocol), global: !0, processData: !0, async: !0, contentType: "application/x-www-form-urlencoded; charset=UTF-8", accepts: { "*": _t, text: "text/plain", html: "text/html", xml: "application/xml, text/xml", json: "application/json, text/javascript" }, contents: { xml: /\bxml\b/, html: /\bhtml/, json: /\bjson\b/ }, responseFields: { xml: "responseXML", text: "responseText", json: "responseJSON" }, converters: { "* text": String, "text html": !0, "text json": JSON.parse, "text xml": ye.parseXML }, flatOptions: { url: !0, context: !0 } }, ajaxSetup: function ajaxSetup(e, t) {
+        $t = "*/".concat("*"),
+        _t = oe.createElement("a");_t.href = St.href, ye.extend({ active: 0, lastModified: {}, etag: {}, ajaxSettings: { url: St.href, type: "GET", isLocal: Pt.test(St.protocol), global: !0, processData: !0, async: !0, contentType: "application/x-www-form-urlencoded; charset=UTF-8", accepts: { "*": $t, text: "text/plain", html: "text/html", xml: "application/xml, text/xml", json: "application/json, text/javascript" }, contents: { xml: /\bxml\b/, html: /\bhtml/, json: /\bjson\b/ }, responseFields: { xml: "responseXML", text: "responseText", json: "responseJSON" }, converters: { "* text": String, "text html": !0, "text json": JSON.parse, "text xml": ye.parseXML }, flatOptions: { url: !0, context: !0 } }, ajaxSetup: function ajaxSetup(e, t) {
         return t ? te(te(e, ye.ajaxSettings), t) : te(ye.ajaxSettings, e);
       }, ajaxPrefilter: Z(Bt), ajaxTransport: Z(Wt), ajax: function ajax(e, t) {
         function r(e, t, r, s) {
@@ -2073,11 +2147,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             var t = e || T;return i && i.abort(t), r(0, t), this;
           } };if (y.promise(C), h.url = ((e || h.url || St.href) + "").replace(Rt, St.protocol + "//"), h.type = t.method || t.type || h.method || h.type, h.dataTypes = (h.dataType || "*").toLowerCase().match(Le) || [""], null == h.crossDomain) {
           l = oe.createElement("a");try {
-            l.href = h.url, l.href = l.href, h.crossDomain = $t.protocol + "//" + $t.host != l.protocol + "//" + l.host;
+            l.href = h.url, l.href = l.href, h.crossDomain = _t.protocol + "//" + _t.host != l.protocol + "//" + l.host;
           } catch (e) {
             h.crossDomain = !0;
           }
-        }if (h.data && h.processData && "string" != typeof h.data && (h.data = ye.param(h.data, h.traditional)), ee(Bt, h, t, C), c) return C;(f = ye.event && h.global) && 0 == ye.active++ && ye.event.trigger("ajaxStart"), h.type = h.type.toUpperCase(), h.hasContent = !Mt.test(h.type), o = h.url.replace(Ht, ""), h.hasContent ? h.data && h.processData && 0 === (h.contentType || "").indexOf("application/x-www-form-urlencoded") && (h.data = h.data.replace(Ot, "+")) : (d = h.url.slice(o.length), h.data && (o += (Nt.test(o) ? "&" : "?") + h.data, delete h.data), !1 === h.cache && (o = o.replace(It, "$1"), d = (Nt.test(o) ? "&" : "?") + "_=" + At++ + d), h.url = o + d), h.ifModified && (ye.lastModified[o] && C.setRequestHeader("If-Modified-Since", ye.lastModified[o]), ye.etag[o] && C.setRequestHeader("If-None-Match", ye.etag[o])), (h.data && h.hasContent && !1 !== h.contentType || t.contentType) && C.setRequestHeader("Content-Type", h.contentType), C.setRequestHeader("Accept", h.dataTypes[0] && h.accepts[h.dataTypes[0]] ? h.accepts[h.dataTypes[0]] + ("*" !== h.dataTypes[0] ? ", " + _t + "; q=0.01" : "") : h.accepts["*"]);for (p in h.headers) {
+        }if (h.data && h.processData && "string" != typeof h.data && (h.data = ye.param(h.data, h.traditional)), ee(Bt, h, t, C), c) return C;(f = ye.event && h.global) && 0 == ye.active++ && ye.event.trigger("ajaxStart"), h.type = h.type.toUpperCase(), h.hasContent = !Mt.test(h.type), o = h.url.replace(Ht, ""), h.hasContent ? h.data && h.processData && 0 === (h.contentType || "").indexOf("application/x-www-form-urlencoded") && (h.data = h.data.replace(Ot, "+")) : (d = h.url.slice(o.length), h.data && (o += (jt.test(o) ? "&" : "?") + h.data, delete h.data), !1 === h.cache && (o = o.replace(It, "$1"), d = (jt.test(o) ? "&" : "?") + "_=" + At++ + d), h.url = o + d), h.ifModified && (ye.lastModified[o] && C.setRequestHeader("If-Modified-Since", ye.lastModified[o]), ye.etag[o] && C.setRequestHeader("If-None-Match", ye.etag[o])), (h.data && h.hasContent && !1 !== h.contentType || t.contentType) && C.setRequestHeader("Content-Type", h.contentType), C.setRequestHeader("Accept", h.dataTypes[0] && h.accepts[h.dataTypes[0]] ? h.accepts[h.dataTypes[0]] + ("*" !== h.dataTypes[0] ? ", " + $t + "; q=0.01" : "") : h.accepts["*"]);for (p in h.headers) {
           C.setRequestHeader(p, h.headers[p]);
         }if (h.beforeSend && (!1 === h.beforeSend.call(g, C, h) || c)) return C.abort();if (T = "abort", v.add(h.complete), C.done(h.success), C.fail(h.error), i = ee(Wt, h, t, C)) {
           if (C.readyState = 1, f && m.trigger("ajaxSend", [C, h]), c) return C;h.async && h.timeout > 0 && (u = n.setTimeout(function () {
@@ -2174,7 +2248,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       var i,
           o,
           a,
-          s = !1 !== e.jsonp && (Yt.test(e.url) ? "url" : "string" == typeof e.data && 0 === (e.contentType || "").indexOf("application/x-www-form-urlencoded") && Yt.test(e.data) && "data");if (s || "jsonp" === e.dataTypes[0]) return i = e.jsonpCallback = ye.isFunction(e.jsonpCallback) ? e.jsonpCallback() : e.jsonpCallback, s ? e[s] = e[s].replace(Yt, "$1" + i) : !1 !== e.jsonp && (e.url += (Nt.test(e.url) ? "&" : "?") + e.jsonp + "=" + i), e.converters["script json"] = function () {
+          s = !1 !== e.jsonp && (Yt.test(e.url) ? "url" : "string" == typeof e.data && 0 === (e.contentType || "").indexOf("application/x-www-form-urlencoded") && Yt.test(e.data) && "data");if (s || "jsonp" === e.dataTypes[0]) return i = e.jsonpCallback = ye.isFunction(e.jsonpCallback) ? e.jsonpCallback() : e.jsonpCallback, s ? e[s] = e[s].replace(Yt, "$1" + i) : !1 !== e.jsonp && (e.url += (jt.test(e.url) ? "&" : "?") + e.jsonp + "=" + i), e.converters["script json"] = function () {
         return a || ye.error(i + " was not called"), a[0];
       }, e.dataTypes[0] = "json", o = n[i], n[i] = function () {
         a = arguments;
@@ -2274,91 +2348,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   });
 }, function (e, t, n) {
   "use strict";
-
-  var r = function () {
-    function r() {
-      _classCallCheck(this, r);
-
-      this.easeOutQuad = this.makeEaseOut(this.easeInQuad), this.easeOutOct = this.makeEaseOut(this.easeInOct), this.easeOutCirc = this.makeEaseOut(this.easeInCirc), this.easeOutBack = this.makeEaseOut(this.easeInBack), this.easeOutBounce = this.makeEaseOut(this.easeInBounce), this.easeOutElastic = this.makeEaseOut(this.easeInElastic);this.makeEaseInOut(this.easeInQuad), this.makeEaseInOut(this.easeInOct), this.makeEaseInOut(this.easeInCirc), this.makeEaseInOut(this.easeInBack), this.makeEaseInOut(this.easeInBounce), this.makeEaseInOut(this.easeInElastic);
-    }
-
-    _createClass(r, [{
-      key: "linear",
-      value: function linear(e) {
-        return e;
-      }
-    }, {
-      key: "easeInQuad",
-      value: function easeInQuad(e) {
-        return Math.pow(e, 2);
-      }
-    }, {
-      key: "easeInOct",
-      value: function easeInOct(e) {
-        return Math.pow(e, 4);
-      }
-    }, {
-      key: "easeInCirc",
-      value: function easeInCirc(e) {
-        return 1 - Math.sin(Math.acos(e));
-      }
-    }, {
-      key: "easeInBack",
-      value: function easeInBack(e) {
-        return Math.pow(e, 2) * (2.5 * e - 1.5);
-      }
-    }, {
-      key: "easeInBounce",
-      value: function easeInBounce(e) {
-        for (var t = 0, n = 1;; t += n, n /= 2) {
-          if (e >= (7 - 4 * t) / 11) return -Math.pow((11 - 6 * t - 11 * e) / 4, 2) + Math.pow(n, 2);
-        }
-      }
-    }, {
-      key: "easeInElastic",
-      value: function easeInElastic(e) {
-        return Math.pow(2, 10 * (e - 1)) * Math.cos(20 * Math.PI * 1.5 / 3 * e);
-      }
-    }, {
-      key: "makeEaseOut",
-      value: function makeEaseOut(e) {
-        return function (t) {
-          return 1 - e(1 - t);
-        };
-      }
-    }, {
-      key: "makeEaseInOut",
-      value: function makeEaseInOut(e) {
-        return function (t) {
-          return t < .5 ? e(2 * t) / 2 : (2 - e(2 * (1 - t))) / 2;
-        };
-      }
-    }, {
-      key: "animate",
-      value: function animate(e) {
-        var t = performance.now();requestAnimationFrame(function n(r) {
-          var i = (r - t) / e.duration;i > 1 && (i = 1);var o = e.timing(i);e.draw(o), i < 1 && requestAnimationFrame(n);
-        });
-      }
-    }]);
-
-    return r;
-  }();
-
-  t.a = r;
-}, function (e, t, n) {
-  "use strict";
   Object.defineProperty(t, "__esModule", { value: !0 });var r = n(9),
-      i = n(10);var o = n(0),
-      a = n(3),
-      s = n(4),
-      u = n(5),
-      l = n(6),
-      c = n(7),
-      f = n(8);o(document).ready(function () {
-    u(), a(), s(), c(), l(), Object(i.a)(), Object(r.a)() && Object(r.c)();
+      i = n(10),
+      o = n(11);var a = n(1),
+      s = n(3),
+      u = n(4),
+      l = n(5),
+      c = n(6),
+      f = n(7),
+      p = n(8);a(document).ready(function () {
+    l(), Object(o.a)(), s(), u(), f(), c(), Object(i.a)(), Object(r.a)() && Object(r.c)();
   }), window.addEventListener("scroll", function () {
-    var e = window.pageYOffset;f(e), Object(r.a)(e), Object(r.b)(e);
+    var e = window.pageYOffset;p(e), Object(r.a)(e), Object(r.b)(e);
   });
 }, function (e, t) {
   function n(e) {
@@ -2386,9 +2387,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     a.style.transform = "rotateY(180deg)", s.style.pointerEvents = "none", u.style.pointerEvents = "auto", a.classList.add("active");
   }function i() {
     o.addEventListener("click", function (e) {
-      e.preventDefault(), e.stopPropagation(), r();
+      e.preventDefault(), e.stopPropagation(), this.style.display = "none", r();
     }), document.addEventListener("click", function (e) {
-      !0 === a.classList.contains("active") && e.target != a && n();
+      !0 === a.classList.contains("active") && e.target != a && (n(), o.style.display = "block");
     }), a.addEventListener("click", function (e) {
       e.stopPropagation();
     }), l.addEventListener("click", function (e) {
@@ -2418,7 +2419,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }));
       });
     };
-  }).call(t, n(0));
+  }).call(t, n(1));
 }, function (e, t) {
   var n = function () {
     var e = document.querySelector(".contacts-form"),
@@ -2454,7 +2455,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     return s;
   }), n.d(t, "b", function () {
     return u;
-  });var i = n(1);var o = document.querySelector(".sidebar"),
+  });var i = n(0);var o = document.querySelector(".sidebar"),
       a = new i.a();document.body, document.documentElement;var s = function s() {
     var e = o.querySelectorAll(".post-list__link ");o.querySelectorAll(".post-list__item ");for (var t = 0; t < e.length; t++) {
       e[t].addEventListener("click", function (e) {
@@ -2499,7 +2500,33 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     s && r(), u && i();
   }n.d(t, "a", function () {
     return o;
-  });var a = n(1);var s = document.getElementById("arrow-bottom"),
+  });var a = n(0);var s = document.getElementById("arrow-bottom"),
       u = document.getElementById("arrow-up"),
       l = new a.a();
+}, function (e, t, n) {
+  "use strict";
+  function r() {
+    o && (window.addEventListener("mousemove", u), l());
+  }n.d(t, "a", function () {
+    return r;
+  });var i = n(0);var o = document.getElementById("parallax"),
+      a = o.children,
+      s = new i.a(),
+      u = function u(e) {
+    var t = window.innerWidth / 2 - e.pageX,
+        n = window.innerHeight / 2 - e.pageY;[].slice.call(a).forEach(function (e, r) {
+      var i = r / 100;var o = "translate(" + t * i + "px, " + n * i + "px)";e.style.transform = o;
+    });
+  },
+      l = function l() {
+    var e = document.querySelectorAll(".cloud");[].slice.call(e).forEach(function (t, n) {
+      s.animate({ duration: 1e5 / (e.length - n), timing: s.linear, draw: function draw(e) {
+          t.style.left = 130 * e + "%";
+        } }), setInterval(function () {
+        s.animate({ duration: 1e5 / (e.length - n), timing: s.linear, draw: function draw(e) {
+            t.style.left = 130 * e + "%";
+          } });
+      }, 1e5 / (e.length - n));
+    });
+  };
 }]);
