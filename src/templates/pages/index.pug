@@ -5,17 +5,27 @@ block variables
 
 block content
     .header-main-container
-        .parallax
-            .layer.layer1
-            .layer.layer2
-            .layer.layer3
-            .layer.layer4.cloud
-            .layer.layer5
-            .layer.layer6
-            .layer.layer7.cloud
-            .layer.layer8
-            .layer.layer9
-            .layer.layer10.cloud
+        .parallax#parallax
+            .parallax__layer
+                img(src="../../assets/images/layer5.jpg").parallax__img
+            .parallax__layer
+                img(src="../../assets/images/layer8.png").parallax__img
+            .parallax__layer
+                img(src="../../assets/images/layer7.png").parallax__img
+            .parallax__layer.cloud
+                img(src="../../assets/images/cloud-4.png").parallax__img.cloud-4
+            .parallax__layer
+                img(src="../../assets/images/layer6.png").parallax__img
+            .parallax__layer
+                img(src="../../assets/images/layer4.png").parallax__img
+            .parallax__layer.cloud
+                img(src="../../assets/images/sky.png").parallax__img.cloud-7
+            .parallax__layer
+                img(src="../../assets/images/layer2.png").parallax__img
+            .parallax__layer
+                img(src="../../assets/images/layer1.png").parallax__img
+            .parallax__layer.cloud
+                img(src="../../assets/images/clouds.png").parallax__img.cloud-10
         .header-content    
             header.header-content__top.header-content__top_main
                 a#authorization(href="#").btn.btn-autorization Авторизоваться       

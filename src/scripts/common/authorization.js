@@ -21,11 +21,14 @@ function authFlip(){
     auth.addEventListener('click', function(e){
         e.preventDefault();
         e.stopPropagation();
+        this.style.display = "none";
         flipBack();
+
     });
     document.addEventListener('click', function(e){
         if(form.classList.contains('active') === true && e.target != form){
-            flipFront(); 
+            flipFront();
+            auth.style.display = "block"; 
         }  
     });
     form.addEventListener('click', function(e){

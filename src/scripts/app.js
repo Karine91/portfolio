@@ -7,9 +7,11 @@ const blur = require('./common/blur.js');
 const parallaxPage = require('./common/parallaxPage.js');
 import {sidebarinit, spySidebarLinks, spyPostScroll} from './common/sidebarScroll.js';
 import {arrScroll} from './common/arrowScroll.js';
+import {parallaxMain} from './common/parallaxMain.js';
 
 $(document).ready(function(){
     gmap();
+    parallaxMain();
     slider();
     authFlip();
     blur();
