@@ -19,6 +19,13 @@
 }
 .parallax__img{
     max-width: 110%;
+    @include media(1260px){
+        max-width: 180%;
+    }
+    @include tablets{
+        max-width: none;
+        height: 110%;
+    }
     position: absolute;
     top: 50%;
     left:50%;
@@ -33,25 +40,29 @@
 }
  .cloud-4{
     width: 17%;
-    height: 14%;
-    left: -20%;
+    height: auto;
+    left:0;
     top: 25%;
-    transform: none;
+    transform: translateX(-100%); 
 }
 .cloud-7{
     width: 22%;
-    height: 17%;
-    left: -20%;
+    height: auto;
+    left: 0;
     top: 37%;
-    transform: none;  
+    transform: translateX(-100%); 
 }
 
 .cloud-10{
     width: 75%;
     top: auto;
-    left: -20%;
+    height: auto;
+    left: 0;
     bottom:0;
-    transform: none;  
+    transform: translateX(-100%); 
+    @include tablets{
+        width: 210%;
+    } 
 }
 .welcome{
     display: flex;

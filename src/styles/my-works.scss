@@ -27,7 +27,7 @@
 .slider{
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 70% 30%;
+    grid-template-rows: 525px 225px;
     grid-template-areas: 
     "caption view"
     "caption preview";
@@ -46,6 +46,23 @@
 }
 .slider-view, .slider-preview {
     background: #efebe0;
+}
+.slider-view{
+    list-style: none;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+.slider-view__item{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity ease 300ms;
+    overflow: hidden;
+}
+.slider-view__item.active{
+    opacity: 1;
 }
 .icon-link{
     vertical-align: middle;
@@ -70,12 +87,23 @@
 .caption{
     background: #f0efe9;
     grid-area: caption;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 .caption-wrapper{
+    position: absolute;
+    height: 100%;
+    width: 100%;
     max-width: 420px;
+    opacity: 0;
     @include tablets{
         max-width: none; 
     }
+}
+.caption-wrapper.active{
+    opacity: 1;
 }
 .caption__title{
     @include tablets{
@@ -127,6 +155,10 @@
 }
 .slider-view__image, .slider-preview__image{
     max-width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .slider-preview__link{
     position: absolute;

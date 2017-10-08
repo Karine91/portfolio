@@ -2,6 +2,7 @@ extends ../template
 
 block variables
     - var title = "Мои работы"
+    - var n = 0
 
 block content
     header.header-container    
@@ -43,25 +44,42 @@ block content
                         +bg('works_header' ,"title-bg__elem title-bg_sizeL", "common")
                     h1.heading-1.heading-1_offset-no Мои работы
     section.slider-section    
-        .slider
-            .caption
-                .caption-wrapper
-                    .caption__title 
-                        h2.heading-2 Сайт школы онлайн образования
-                    .caption__technology html, css, javascript
-                    .caption__link
-                        a(href="#").btn.caption__btn
-                            +icon('link' ,"", "works")
-                            | Посмотреть сайт  
-            .slider-view
-                img(src="userfiles/work-1.png").slider-view__image
+        #slider.slider
+            ul.caption
+                - for (var y = 1; y < 5; y++)
+                    if (y == 1)
+                        li.caption-wrapper.active
+                            .caption__title 
+                                h2.heading-2 Сайт школы онлайн образования #{y}
+                            .caption__technology html, css, javascript
+                            .caption__link
+                                a(href="#").btn.caption__btn
+                                    +icon('link' ,"", "works")
+                                    | Посмотреть сайт
+                    else
+                        li.caption-wrapper   
+                            .caption__title 
+                                h2.heading-2 Сайт школы онлайн образования #{y}
+                            .caption__technology html, css, javascript
+                            .caption__link
+                                a(href="#").btn.caption__btn
+                                    +icon('link' ,"", "works")
+                                    | Посмотреть сайт
+            ul.slider-view
+                - for (var x = 1; x < 5; x++)
+                    if (x == 1)
+                        li.slider-view__item.active
+                            img(src="userfiles/work-"+ x + ".png").slider-view__image
+                    else
+                        li.slider-view__item
+                            img(src="userfiles/work-"+ x + ".png").slider-view__image
             .slider-preview
                 .slider-preview__element.slide-prev
-                    img(src="userfiles/work-2.png").slider-preview__image
+                    img(src="userfiles/work-4.png").slider-preview__image
                     a(href="#").slider-preview__link.slider-preview__link_prev
                         +icon('portf_arrow_down' ,"slider-preview__icon", "works")
-                .slider-preview__element
-                    img(src="userfiles/work-3.png").slider-preview__image
+                .slider-preview__element.slide-next
+                    img(src="userfiles/work-2.png").slider-preview__image
                     a(href="#").slider-preview__link.slider-preview__link_next
                         +icon('portf_arrow_up' ,"slider-preview__icon", "works")
 

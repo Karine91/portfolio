@@ -1,12 +1,12 @@
-const parallaxContainer = document.getElementById('parallax');
-const layers = parallaxContainer.children;
+
 import Timing from './timing';
 const my_timing = new Timing();
 
 const moveLayers = e => {
     const initX = (window.innerWidth / 2) - e.pageX;
     const initY = (window.innerHeight / 2) - e.pageY;
-
+    let parallaxContainer = document.getElementById('parallax');
+    const layers = parallaxContainer.children;
     [].slice.call(layers).forEach((layer, i) => {
         const divider = i / 100;
         const positionX = initX * divider;
@@ -25,7 +25,7 @@ const moveClouds = () => {
             duration: interval / (clouds.length - i),
             timing: my_timing.linear,
             draw: function (progress) {
-                cloud.style.left = progress * 130 + '%';
+                cloud.style.left = progress * 200 + '%';
             },
         });
         setInterval(() => {
@@ -33,7 +33,7 @@ const moveClouds = () => {
                 duration: interval / (clouds.length - i),
                 timing: my_timing.linear,
                 draw: function (progress) {
-                    cloud.style.left = progress * 130 + '%';
+                    cloud.style.left = progress * 200 + '%';
                 },
             });
         }, interval / (clouds.length - i));
@@ -43,6 +43,7 @@ const moveClouds = () => {
 
 
 function init() {
+    let parallaxContainer = document.getElementById('parallax');
     if (parallaxContainer) {
         window.addEventListener('mousemove', moveLayers);
         moveClouds();

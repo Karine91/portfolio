@@ -38,6 +38,7 @@ function authFlip(){
         e.preventDefault();
         e.stopPropagation();
         flipFront();
+        auth.style.display = "block"; 
     });
     
 }
