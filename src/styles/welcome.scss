@@ -20,7 +20,7 @@
 .parallax__img{
     max-width: 110%;
     @include media(1260px){
-        max-width: 180%;
+        max-width: 200%;
     }
     @include tablets{
         max-width: none;

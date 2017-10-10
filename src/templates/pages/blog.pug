@@ -39,12 +39,14 @@ block content
                 </svg>
     section.blog
         aside.sidebar
+            a(href="#").sidebar__menu-btn
             ul.post-list
                 li.post-list__item.active: a(href="#post1").post-list__link Самое важное в SASS
                 li.post-list__item: a(href="#post2").post-list__link Приёмы в вёрстке, без которых  не обходится ни один сайт
                 li.post-list__item: a(href="#post3").post-list__link Почему я выбрал Jade
                 li.post-list__item: a(href="#post4").post-list__link Самый необходимый набор Gulp плагинов
                 li.post-list__item: a(href="#post5").post-list__link Бла-бла-бла пост
+
         section.section-content.post-content
             article.post#post1
                 .post__name Самое важное в SASS

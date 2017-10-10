@@ -17,7 +17,33 @@
   position: absolute;
   top:0;
   left:0;
-
+@include tablets{
+    width: 90%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left:0;
+    z-index: 35;
+    box-shadow: 3px 0px 3px 0px rgba(#000, .2);
+    transform: translateX(-100%);
+    transition: transform .6s ease;
+}
+}
+.sidebar__menu-btn{
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    z-index: -1;
+    box-shadow: 3px 0px 3px 0px rgba(#000, .2);
+    width: 16px;
+    height: 44px;
+    margin-top: -22px;
+    background-color: $green;
+}
+.sidebar.open{
+    transform: translateX(0);
 }
 .sidebar_sticky{
     position: fixed;
@@ -26,13 +52,28 @@
 }
 .post-list{
  list-style: none;
+ margin:0;
+ @include tablets{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: $green;
+    z-index: 36;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+ }
 }
 .post-list__item{
- margin-bottom: 20px;   
+ margin-bottom: 20px;
+    
 }
 .post-list__item.active .post-list__link{
     color: $green;
     border-right: 3px solid $green;
+    @include tablets{
+        color: rgba(#fff, 1);
+     }
 }
 
 .post-list__link{
@@ -43,12 +84,25 @@
     text-decoration: none;
     line-height: 1.6;
     border-right: 3px solid transparent;
+    transition: color ease .3s;
+    @include tablets{
+        color: rgba(#fff, .7);
+        margin-right: 20px;
+        padding-right: 0;
+        &:hover{
+            color: rgba(#fff, 1);
+        }
+     }
 }
 .post-content{
     text-align: left;
     flex-direction: column;
     margin-left: 390px;
     padding-left: 120px;
+    @include tablets{
+        margin-left: 0;
+        padding: 0 30px;
+    }
 }
 .post{
     &:after{
@@ -69,6 +123,7 @@
     color: $gray;
     @include tablets{
         margin-bottom: 10px;
+        margin-top: 0;
     } 
 }
 .post__date{
