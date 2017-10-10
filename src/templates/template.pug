@@ -22,6 +22,14 @@ html(lang="ru")
         block head
         script(src="assets/scripts/bundle.js" defer)
     body
+        #preloader.preloader
+            .loader
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="144px" height="144px" viewBox="0 0 144 144" enable-background="new 0 0 144 144" xml:space="preserve">
+                <circle class="preload-circle-1" opacity="0.4" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-miterlimit="10" enable-background="new    " cx="72" cy="71.999" r="70"/>
+                <circle class="preload-circle-2" opacity="0.7" fill="none" stroke="#FFFFFF" stroke-width="3.8938" stroke-miterlimit="10" enable-background="new    " cx="72" cy="72" r="55"/>
+                <circle class="preload-circle-3" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-miterlimit="10" cx="72" cy="72" r="40"/>
+                <text x="50%" y="50%" dy="5%" fill="#FFFFFF" font-family="'ArialMT'" font-size="24" text-anchor="middle" id="load_perc">0</text>
+                </svg>
         block content
         block footer
             include common/footer.pug

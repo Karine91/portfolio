@@ -214,4 +214,31 @@ h3{
     justify-content: center;
     align-items: center; 
 }
+.preloader{
+    position: fixed;
+    top: 0;
+    left:0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    background-image: url(../images/bg-preloader.jpg);
+    background-color: $green;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: 1s all ease;
+    visibility: visible;
+}
+[class^="preload-circle-"]{
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+}
+
+.preloader_done{
+    opacity: 0;
+    visibility: hidden;
+}
 

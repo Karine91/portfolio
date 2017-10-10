@@ -18,11 +18,11 @@ const moveLayers = e => {
 
 const moveClouds = () => {
     const clouds = document.querySelectorAll('.cloud');
-    const interval = 100000;
-
+    const clouds2 = document.querySelectorAll('.cloud-group-2 ');
+    const interval = 50000;
     [].slice.call(clouds).forEach((cloud, i) => {
         my_timing.animate({
-            duration: interval / (clouds.length - i),
+            duration: interval,
             timing: my_timing.linear,
             draw: function (progress) {
                 cloud.style.left = progress * 200 + '%';
@@ -30,13 +30,33 @@ const moveClouds = () => {
         });
         setInterval(() => {
             my_timing.animate({
-                duration: interval / (clouds.length - i),
+                duration: interval,
                 timing: my_timing.linear,
                 draw: function (progress) {
                     cloud.style.left = progress * 200 + '%';
                 },
             });
-        }, interval / (clouds.length - i));
+        }, interval + (i+1)*500);
+    });
+    [].slice.call(clouds2).forEach((cloud, i) => {
+        setTimeout(()=>{
+            my_timing.animate({
+                duration: interval,
+                timing: my_timing.linear,
+                draw: function (progress) {
+                    cloud.style.left = progress * 200 + '%';
+                },
+            });
+            setInterval(() => {
+                my_timing.animate({
+                    duration: interval,
+                    timing: my_timing.linear,
+                    draw: function (progress) {
+                        cloud.style.left = progress * 200 + '%';
+                    },
+                });
+            }, interval + (i+1)*500);
+        }, 25000);       
     });
 
 };
