@@ -57,7 +57,7 @@
 
 .about-me{
     position: relative;
-    min-height: 100vh;
+    height: calc(100vh + 175px);
 }
 .about-left-content{
     background-color: #efeee9;

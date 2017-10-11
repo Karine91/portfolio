@@ -111,6 +111,11 @@ h3{
     &:after{
         right: 0;
     }
+    @include tablets{
+        &:after, &:before {
+        margin: .5em 0;
+        }
+    }
 }
 .heading-2_margin-top_no{
     margin-top: 0;
@@ -236,10 +241,24 @@ h3{
     transform: rotate(-90deg);
     transform-origin: 50% 50%;
 }
+.preload-circle-1{
+    transform: rotate(-130deg); 
+}
+.preload-circle-2{
+    transform: rotate(-110deg);
+}
 
 .preloader_done{
     opacity: 0;
     visibility: hidden;
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .popup-wrapper{
@@ -259,6 +278,7 @@ h3{
 
 .popup{
     padding:50px 30px;
+    max-width: 90%;
     background-color: #fff;
     position: relative;
     overflow: hidden;

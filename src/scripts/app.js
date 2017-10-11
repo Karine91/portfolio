@@ -10,6 +10,7 @@ import {sidebarinit, spySidebarLinks, spyPostScroll, sidebarMenu} from './common
 import {arrScroll} from './common/arrowScroll.js';
 import {parallaxMain} from './common/parallaxMain.js';
 import {ajaxValidate} from './common/validation.js';
+const skillAnimate = require('./common/skills.js');
 
 $(document).ready(function(){
     preloader();
@@ -31,4 +32,5 @@ window.addEventListener('scroll', () =>{
     parallaxPage(wScroll);
     sidebarinit(wScroll);
     spyPostScroll(wScroll);
+    skillAnimate();
 });
