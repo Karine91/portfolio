@@ -75,7 +75,7 @@
                     <h2 class="heading-2 heading-2_offset-no">Авторизуйтесь</h2>
                   </div>
                   <div class="form">
-                    <form action="">
+                    <form action="" name="form_auth">
                       <div class="form__field">
                         <label class="form__label">
                           <svg class="form__icon icon icon-login " width="30" height="25">
@@ -108,14 +108,14 @@
                         <div class="comfim__radio">
                           <div class="radio-group">
                             <div class="radio">
-                              <input class="form_radio" type="radio" name="comfim_robot" value="1" id="no-robot">
+                              <input class="form_radio" type="radio" name="confim_robot" value="1" id="no-robot">
                               <label class="radio__label" for="no-robot"></label>
                               <label class="form-label_text" for="no-robot">Да</label>
                             </div>
                           </div>
                           <div class="radio-group">
                             <div class="radio">
-                              <input class="form_radio" type="radio" name="comfim_robot" value="0" id="robot">
+                              <input class="form_radio" type="radio" name="confim_robot" value="0" id="robot">
                               <label class="radio__label" for="robot"></label>
                               <label class="form-label_text" for="robot">Не уверен</label>
                             </div>
@@ -128,7 +128,7 @@
                 <ul class="navigation">
                   <li class="navigation__item"><a class="navigation__link" id="onmain" href="#">На главную</a></li>
                   <li class="navigation__item">
-                    <button class="navigation__link form-btn" type="submit">Войти</button>
+                    <button class="navigation__link form-btn" type="submit" id="submitAuth">Войти</button>
                   </li>
                 </ul>
               </div>
@@ -138,6 +138,11 @@
             <div class="copyright">© Каринэ Гюлумян | создано с любовью в LoftSchool | 2017</div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="popup-wrapper">
+      <div class="popup"><a class="popup__close" href="#"><svg width="15" height="15" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1490 1322q0 40-28 68l-136 136q-28 28-68 28t-68-28l-294-294-294 294q-28 28-68 28t-68-28l-136-136q-28-28-28-68t28-68l294-294-294-294q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294 294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68l-294 294 294 294q28 28 28 68z"/></svg></a>
+        <div class="popup__message">   </div>
       </div>
     </div>
   </body>
