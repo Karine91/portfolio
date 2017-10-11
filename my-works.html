@@ -173,7 +173,7 @@
             <li class="review__item">
               <div class="review__quote-icon icon-quote-left"></div>
               <div class="review__text">
-                <p>Этот код выдержит любые испытания. Только пожалуйста, не загружается сайт на слишком старых браузерах!</p>
+                <p>Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах!</p>
               </div>
               <div class="author">
                 <div class="author__picture"><img class="author__image" src="userfiles/author2.jpg"></div>
@@ -193,24 +193,25 @@
                 <h2 class="heading-2">Связаться со мной</h2>
               </div>
               <div class="form">
-                <form action=""></form>
-                <div class="form__field">
-                  <input class="form__input form__input_no-icon" type="text" name="login" placeholder="Имя">
-                </div>
-                <div class="form__field">
-                  <input class="form__input form__input_no-icon" type="email" name="email" placeholder="Email">
-                </div>
-                <div class="form__field">
-                  <textarea class="form__input form__input_no-icon form__input_textarea" name="message" placeholder="Ваше сообщение"></textarea>
-                </div>
+                <form action="" name="contact_form">
+                  <div class="form__field">
+                    <input class="form__input form__input_no-icon" type="text" name="name" placeholder="Имя">
+                  </div>
+                  <div class="form__field">
+                    <input class="form__input form__input_no-icon" type="email" name="email" placeholder="Email">
+                  </div>
+                  <div class="form__field">
+                    <textarea class="form__input form__input_no-icon form__input_textarea" name="message" placeholder="Ваше сообщение"></textarea>
+                  </div>
+                </form>
               </div>
             </div>
             <ul class="navigation navigation_contact-form">
               <li class="navigation__item">
-                <button class="navigation__link form-btn" type="submit">Отправить</button>
+                <button class="navigation__link form-btn" id="btnSubmit">Отправить</button>
               </li>
               <li class="navigation__item">
-                <button class="navigation__link form-btn" type="reset">Очистить</button>
+                <button class="navigation__link form-btn" id="btnReset">Очистить</button>
               </li>
             </ul>
           </div>
@@ -261,7 +262,7 @@
       </ul>
     </div>
     <div class="popup-wrapper">
-      <div class="popup"><a class="popup__close" href="#"><svg width="15" height="15" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1490 1322q0 40-28 68l-136 136q-28 28-68 28t-68-28l-294-294-294 294q-28 28-68 28t-68-28l-136-136q-28-28-28-68t28-68l294-294-294-294q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294 294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68l-294 294 294 294q28 28 28 68z"/></svg></a>
+      <div class="popup"><a class="popup__close" href="#"><svg width="15" height="15" class="popup__close-icon" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1490 1322q0 40-28 68l-136 136q-28 28-68 28t-68-28l-294-294-294 294q-28 28-68 28t-68-28l-136-136q-28-28-28-68t28-68l294-294-294-294q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294 294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68l-294 294 294 294q28 28 28 68z"/></svg></a>
         <div class="popup__message">   </div>
       </div>
     </div>
