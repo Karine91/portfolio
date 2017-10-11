@@ -283,6 +283,7 @@
     padding-left: 65px;
     padding-right: 20px;
     background-color: #fff;
+    border: 1px solid transparent;
     &:focus{
         outline: none;
         border: 1px solid rgba($green, .35);
@@ -413,4 +414,7 @@ input[type=checkbox], input[type=radio] {
 }
 .form__input:focus::-webkit-input-placeholder{
     color: transparent;
+}
+.form__input_error, .form__input_error:focus {
+    border: 1px solid rgba(red, .35);
 }

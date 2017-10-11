@@ -105,7 +105,7 @@ block content
                     li.review__item
                         .review__quote-icon.icon-quote-left
                         .review__text
-                            p Этот код выдержит любые испытания. Только пожалуйста, не загружается сайт на слишком старых браузерах!
+                            p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах!
                         .author
                             .author__picture
                                 img(src="userfiles/author2.jpg").author__image
@@ -119,16 +119,16 @@ block content
                         .contact-form__title     
                             h2.heading-2 Связаться со мной
                         .form
-                            form(action="")
-                            .form__field
-                                input(type="text", name="login" placeholder="Имя").form__input.form__input_no-icon
-                            .form__field
-                                input(type="email", name="email" placeholder="Email").form__input.form__input_no-icon
-                            .form__field
-                                textarea(name="message" placeholder="Ваше сообщение").form__input.form__input_no-icon.form__input_textarea
+                            form(action="" name="contact_form")
+                                .form__field
+                                    input(type="text", name="name" placeholder="Имя").form__input.form__input_no-icon
+                                .form__field
+                                    input(type="email", name="email" placeholder="Email").form__input.form__input_no-icon
+                                .form__field
+                                    textarea(name="message" placeholder="Ваше сообщение").form__input.form__input_no-icon.form__input_textarea
                     ul.navigation.navigation_contact-form
-                        li.navigation__item: button(type="submit").navigation__link.form-btn Отправить
-                        li.navigation__item: button(type="reset").navigation__link.form-btn Очистить
+                        li.navigation__item: button#btnSubmit.navigation__link.form-btn Отправить
+                        li.navigation__item: button#btnReset.navigation__link.form-btn Очистить
             .arrow-up
                 a#arrow-up(href="#"): +icon('arrow_down' ,"arrow arrow-up__icon", "base")
 block footer

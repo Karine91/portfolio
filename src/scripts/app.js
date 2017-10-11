@@ -1,7 +1,7 @@
 const $ = require('jquery');
 const slider = require('./common/slider');
 import {preloader} from './common/preloader';
-const authFlip = require('./common/authorization');
+const forms = require('./common/forms');
 const gmap = require('./common/gmaps.js');
 const menu = require('./common/menu.js');
 const blur = require('./common/blur.js');
@@ -16,7 +16,7 @@ $(document).ready(function(){
     gmap();
     parallaxMain();
     slider();
-    authFlip();
+    forms();
     blur();
     menu();
     arrScroll();

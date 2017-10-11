@@ -243,7 +243,7 @@ h3{
 }
 
 .popup-wrapper{
-    position: absolute;
+    position: fixed;
     top: 0;
     left:0;
     width: 100%;
@@ -264,6 +264,8 @@ h3{
     overflow: hidden;
     border-radius: 5px;
     font-size: 18px;
+    box-shadow: 5px 5px 5px 0 rgba(#000, .5);
+    border: 2px solid rgba(0, 191, 165, 0.26);
 }
 .popup-wrapper.show{
     opacity: 1;
@@ -276,12 +278,16 @@ h3{
     width:25px;
     height: 25px;
     border-radius: 50%;
-    border: 2px solid rgba($green, .5);
+    border: 2px solid $green;
     transition: all ease .3s;
+    background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     &:hover{
-        border-color: rgba($green, 1);
+       background-color: $green;
     }
+}
+.popup__close-icon:hover{
+ fill: #fff;
 }
