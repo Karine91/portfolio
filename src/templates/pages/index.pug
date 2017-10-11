@@ -58,7 +58,7 @@ block content
                                 .welcome-form__title
                                     h2.heading-2.heading-2_offset-no Авторизуйтесь
                                 .form
-                                    form(action="")
+                                    form(action="" name="form_auth")
                                         .form__field
                                             label.form__label
                                                 +icon('login' ,"", "form")
@@ -78,17 +78,17 @@ block content
                                             .comfim__radio
                                                 .radio-group
                                                     .radio
-                                                        input.form_radio(type="radio" name="comfim_robot" value="1" id="no-robot")
+                                                        input.form_radio(type="radio" name="confim_robot" value="1" id="no-robot")
                                                         label(for="no-robot").radio__label
                                                         label(for="no-robot").form-label_text Да
                                                 .radio-group
                                                     .radio
-                                                        input.form_radio(type="radio" name="comfim_robot" value="0" id="robot")
+                                                        input.form_radio(type="radio" name="confim_robot" value="0" id="robot")
                                                         label(for="robot").radio__label
                                                         label(for="robot").form-label_text Не уверен
                             ul.navigation
                                 li.navigation__item: a#onmain(href="#").navigation__link На главную
-                                li.navigation__item: button(type="submit").navigation__link.form-btn Войти
+                                li.navigation__item: button(type="submit")#submitAuth.navigation__link.form-btn Войти
                                             
                 .welcome__bottom
                     .copyright © Каринэ Гюлумян | создано с любовью в LoftSchool | 2017

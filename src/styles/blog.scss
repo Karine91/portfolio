@@ -30,7 +30,7 @@
 }
 }
 .sidebar__menu-btn{
-    display: block;
+    display: none;
     border-radius: 50%;
     position: absolute;
     right: -8px;
@@ -41,6 +41,9 @@
     height: 44px;
     margin-top: -22px;
     background-color: $green;
+    @include tablets{
+        display: block;
+    }
 }
 .sidebar.open{
     transform: translateX(0);
@@ -64,6 +67,7 @@
     flex-direction: column;
  }
 }
+
 .post-list__item{
  margin-bottom: 20px;
     
@@ -99,6 +103,7 @@
     flex-direction: column;
     margin-left: 390px;
     padding-left: 120px;
+    background: #fff;
     @include tablets{
         margin-left: 0;
         padding: 0 30px;
@@ -112,7 +117,9 @@
         height: 5px;
         margin: 70px 0;
         background-color: rgba($darkgray, .07); 
-
+        @include mobile{
+            margin: 30px 0;
+        } 
     }
 }
 .post__name{

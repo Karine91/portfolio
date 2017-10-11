@@ -58,6 +58,9 @@ var spySidebarPosition = function (winScroll) {
         sidebar.classList.add('sidebar_sticky');
     } else {
         sidebar.classList.remove('sidebar_sticky');
+        if(sidebar.classList.contains('open')){
+            sidebar.classList.remove('open');
+        }
     }
 };
 var touchstartX = 0;
@@ -68,7 +71,14 @@ var touchendY = 0;
 var menu = function(){
     sidebar_menu_btn.addEventListener('click', function(e){
         e.preventDefault();
-        sidebar.classList.toggle('open');
+        //sidebar.classList.toggle('open');
+        if(sidebar.classList.contains('open')){
+            console.log('open');
+            sidebar.classList.remove('open');
+        }else{
+            sidebar.classList.add('open');
+            console.log('close'); 
+        }
     });
   
     sidebar.addEventListener('touchstart', handleTouchStart, false);        
@@ -117,7 +127,6 @@ function handleTouchMove(evt) {
 function init(scroll) {
     if (sidebar) {
         spySidebarPosition(scroll);
-        menu();
         return true;
     }
 }
@@ -126,4 +135,5 @@ export {
     init as sidebarinit,
     spySidebarLinks as spySidebarLinks,
     spyPostScroll as spyPostScroll,
+    menu as sidebarMenu,
 };

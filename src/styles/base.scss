@@ -242,3 +242,46 @@ h3{
     visibility: hidden;
 }
 
+.popup-wrapper{
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(#000, .5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease;
+}
+
+.popup{
+    padding:50px 30px;
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    font-size: 18px;
+}
+.popup-wrapper.show{
+    opacity: 1;
+    visibility: visible;
+}
+.popup__close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width:25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid rgba($green, .5);
+    transition: all ease .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover{
+        border-color: rgba($green, 1);
+    }
+}

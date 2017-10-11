@@ -16,6 +16,12 @@ function flipBack(){
     back.style.pointerEvents = "auto";
     form.classList.add('active');
 }
+function flipBackOnClick(e){
+    if(form.classList.contains('active') === true && e.target != form){
+        flipFront();
+        auth.style.display = "block"; 
+    }  
+}
 function authFlip(){
 
     auth.addEventListener('click', function(e){
@@ -25,12 +31,8 @@ function authFlip(){
         flipBack();
 
     });
-    document.addEventListener('click', function(e){
-        if(form.classList.contains('active') === true && e.target != form){
-            flipFront();
-            auth.style.display = "block"; 
-        }  
-    });
+
+    document.addEventListener('click', flipBackOnClick);
     form.addEventListener('click', function(e){
         e.stopPropagation();
     });
@@ -42,9 +44,38 @@ function authFlip(){
     });
     
 }
+function authValidate(){
+    let form = document.forms['form_auth'];
+    let login = form.login.value;
+    let password = form['password'].value;
+    let robot = form['no_robot'].value;
+    let confim_robot = form['confim_robot'].value;
+    let popupTxt = document.querySelector('.popup__message');
+    let popupWrap = document.querySelector('.popup-wrapper');
+    let popupClose = document.querySelector('.popup__close');
+    const btnSubmit = document.getElementById('submitAuth');
+    btnSubmit.addEventListener('click', function(e){
+        e.preventDefault();
+        if(!login){
+            popupWrap.classList.add('show');
+            popupTxt.innerHTML = "Заполните пожалуйста поле";
+            document.removeEventListener('click', flipBackOnClick);
+        }
+    });
+   
+    popupClose.addEventListener('click', function(e){
+        e.preventDefault();
+        popupWrap.classList.remove('show');
+        setTimeout(function(){
+            document.addEventListener('click', flipBackOnClick);
+        }, 500);
+    });
+}
+
 function initFlipAuth(){
     if(auth){
         authFlip();
+        authValidate();
     }
 }
 

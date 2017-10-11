@@ -6,9 +6,10 @@ const gmap = require('./common/gmaps.js');
 const menu = require('./common/menu.js');
 const blur = require('./common/blur.js');
 const parallaxPage = require('./common/parallaxPage.js');
-import {sidebarinit, spySidebarLinks, spyPostScroll} from './common/sidebarScroll.js';
+import {sidebarinit, spySidebarLinks, spyPostScroll, sidebarMenu} from './common/sidebarScroll.js';
 import {arrScroll} from './common/arrowScroll.js';
 import {parallaxMain} from './common/parallaxMain.js';
+import {ajaxValidate} from './common/validation.js';
 
 $(document).ready(function(){
     preloader();
@@ -21,6 +22,7 @@ $(document).ready(function(){
     arrScroll();
     if(sidebarinit()){
         spySidebarLinks();
+        sidebarMenu();
     }  
 });
 

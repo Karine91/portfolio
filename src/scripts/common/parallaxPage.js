@@ -11,9 +11,11 @@ function move(block, windowScroll, strafeAmount){
     style.webkitTransform = transformString;
 }   
 function init(wScroll){
-    move(bg, wScroll, 45);
-    move(user, wScroll, 3);
-    move(title, wScroll, 20);
+    if(user){
+        move(bg, wScroll, 45);
+        move(user, wScroll, 3);
+        move(title, wScroll, 20);
+    }  
 }
 
 module.exports = init;
