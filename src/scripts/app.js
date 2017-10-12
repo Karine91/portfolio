@@ -1,9 +1,9 @@
 const $ = require('jquery');
-const slider = require('./common/slider');
+import {sliderInit} from './common/slider';
 import {preloader} from './common/preloader';
 const forms = require('./common/forms');
 const gmap = require('./common/gmaps.js');
-const menu = require('./common/menu.js');
+import {initMenu}  from './common/menu.js';
 const blur = require('./common/blur.js');
 const parallaxPage = require('./common/parallaxPage.js');
 import {sidebarinit, spySidebarLinks, spyPostScroll, sidebarMenu} from './common/sidebarScroll.js';
@@ -16,10 +16,10 @@ $(document).ready(function(){
     preloader();
     gmap();
     parallaxMain();
-    slider();
+    sliderInit();
     forms();
     blur();
-    menu();
+    initMenu();
     arrScroll();
     if(sidebarinit()){
         spySidebarLinks();

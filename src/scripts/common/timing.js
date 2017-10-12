@@ -6,12 +6,14 @@ export default class Timing{
         this.easeOutBack = this.makeEaseOut(this.easeInBack);
         this.easeOutBounce = this.makeEaseOut(this.easeInBounce);
         this.easeOutElastic = this.makeEaseOut(this.easeInElastic);
-        var easeInOutQuad = this.makeEaseInOut(this.easeInQuad);
-        var easeInOutOct = this.makeEaseInOut(this.easeInOct);
-        var easeInOutCirc = this.makeEaseInOut(this.easeInCirc);
-        var easeInOutBack = this.makeEaseInOut(this.easeInBack);
-        var easeInOutBounce = this.makeEaseInOut(this.easeInBounce);
-        var easeInOutElastic = this.makeEaseInOut(this.easeInElastic);
+        this.easeInOutQuad = this.makeEaseInOut(this.easeInQuad);
+        this.easeInOutOct = this.makeEaseInOut(this.easeInOct);
+        this.easeInOutCirc = this.makeEaseInOut(this.easeInCirc);
+        this.easeInOutBack = this.makeEaseInOut(this.easeInBack);
+        this.easeInOutBounce = this.makeEaseInOut(this.easeInBounce);
+        this.easeInOutElastic = this.makeEaseInOut(this.easeInElastic);
+        this.idAnimate = 1;
+        
     }
     linear(timeFraction) {
         return timeFraction;
@@ -55,7 +57,7 @@ export default class Timing{
     }
     animate(options) {
         let start = performance.now();
-        requestAnimationFrame(function animate(time) {
+        let idAnimate = requestAnimationFrame(function animate(time) {
             // timeFraction от 0 до 1
             let timeFraction = (time - start) / options.duration;
             if (timeFraction > 1) timeFraction = 1;
@@ -63,8 +65,16 @@ export default class Timing{
             let progress = options.timing(timeFraction);
             options.draw(progress);
             if (timeFraction < 1) {
-                requestAnimationFrame(animate);
+                idAnimate = requestAnimationFrame(animate);
+            }else{
+                if(options.callback){
+                    options.callback();
+                }
             }
         });
+        this.idAnimate = idAnimate;
+    }
+    stopAnimate(){
+        cancelAnimationFrame(this.idAnimate);
     }
 }

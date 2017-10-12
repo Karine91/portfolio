@@ -71,13 +71,10 @@ var touchendY = 0;
 var menu = function(){
     sidebar_menu_btn.addEventListener('click', function(e){
         e.preventDefault();
-        //sidebar.classList.toggle('open');
         if(sidebar.classList.contains('open')){
-            console.log('open');
             sidebar.classList.remove('open');
         }else{
             sidebar.classList.add('open');
-            console.log('close'); 
         }
     });
   
