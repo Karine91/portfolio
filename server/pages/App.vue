@@ -1,6 +1,11 @@
-<template>
-  <div id="app">
-  </div>
+<template lang="pug">
+  #app
+    .header
+      app-header
+    .tabs
+      app-tabs
+    .content
+      router-view
 </template>
 
 <script>
@@ -11,7 +16,9 @@ export default {
 
   }),
   components: {
- 
+    appHeader: require('./components/header'),
+    appTabs: require('./components/tabs')
   }
 }
 </script>
+<style lang="scss" src="./app.scss"></style>

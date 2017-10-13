@@ -1,0 +1,19 @@
+.about{
+    display: flex;
+    flex-direction: column;
+}
+.about-content{
+    display: flex;
+    flex-wrap: wrap;
+}
+.skills-list{
+    width: 40%;
+    margin-right: 10%;
+    margin-bottom: 50px;
+    }
+.svg{
+    width: 30px;
+    height: 30px;
+    background: svg('~img/login.svg', '#ccc');
+    background-size: 100%;
+}
