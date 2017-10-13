@@ -3,8 +3,8 @@ import Timing from './timing';
 const my_timing = new Timing();
 
 const moveLayers = e => {
-    const initX = (window.innerWidth / 2) - e.pageX;
-    const initY = (window.innerHeight / 2) - e.pageY;
+    const initX = window.innerWidth / 2 - e.pageX;
+    const initY = window.innerHeight / 2 - e.pageY;
     let parallaxContainer = document.getElementById('parallax');
     const layers = parallaxContainer.children;
     [].slice.call(layers).forEach((layer, i) => {
@@ -36,10 +36,10 @@ const moveClouds = () => {
                     cloud.style.left = progress * 200 + '%';
                 },
             });
-        }, interval + (i+1)*500);
+        }, interval + (i + 1) * 500);
     });
     [].slice.call(clouds2).forEach((cloud, i) => {
-        setTimeout(()=>{
+        setTimeout(() => {
             my_timing.animate({
                 duration: interval,
                 timing: my_timing.linear,
@@ -55,12 +55,10 @@ const moveClouds = () => {
                         cloud.style.left = progress * 200 + '%';
                     },
                 });
-            }, interval + (i+1)*500);
-        }, 25000);       
+            }, interval + (i + 1) * 500);
+        }, 25000);
     });
-
 };
-
 
 function init() {
     let parallaxContainer = document.getElementById('parallax');

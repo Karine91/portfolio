@@ -25,7 +25,7 @@ var initMenu = () => {
                 });
             }
             let menuListArray = [].slice.call(menuList);
-            menuListArray.forEach(function(element) {
+            menuListArray.forEach(function (element) {
                 element.style.opacity = 0;
             });
             let index = 0;
@@ -36,13 +36,13 @@ var initMenu = () => {
                         duration: 1000,
                         timing: my_timing.easeInBounce,
                         draw: function (progress) {
-                            item.style.opacity = 1*progress;
-                            if(!menu.classList.contains('open')){
-                                my_timing.stopAnimate();  
+                            item.style.opacity = 1 * progress;
+                            if (!menu.classList.contains('open')) {
+                                my_timing.stopAnimate();
                             }
                         },
                     });
-                    
+
                     index++;
                     setTimeout(each, 200);
                 }
@@ -50,12 +50,8 @@ var initMenu = () => {
             setTimeout(function () {
                 each();
             }, 1100);
-
         });
     }
 };
 
-
-export{
-    initMenu as initMenu ,
-};
+export { initMenu };

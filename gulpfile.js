@@ -50,6 +50,10 @@ const paths = {
         src: 'src/fonts/',
         dest: 'build/assets/fonts/'  
     },
+    admin:{
+        src: 'src/admin/',
+        dest: 'build/admin/' 
+    }
 
 }
 

@@ -1,7 +1,7 @@
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
 
-const config={
+const config = {
     output: {
         filename: 'bundle.js'
     },
@@ -10,10 +10,16 @@ const config={
             {
                 test: /\.js$/,
                 enforce: "pre",
-                loader: "eslint-loader",
-                options: {
-                    fix: true,
-                },
+                use: [
+                    {
+                        loader: 'eslint-loader',
+                        options: {
+                            fix: true,
+                        },
+                    },
+                    {   loader: 'babel-loader' },
+                ],
+                exclude: /node_modules/,
             },
         ]
     },
@@ -24,8 +30,9 @@ const config={
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',
-        }) 
+        })
     ]
 };
+
 
 module.exports = config;
