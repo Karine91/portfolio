@@ -1,11 +1,10 @@
-var path = require('path')
-var webpack = require('webpack')
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+var path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
   entry: {
-    entry: './pages/main.js',
-    styles: './pages/stylesheets/index.js'
+    entry: './admin/main.js',
+    styles: './admin/stylesheets/index.js'
 },
   output: {
     path: path.resolve(__dirname, './dist'),
@@ -28,12 +27,16 @@ module.exports = {
             loader: 'sass-resources-loader',
             options: {
               resources:[
-                './pages/stylesheets/variables.scss',
-                './pages/stylesheets/mixins.scss',
+                './admin/stylesheets/variables.scss',
+                './admin/stylesheets/mixins.scss',
               ]
             }
           }
         ],
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'file-loader?name=fonts/[name].[ext]'
       },
       {
         test: /\.vue$/,
@@ -53,8 +56,8 @@ module.exports = {
                 loader: 'sass-resources-loader',
                 options: {
                   resources:[
-                    './pages/stylesheets/variables.scss',
-                    './pages/stylesheets/mixins.scss',
+                    './admin/stylesheets/variables.scss',
+                    './admin/stylesheets/mixins.scss',
                   ]
                 }
               }
@@ -87,19 +90,10 @@ module.exports = {
      
     ]
   },
-  plugins:[
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
-      Tether: 'tether',
-      Popper: ['popper.js', 'default']
-    })
-  ],
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      'img': path.resolve(__dirname, 'pages/assets/img'),
+      'img': path.resolve(__dirname, 'admin/assets/img'),
 
     },
     extensions: ['.js', '.vue']
