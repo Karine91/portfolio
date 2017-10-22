@@ -1,4 +1,3 @@
-const $ = require('jquery');
 import { sliderInit } from './common/slider';
 import { preloader } from './common/preloader';
 const forms = require('./common/forms');
@@ -13,7 +12,7 @@ import { ajaxValidate } from './common/validation.js';
 const skillAnimate = require('./common/skills.js');
 
 
-$(document).ready(function () {
+document.addEventListener('DOMContentLoaded', function(){
     preloader();
     gmap();
     parallaxMain();

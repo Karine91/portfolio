@@ -2,7 +2,7 @@ var blur = function () {
     var wrapper = document.querySelector('.contacts-form'),
         form = document.querySelector('.blur');
     return {
-        set: function () {
+        set: function set() {
             var windowWidth = document.querySelector('.section-content_testimonials').offsetWidth,
                 windowHeight = document.querySelector('.section-content_testimonials').offsetHeight,
                 posLeft = -wrapper.offsetLeft,
@@ -23,8 +23,8 @@ var blur = function () {
             }
 
             var blurCss = form.style;
-            blurCss.backgroundSize = `${coverWidth}px ${coverHeight}px`;
-            blurCss.backgroundPosition = `${posLeft}px ${posTop}px`;
+            blurCss.backgroundSize = coverWidth + 'px ' + coverHeight + 'px';
+            blurCss.backgroundPosition = posLeft + 'px ' + posTop + 'px';
         },
     };
 }();
@@ -32,7 +32,7 @@ var blur = function () {
 function init() {
     if (document.querySelector('.blur') != null) {
         blur.set();
-        window.addEventListener('resize', () => {
+        window.addEventListener('resize', function () {
             blur.set();
         });
     }

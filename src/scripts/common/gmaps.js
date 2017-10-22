@@ -1,5 +1,5 @@
-const loadGoogleMapsAPI = require('load-google-maps-api');
-const gmap = document.getElementById('map');
+var loadGoogleMapsAPI = require('load-google-maps-api');
+var gmap = document.getElementById('map');
 
 /*global createMap google:true*/
 
@@ -131,7 +131,7 @@ function initMap() {
     if (gmap) {
         loadGoogleMapsAPI({ key: "AIzaSyC8YfKYzYCvNpiV1UDFK2_jlHkmxe8tue8", language: "ru" }).then(function (googleMaps) {
             createMap();
-        }).catch(err => {
+        }).catch(function (err) {
             console.error(err);
         });
     }

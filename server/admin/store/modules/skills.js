@@ -1,3 +1,4 @@
+
 const skills = {
     state: {
         data: []
@@ -25,11 +26,11 @@ const skills = {
     actions: {
         fetchSkills({state, rootGetters}) {
             const { $http } = rootGetters;
-            $http.get('/admin/components/about/data.json').then(response =>{
-                state.data = response.body;
-            }), error =>{
-                console.error(error);
-            }
+            // $http.get('/admin/components/about/data.json').then(response =>{
+            //     state.data = response.body;
+            // }), error =>{
+            //     console.error(error);
+            // }
            //ajax
         }
     }

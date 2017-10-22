@@ -5,7 +5,7 @@ const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps');
 const del = require('del');
 const browserSync = require('browser-sync').create();
-
+const named = require('vinyl-named');
 const gulpWebpack = require('gulp-webpack');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js'),
@@ -51,8 +51,7 @@ const paths = {
         dest: 'build/assets/fonts/'  
     },
     admin:{
-        src: 'src/admin/',
-        dest: 'build/admin/' 
+        src: ['src/admin/**/*.js', 'src/admin/**/*.scss', 'src/admin/**/*.vue']
     }
 
 }
@@ -102,11 +101,8 @@ function icons(){
 
 //webpack
 function scripts(){
-    return gulp.src('src/scripts/app.js')
+    return gulp.src(['src/scripts/app.js', 'src/admin/main.js', 'src/admin/stylesheets/index.js'])
         .pipe(gulpWebpack(webpackConfig, webpack))
-        .pipe(babel({
-            presets: ['env']
-        }))
         .pipe(gulp.dest(paths.scripts.dest));
 }
 
@@ -123,7 +119,7 @@ function server(){
     browserSync.init({
         server: paths.root,
     });
-    browserSync.watch(paths.root + '/**/*.*', browserSync.reload);
+    // browserSync.watch(paths.root + '/**/*.*', browserSync.reload);
 }
 
 

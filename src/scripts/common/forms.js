@@ -1,9 +1,9 @@
-const Form = function () {
-    let auth = document.getElementById('authorization');
-    let form = document.getElementById('auth-form');
-    let front = document.querySelector('.welcome-form__front');
-    let back = document.querySelector('.welcome-form__back');
-    let btn = document.getElementById('onmain');
+var Form = function Form() {
+    var auth = document.getElementById('authorization');
+    var form = document.getElementById('auth-form');
+    var front = document.querySelector('.welcome-form__front');
+    var back = document.querySelector('.welcome-form__back');
+    var btn = document.getElementById('onmain');
 
     function flipFront() {
         form.style.transform = "rotateY(0deg)";
@@ -43,9 +43,9 @@ const Form = function () {
             auth.style.display = "block";
         });
     }
-    let popupTxt = document.querySelector('.popup__message');
-    let popupWrap = document.querySelector('.popup-wrapper');
-    let popupClose = document.querySelector('.popup__close');
+    var popupTxt = document.querySelector('.popup__message');
+    var popupWrap = document.querySelector('.popup-wrapper');
+    var popupClose = document.querySelector('.popup__close');
 
     function alertEmptyField() {
         popupWrap.classList.add('show');
@@ -55,12 +55,12 @@ const Form = function () {
         }
     }
     function authValidate() {
-        let form = document.forms['form_auth'];
-        let login = form.login;
-        let password = form['password'];
-        let robot = form['no_robot'];
-        let confim_robot = form['confim_robot'];
-        const btnSubmit = document.getElementById('submitAuth');
+        var form = document.forms['form_auth'];
+        var login = form.login;
+        var password = form['password'];
+        var robot = form['no_robot'];
+        var confim_robot = form['confim_robot'];
+        var btnSubmit = document.getElementById('submitAuth');
 
         function alertNoRobot() {
             popupWrap.classList.add('show');
@@ -120,14 +120,14 @@ const Form = function () {
         });
     }
 
-    let contactForm = document.forms['contact_form'];
+    var contactForm = document.forms['contact_form'];
     function validationContactForm() {
-        let form = contactForm;
-        let name = form['name'];
-        let email = form['email'];
-        let message = form['message'];
-        const btnSubmit = document.getElementById('btnSubmit');
-        const btnReset = document.getElementById('btnReset');
+        var form = contactForm;
+        var name = form['name'];
+        var email = form['email'];
+        var message = form['message'];
+        var btnSubmit = document.getElementById('btnSubmit');
+        var btnReset = document.getElementById('btnReset');
         function alertSuccess() {
             popupWrap.classList.add('show');
             popupTxt.innerHTML = "Ваше сообщение успешно отправлено!";
@@ -178,6 +178,7 @@ const Form = function () {
             e.preventDefault();
             if (validate()) {
                 alertSuccess();
+                form.submit();
             }
         });
         btnReset.addEventListener('click', function (e) {
@@ -187,7 +188,7 @@ const Form = function () {
     }
 
     return {
-        init: function () {
+        init: function init() {
             if (auth) {
                 authFlip();
                 authValidate();

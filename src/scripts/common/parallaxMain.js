@@ -1,57 +1,57 @@
 
 import Timing from './timing';
-const my_timing = new Timing();
+var my_timing = new Timing();
 
-const moveLayers = e => {
-    const initX = window.innerWidth / 2 - e.pageX;
-    const initY = window.innerHeight / 2 - e.pageY;
-    let parallaxContainer = document.getElementById('parallax');
-    const layers = parallaxContainer.children;
-    [].slice.call(layers).forEach((layer, i) => {
-        const divider = i / 100;
-        const positionX = initX * divider;
-        const positionY = initY * divider;
-        let transformString = `translate(${positionX}px, ${positionY}px)`;
+var moveLayers = function moveLayers(e) {
+    var initX = window.innerWidth / 2 - e.pageX;
+    var initY = window.innerHeight / 2 - e.pageY;
+    var parallaxContainer = document.getElementById('parallax');
+    var layers = parallaxContainer.children;
+    [].slice.call(layers).forEach(function (layer, i) {
+        var divider = i / 100;
+        var positionX = initX * divider;
+        var positionY = initY * divider;
+        var transformString = 'translate(' + positionX + 'px, ' + positionY + 'px)';
         layer.style.transform = transformString;
     });
 };
 
-const moveClouds = () => {
-    const clouds = document.querySelectorAll('.cloud');
-    const clouds2 = document.querySelectorAll('.cloud-group-2 ');
-    const interval = 50000;
-    [].slice.call(clouds).forEach((cloud, i) => {
+var moveClouds = function moveClouds() {
+    var clouds = document.querySelectorAll('.cloud');
+    var clouds2 = document.querySelectorAll('.cloud-group-2 ');
+    var interval = 50000;
+    [].slice.call(clouds).forEach(function (cloud, i) {
         my_timing.animate({
             duration: interval,
             timing: my_timing.linear,
-            draw: function (progress) {
+            draw: function draw(progress) {
                 cloud.style.left = progress * 200 + '%';
             },
         });
-        setInterval(() => {
+        setInterval(function () {
             my_timing.animate({
                 duration: interval,
                 timing: my_timing.linear,
-                draw: function (progress) {
+                draw: function draw(progress) {
                     cloud.style.left = progress * 200 + '%';
                 },
             });
         }, interval + (i + 1) * 500);
     });
-    [].slice.call(clouds2).forEach((cloud, i) => {
-        setTimeout(() => {
+    [].slice.call(clouds2).forEach(function (cloud, i) {
+        setTimeout(function () {
             my_timing.animate({
                 duration: interval,
                 timing: my_timing.linear,
-                draw: function (progress) {
+                draw: function draw(progress) {
                     cloud.style.left = progress * 200 + '%';
                 },
             });
-            setInterval(() => {
+            setInterval(function () {
                 my_timing.animate({
                     duration: interval,
                     timing: my_timing.linear,
-                    draw: function (progress) {
+                    draw: function draw(progress) {
                         cloud.style.left = progress * 200 + '%';
                     },
                 });
@@ -61,7 +61,7 @@ const moveClouds = () => {
 };
 
 function init() {
-    let parallaxContainer = document.getElementById('parallax');
+    var parallaxContainer = document.getElementById('parallax');
     if (parallaxContainer) {
         window.addEventListener('mousemove', moveLayers);
         moveClouds();

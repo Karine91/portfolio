@@ -1,34 +1,34 @@
-const slides = document.querySelectorAll('#slider .slider-view__item');
-const nextSlide = document.querySelector('.slide-next .slider-preview__image');
-const prevSlide = document.querySelector('.slide-prev .slider-preview__image');
-const nextLink = document.querySelector('.slider-preview__link_next');
-const prevLink = document.querySelector('.slider-preview__link_prev');
-const captions = document.querySelectorAll('.caption-wrapper');
-const sliderPrevContainer = document.querySelector('.slide-prev');
-const sliderNextContainer = document.querySelector('.slide-next');
+var slides = document.querySelectorAll('#slider .slider-view__item');
+var nextSlide = document.querySelector('.slide-next .slider-preview__image');
+var prevSlide = document.querySelector('.slide-prev .slider-preview__image');
+var nextLink = document.querySelector('.slider-preview__link_next');
+var prevLink = document.querySelector('.slider-preview__link_prev');
+var captions = document.querySelectorAll('.caption-wrapper');
+var sliderPrevContainer = document.querySelector('.slide-prev');
+var sliderNextContainer = document.querySelector('.slide-next');
 import Timing from './timing';
 
-const my_timing = new Timing();
+var my_timing = new Timing();
 
-let currentSlide = 0;
+var currentSlide = 0;
 function getIndex(n) {
     return (n + slides.length) % slides.length;
 }
 function goToSlide(n) {
     currentSlide = getIndex(n);
-    [].slice.call(slides).forEach(element => {
+    [].slice.call(slides).forEach(function (element) {
         element.classList.remove('active');
     });
-    [].slice.call(captions).forEach(element => {
+    [].slice.call(captions).forEach(function (element) {
         element.classList.remove('active');
     });
     slides[currentSlide].classList.add('active');
     captions[currentSlide].classList.add('active');
 }
-let initClone = false;
+var initClone = false;
 
 function changeImagePrev(n) {
-    let wrapperClone;
+    var wrapperClone = void 0;
     if (!initClone) {
         wrapperClone = document.createElement('div');
         wrapperClone.classList.add('clone-prev');
@@ -37,22 +37,22 @@ function changeImagePrev(n) {
     } else {
         wrapperClone = document.querySelector('.clone-prev');
     }
-    let prevInd = getIndex(n);
-    let currentImg = slides[prevInd].querySelector('img');
-    let wrapper = prevSlide.parentElement;
-    let fake = document.createElement('div');
+    var prevInd = getIndex(n);
+    var currentImg = slides[prevInd].querySelector('img');
+    var wrapper = prevSlide.parentElement;
+    var fake = document.createElement('div');
     fake.appendChild(wrapper.cloneNode(true));
     fake.querySelector('img').src = currentImg.getAttribute('src');
-    let cloneHtml = fake.innerHTML;
+    var cloneHtml = fake.innerHTML;
     wrapperClone.innerHTML = cloneHtml;
 
     my_timing.animate({
         duration: 500,
         timing: my_timing.linear,
-        draw: function (progress) {
-            wrapperClone.style.top = `${-100 * (1 - progress)}%`;
+        draw: function draw(progress) {
+            wrapperClone.style.top = -100 * (1 - progress) + '%';
         },
-        callback: function () {
+        callback: function callback() {
             prevSlide.src = currentImg.getAttribute('src');
             wrapperClone.style.top = "-100%";
         },
@@ -60,17 +60,17 @@ function changeImagePrev(n) {
     my_timing.animate({
         duration: 500,
         timing: my_timing.linear,
-        draw: function (progress) {
-            wrapper.style.top = `${100 * progress}%`;
+        draw: function draw(progress) {
+            wrapper.style.top = 100 * progress + '%';
         },
-        callback: function () {
+        callback: function callback() {
             wrapper.style.top = "0";
         },
     });
 }
-let initCloneNext = false;
+var initCloneNext = false;
 function changeImageNext(n) {
-    let wrapperClone;
+    var wrapperClone = void 0;
     if (!initCloneNext) {
         wrapperClone = document.createElement('div');
         wrapperClone.classList.add('clone-next');
@@ -79,21 +79,21 @@ function changeImageNext(n) {
     } else {
         wrapperClone = document.querySelector('.clone-next');
     }
-    let nextInd = getIndex(n);
-    let wrapper = nextSlide.parentElement;
-    let fake = document.createElement('div');
+    var nextInd = getIndex(n);
+    var wrapper = nextSlide.parentElement;
+    var fake = document.createElement('div');
     fake.appendChild(wrapper.cloneNode(true));
-    let currentImg = slides[nextInd].querySelector('img');
+    var currentImg = slides[nextInd].querySelector('img');
     fake.querySelector('img').src = currentImg.getAttribute('src');
-    let cloneHtml = fake.innerHTML;
+    var cloneHtml = fake.innerHTML;
     wrapperClone.innerHTML = cloneHtml;
     my_timing.animate({
         duration: 500,
         timing: my_timing.linear,
-        draw: function (progress) {
-            wrapperClone.style.top = `${100 * (1 - progress)}%`;
+        draw: function draw(progress) {
+            wrapperClone.style.top = 100 * (1 - progress) + '%';
         },
-        callback: function () {
+        callback: function callback() {
             nextSlide.src = currentImg.getAttribute('src');
             wrapperClone.style.top = "100%";
         },
@@ -101,10 +101,10 @@ function changeImageNext(n) {
     my_timing.animate({
         duration: 500,
         timing: my_timing.linear,
-        draw: function (progress) {
-            wrapper.style.top = `${-100 * progress}%`;
+        draw: function draw(progress) {
+            wrapper.style.top = -100 * progress + '%';
         },
-        callback: function () {
+        callback: function callback() {
             wrapper.style.top = "0";
         },
     });
@@ -114,12 +114,12 @@ function changePreview() {
     changeImageNext(currentSlide + 1);
 }
 function setupListeners() {
-    nextLink.addEventListener('click', e => {
+    nextLink.addEventListener('click', function (e) {
         e.preventDefault();
         goToSlide(++currentSlide);
         changePreview();
     });
-    prevLink.addEventListener('click', e => {
+    prevLink.addEventListener('click', function (e) {
         e.preventDefault();
         goToSlide(--currentSlide);
         changePreview();

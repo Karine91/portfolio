@@ -1,9 +1,9 @@
-const sidebar = document.querySelector('.sidebar');
-const sidebar_menu_btn = document.querySelector('.sidebar__menu-btn');
+var sidebar = document.querySelector('.sidebar');
+var sidebar_menu_btn = document.querySelector('.sidebar__menu-btn');
 
 import Timing from './timing';
 
-const my_timing = new Timing();
+var my_timing = new Timing();
 
 var body = document.body;
 var html = document.documentElement;
@@ -11,9 +11,9 @@ function setScroll(n) {
     body.scrollTop = n;
     html.scrollTop = n;
 }
-var spySidebarLinks = function () {
-    const links = sidebar.querySelectorAll('.post-list__link ');
-    const sidebar_items = sidebar.querySelectorAll('.post-list__item ');
+var spySidebarLinks = function spySidebarLinks() {
+    var links = sidebar.querySelectorAll('.post-list__link ');
+    var sidebar_items = sidebar.querySelectorAll('.post-list__item ');
 
     for (var i = 0; i < links.length; i++) {
         links[i].addEventListener('click', function (event) {
@@ -24,7 +24,7 @@ var spySidebarLinks = function () {
             my_timing.animate({
                 duration: 1000,
                 timing: my_timing.easeOutOct,
-                draw: function (progress) {
+                draw: function draw(progress) {
                     sidebar.classList.remove('open');
                     var scrollY = wScroll + y * progress;
                     window.scrollTo(0, scrollY);
@@ -35,22 +35,22 @@ var spySidebarLinks = function () {
     }
 };
 
-var spyPostScroll = function () {
-    const post = document.querySelectorAll('.post');
-    const arrPost = [].slice.call(post);
+var spyPostScroll = function spyPostScroll() {
+    var post = document.querySelectorAll('.post');
+    var arrPost = [].slice.call(post);
     arrPost.forEach(function (element, index) {
-        let id = element.getAttribute('id');
+        var id = element.getAttribute('id');
         if (element.getBoundingClientRect().top < 10) {
-            let otheritems = sidebar.querySelectorAll(`.post-list__link`);
+            var otheritems = sidebar.querySelectorAll('.post-list__link');
             [].slice.call(otheritems).forEach(function (elem) {
                 elem.parentElement.classList.remove('active');
             });
-            sidebar.querySelector(`.post-list__link[href="#${id}"]`).parentElement.classList.add('active');
+            sidebar.querySelector('.post-list__link[href="#' + id + '"]').parentElement.classList.add('active');
         }
     });
 };
-var spySidebarPosition = function (winScroll) {
-    const blog = document.querySelector('.blog');
+var spySidebarPosition = function spySidebarPosition(winScroll) {
+    var blog = document.querySelector('.blog');
     if (winScroll >= blog.offsetTop) {
         sidebar.classList.add('sidebar_sticky');
     } else {
@@ -65,7 +65,7 @@ var touchstartY = 0;
 var touchendX = 0;
 var touchendY = 0;
 
-var menu = function () {
+var menu = function menu() {
     sidebar_menu_btn.addEventListener('click', function (e) {
         e.preventDefault();
         if (sidebar.classList.contains('open')) {

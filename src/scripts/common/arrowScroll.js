@@ -2,14 +2,14 @@
 
 import Timing from './timing';
 
-const arrowDown = document.getElementById('arrow-bottom');
-const arrowUp = document.getElementById('arrow-up');
-const my_timing = new Timing();
+var arrowDown = document.getElementById('arrow-bottom');
+var arrowUp = document.getElementById('arrow-up');
+var my_timing = new Timing();
 
 function moveDown() {
     arrowDown.addEventListener('click', function (event) {
         var _this = this;
-        const bottom = document.querySelector('.header-content__bottom');
+        var bottom = document.querySelector('.header-content__bottom');
         var winHeight = window.innerHeight;
         var wScroll = window.pageYOffset;
         var y = _this.getBoundingClientRect().top;
@@ -17,7 +17,7 @@ function moveDown() {
         my_timing.animate({
             duration: 1000,
             timing: my_timing.easeOutOct,
-            draw: function (progress) {
+            draw: function draw(progress) {
                 var scrollY = wScroll + delta * progress;
                 window.scrollTo(0, scrollY);
             },
@@ -35,7 +35,7 @@ function moveUp() {
         my_timing.animate({
             duration: 1000,
             timing: my_timing.easeOutOct,
-            draw: function (progress) {
+            draw: function draw(progress) {
                 var scrollY = delta * (1 - progress);
                 window.scrollTo(0, scrollY);
             },

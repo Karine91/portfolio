@@ -1,11 +1,11 @@
 import Timing from './timing';
 
-const my_timing = new Timing();
+var my_timing = new Timing();
 
-let trigger = document.getElementById('menu-button');
-let wrapper = document.querySelector('.page-menu-wrapper');
-let menuList = document.querySelectorAll('.page-menu__item');
-var initMenu = () => {
+var trigger = document.getElementById('menu-button');
+var wrapper = document.querySelector('.page-menu-wrapper');
+var menuList = document.querySelectorAll('.page-menu__item');
+var initMenu = function initMenu() {
     if (trigger) {
         trigger.addEventListener('click', function () {
             var that = this;
@@ -24,18 +24,18 @@ var initMenu = () => {
                     e.preventDefault();
                 });
             }
-            let menuListArray = [].slice.call(menuList);
+            var menuListArray = [].slice.call(menuList);
             menuListArray.forEach(function (element) {
                 element.style.opacity = 0;
             });
-            let index = 0;
+            var index = 0;
             function each() {
                 if (index < menuListArray.length) {
-                    let item = menuListArray[index];
+                    var item = menuListArray[index];
                     my_timing.animate({
                         duration: 1000,
                         timing: my_timing.easeInBounce,
-                        draw: function (progress) {
+                        draw: function draw(progress) {
                             item.style.opacity = 1 * progress;
                             if (!menu.classList.contains('open')) {
                                 my_timing.stopAnimate();

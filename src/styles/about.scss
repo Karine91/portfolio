@@ -8,9 +8,9 @@
     }
 }
 .section-about-content  {
-    position: absolute;
     width: 100%;
     height: 100%;
+    flex-grow: 1;
 }
 .section-content_column{
     flex-direction: column;
@@ -63,6 +63,8 @@
 .about-me{
     position: relative;
     min-height: calc(100vh + 175px);
+    display: flex;
+    flex-direction: column;
 }
 .about-left-content{
     background-color: #efeee9;
