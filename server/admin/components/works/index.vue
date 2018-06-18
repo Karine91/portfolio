@@ -45,17 +45,17 @@ export default {
     methods: {
         ...mapActions('works', ['addNewWork']),
         getFile(event) {
-            const file = event.target.files[0]
-            this.fields.file = file
+            const file = event.target.files[0];
+            this.fields.file = file;
         },
         addWork() {
             this.$validate().then(success => {
                 if (!success) return
-                const formData = new FormData()
-                formData.append('file', this.fields.file)
-                formData.append('tech', this.fields.tech)
-                formData.append('title', this.fields.title)
-                this.addNewWork(formData)
+                let formData = new FormData();
+                formData.append('file', this.fields.file, this.fields.file.name);
+                formData.append('tech', this.fields.tech);
+                formData.append('name', this.fields.name);
+                this.addNewWork(formData);
             })
         }
     },

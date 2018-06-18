@@ -1,24 +1,25 @@
 var Form = function Form() {
     var auth = document.getElementById('authorization');
-    var form = document.getElementById('auth-form');
+    var formCard = document.getElementById('auth-form');
+    var form = document.getElementById('formAuthorize');
     var front = document.querySelector('.welcome-form__front');
     var back = document.querySelector('.welcome-form__back');
     var btn = document.getElementById('onmain');
 
     function flipFront() {
-        form.style.transform = "rotateY(0deg)";
-        form.classList.remove('active');
+        formCard.style.transform = "rotateY(0deg)";
+        formCard.classList.remove('active');
         back.style.pointerEvents = "none";
         front.style.pointerEvents = "auto";
     }
     function flipBack() {
-        form.style.transform = "rotateY(180deg)";
+        formCard.style.transform = "rotateY(180deg)";
         front.style.pointerEvents = "none";
         back.style.pointerEvents = "auto";
-        form.classList.add('active');
+        formCard.classList.add('active');
     }
     function flipBackOnClick(e) {
-        if (form.classList.contains('active') === true && e.target != form) {
+        if (formCard.classList.contains('active') === true && e.target != formCard) {
             flipFront();
             auth.style.display = "block";
         }
@@ -33,7 +34,7 @@ var Form = function Form() {
         });
 
         document.addEventListener('click', flipBackOnClick);
-        form.addEventListener('click', function (e) {
+        formCard.addEventListener('click', function (e) {
             e.stopPropagation();
         });
         btn.addEventListener('click', function (e) {
@@ -47,26 +48,21 @@ var Form = function Form() {
     var popupWrap = document.querySelector('.popup-wrapper');
     var popupClose = document.querySelector('.popup__close');
 
-    function alertEmptyField() {
+    function alertMessage(message) {
         popupWrap.classList.add('show');
-        popupTxt.innerHTML = "Заполните пожалуйста все поля";
+        popupTxt.innerHTML = message;
         if (auth) {
             document.removeEventListener('click', flipBackOnClick);
         }
     }
     function authValidate() {
-        var form = document.forms['form_auth'];
-        var login = form.login;
-        var password = form['password'];
-        var robot = form['no_robot'];
-        var confim_robot = form['confim_robot'];
+        var formCard = document.forms['form_auth'];
+        var login = formCard['username'];
+        var password = formCard['password'];
+        var robot = formCard['no_robot'];
+        var confim_robot = formCard['confim_robot'];
         var btnSubmit = document.getElementById('submitAuth');
 
-        function alertNoRobot() {
-            popupWrap.classList.add('show');
-            popupTxt.innerHTML = "Роботам тут не место!";
-            document.removeEventListener('click', flipBackOnClick);
-        }
         login.addEventListener('keydown', function () {
             if (login.value) {
                 login.classList.remove('form__input_error');
@@ -79,10 +75,10 @@ var Form = function Form() {
         });
         function validate() {
             if (!login.value || !password.value) {
-                alertEmptyField();
+                alertMessage('Заполните пожалуйста все поля');
             }
             if (!login.value && !password.value) {
-                alertEmptyField();
+                alertMessage('Заполните пожалуйста все поля');
                 login.classList.add('form__input_error');
                 password.classList.add('form__input_error');
                 return false;
@@ -96,15 +92,24 @@ var Form = function Form() {
                 return false;
             }
             if (robot.checked == false || confim_robot.value == 0 || confim_robot.checked == false) {
-                alertNoRobot();
+                alertMessage('Роботам тут не место!');
                 return false;
             }
             return true;
         }
-        btnSubmit.addEventListener('click', function (e) {
+        form.addEventListener('submit', function (e) {
             e.preventDefault();
             if (validate()) {
-                form.submit();
+                var data = {
+                    username: form.username.value,
+                    password: form.password.value,
+                };
+                sendData('/api/user', data).then(function (response) {
+                    window.location.replace("/admin");
+                }).catch(function (err) {
+                    console.warn(err.status + err.message);
+                    alertMessage(err.message);
+                });
             }
         });
     }
@@ -128,21 +133,17 @@ var Form = function Form() {
         var message = form['message'];
         var btnSubmit = document.getElementById('btnSubmit');
         var btnReset = document.getElementById('btnReset');
-        function alertSuccess() {
-            popupWrap.classList.add('show');
-            popupTxt.innerHTML = "Ваше сообщение успешно отправлено!";
-        }
 
         function validate() {
             if (!email.value && !message.value && !name.value) {
-                alertEmptyField();
+                alertMessage('Заполните пожалуйста все поля');
                 email.classList.add('form__input_error');
                 message.classList.add('form__input_error');
                 name.classList.add('form__input_error');
                 return false;
             }
             if (!email.value || !message.value || !name.value) {
-                alertEmptyField();
+                alertMessage('Заполните пожалуйста все поля');
             }
             if (!email.value) {
                 email.classList.add('form__input_error');
@@ -177,13 +178,31 @@ var Form = function Form() {
         btnSubmit.addEventListener('click', function (e) {
             e.preventDefault();
             if (validate()) {
-                alertSuccess();
+                alertMessage('Ваше сообщение успешно отправлено!');
                 form.submit();
             }
         });
         btnReset.addEventListener('click', function (e) {
             e.preventDefault();
             form.reset();
+        });
+    }
+
+    function sendData(url, data) {
+        return new Promise(function (resolve, reject) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", url);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify(data));
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState != 4) return;
+                if (xhr.status != 200) {
+                    reject(JSON.parse(xhr.responseText));
+                } else {
+                    resolve(JSON.parse(xhr.responseText));
+                }
+            };
         });
     }
 

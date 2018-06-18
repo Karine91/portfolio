@@ -11,9 +11,9 @@ export default {
   data(){
       return{
           tabs: [
-              {name: 'Обо мне', href: '/'},
-              {name: 'Блог', href: '/blog'},
-              {name: 'Мои работы',  href: '/works'}]
+              {name: 'Обо мне', href: '/admin'},
+              {name: 'Блог', href: '/admin/blog'},
+              {name: 'Мои работы',  href: '/admin/works'}]
       }
   }
 }

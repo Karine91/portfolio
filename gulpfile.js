@@ -5,9 +5,7 @@ const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps');
 const del = require('del');
 const browserSync = require('browser-sync').create();
-const named = require('vinyl-named');
-const gulpWebpack = require('gulp-webpack');
-const webpack = require('webpack');
+const gulpWebpack = require('webpack-stream');
 const webpackConfig = require('./webpack.config.js'),
     svgSprite = require('gulp-svg-sprite'),
     svgmin = require('gulp-svgmin'),
@@ -101,27 +99,32 @@ function icons(){
 
 //webpack
 function scripts(){
-    return gulp.src(['src/scripts/app.js', 'src/admin/main.js', 'src/admin/stylesheets/index.js'])
-        .pipe(gulpWebpack(webpackConfig, webpack))
+    return gulp.src(paths.scripts.src)
+        .pipe(gulpWebpack(webpackConfig))
         .pipe(gulp.dest(paths.scripts.dest));
 }
 
-function watch(){
-    gulp.watch(paths.styles.src, styles);
-    gulp.watch(paths.templates.src, templates);
-    gulp.watch(paths.images.src, images);
-    gulp.watch(paths.scripts.src, scripts);
-}
 
 //reload and watch
 
-function server(){
+function server(done){
     browserSync.init({
-        server: paths.root,
+        server: {
+            baseDir: paths.root
+        },
     });
-    // browserSync.watch(paths.root + '/**/*.*', browserSync.reload);
 }
 
+function reload(done) {
+    browserSync.reload();
+}
+
+function watch(){
+    gulp.watch(paths.styles.src, gulp.series(styles, reload));
+    gulp.watch(paths.templates.src, gulp.series(templates, reload));
+    gulp.watch(paths.images.src, gulp.series(images, reload));
+    gulp.watch(paths.scripts.src, gulp.series(scripts, reload));
+}
 
 //fonts
 function fonts(){
@@ -196,5 +199,5 @@ gulp.task('deploy', function() {
 
 gulp.task('default',gulp.series(
     gulp.parallel(styles, templates, scripts, images, userfiles, fonts),
-    gulp.parallel(watch, server)
+    gulp.parallel(server, watch)
 ));

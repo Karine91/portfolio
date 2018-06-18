@@ -58,11 +58,11 @@ block content
                                 .welcome-form__title
                                     h2.heading-2.heading-2_offset-no Авторизуйтесь
                                 .form
-                                    form(action="" name="form_auth")
+                                    form#formAuthorize(name="form_auth")
                                         .form__field
                                             label.form__label
                                                 +icon('login' ,"", "form")
-                                            input#login(type="text", name="login" placeholder="Логин").form__input
+                                            input#login(type="text", name="username" placeholder="Логин").form__input
                                         .form__field
                                             label.form__label
                                                 +icon('password' ,"", "form")
@@ -88,7 +88,7 @@ block content
                                                         label(for="robot").form-label_text Не уверен
                             ul.navigation
                                 li.navigation__item: a#onmain(href="#").navigation__link На главную
-                                li.navigation__item: button(type="submit")#submitAuth.navigation__link.form-btn Войти
+                                li.navigation__item: button(type="submit" form="formAuthorize")#submitAuth.navigation__link.form-btn Войти
                                             
                 .welcome__bottom
                     .copyright © Каринэ Гюлумян | создано с любовью в LoftSchool | 2017

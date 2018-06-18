@@ -4,8 +4,8 @@ let images = document.images,
     persent_display = document.getElementById('load_perc'),
     preload_circle1 = document.querySelector(".preload-circle-1"),
     preload_circle2 = document.querySelector(".preload-circle-2"),
-    preload_circle3 = document.querySelector(".preload-circle-3");
-
+    preload_circle3 = document.querySelector(".preload-circle-3"),
+    preloader = document.getElementById('preloader');
 function loadImage(url) {
     return new Promise((resolve, reject) => {
         let image_clone = new Image();
@@ -43,7 +43,6 @@ function image_loaded(images) {
         }
         last.then(() => {
             setTimeout(() => {
-                let preloader = document.getElementById('preloader');
                 if (!preloader.classList.contains('preloader_done')) {
                     preloader.classList.add('preloader_done');
                 }
@@ -53,6 +52,8 @@ function image_loaded(images) {
 }
 
 function init() {
-    image_loaded(images);
+    if(preloader){
+        image_loaded(images);
+    }
 }
 export {init  as preloader};

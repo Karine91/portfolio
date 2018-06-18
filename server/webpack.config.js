@@ -7,8 +7,8 @@ module.exports = {
     styles: './admin/stylesheets/index.js'
 },
   output: {
-    path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
+    path: path.resolve(__dirname, './public'),
+    publicPath: '/',
     filename: '[name].bundle.js',
   },
   module: {
@@ -36,7 +36,7 @@ module.exports = {
       },
       {
         test: /\.(eot|ttf|woff|woff2)$/,
-        loader: 'file-loader?name=fonts/[name].[ext]'
+        loader: 'file-loader?name=assets/fonts/[name].[ext]'
       },
       {
         test: /\.vue$/,
@@ -77,7 +77,7 @@ module.exports = {
         test: /\.(png|jpg|gif)$/,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]?[hash]'
+          name: 'assets/images/[name].[ext]?[hash]'
         }
       },
       {

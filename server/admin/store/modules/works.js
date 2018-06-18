@@ -1,13 +1,14 @@
 const works = {
     namespaced: true,
     state: {
-        data: {}
+        data: {},
     },
     actions: {
         addNewWork({ state, rootGetters }, fields) {
-            console.log(fields)
-        }
-    }
-}
+            const $http = rootGetters.$http;
+            $http.post('/admin/work', fields);
+        },
+    },
+};
 
 export default works;

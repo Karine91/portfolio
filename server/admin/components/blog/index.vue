@@ -12,13 +12,13 @@
         .table
             table.posts
             tr(v-for="(post, index) in posts")
-                td {{post.title}}
+                td {{post.name}}
                 td {{post.date}}
                 td {{post.text}}
 </template>
 <script>
 
-import { mapGetters, mapMutations } from 'vuex'
+import { mapGetters, mapMutations, mapActions } from 'vuex'
 
 export default {
     data(){
@@ -31,11 +31,11 @@ export default {
         }
     },
     methods: {
-        ...mapMutations(['addBlogPost']),
+        ...mapActions(['addBlogPost']),
         addPost(){
            let fieldsData = Object.assign({}, this.fields);
            this.addBlogPost(fieldsData);
-           this.fields = {name: '', date: '', text: ''}
+           this.fields = {name: '', date: '', text: ''};
         }
     },
     computed: {

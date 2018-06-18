@@ -75,14 +75,14 @@
                     <h2 class="heading-2 heading-2_offset-no">Авторизуйтесь</h2>
                   </div>
                   <div class="form">
-                    <form action="" name="form_auth">
+                    <form id="formAuthorize" name="form_auth">
                       <div class="form__field">
                         <label class="form__label">
                           <svg class="form__icon icon icon-login " width="30" height="25">
                             <use xlink:href="assets/images/icons/sprite_form.svg#login"></use>
                           </svg>
                         </label>
-                        <input class="form__input" id="login" type="text" name="login" placeholder="Логин">
+                        <input class="form__input" id="login" type="text" name="username" placeholder="Логин">
                       </div>
                       <div class="form__field">
                         <label class="form__label">
@@ -128,7 +128,7 @@
                 <ul class="navigation">
                   <li class="navigation__item"><a class="navigation__link" id="onmain" href="#">На главную</a></li>
                   <li class="navigation__item">
-                    <button class="navigation__link form-btn" type="submit" id="submitAuth">Войти</button>
+                    <button class="navigation__link form-btn" type="submit" form="formAuthorize" id="submitAuth">Войти</button>
                   </li>
                 </ul>
               </div>

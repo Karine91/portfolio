@@ -16,7 +16,6 @@
     left:0;
     bottom:0;
     right:0;
-    // background: rgba($green, .87);
     z-index: 20;
     display: none;
     &:after, &:before{
@@ -80,17 +79,17 @@
 
 .hamburger-menu-icon path{
     transition: .25s ease-in-out;
-    transform-origin: right center;
+    transform-origin: center center;
 }
 .hamburger-menu-icon.open{
     path:first-child{
-       transform: rotate(-45deg) translate(-5px, -3px);
+        transform: rotate(-45deg) translate(0%, calc(50% - 2px));
     }
     path:nth-child(2){
         opacity: 0;
     }
     path:last-child{
-        transform: rotate(45deg) translate(-4px, 4px);
+        transform: rotate(45deg) translate(0%, calc(-50% + 2px));
     }
 }
 
