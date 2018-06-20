@@ -76,6 +76,7 @@ function styles(){
         .pipe(sourcemaps.write())
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest(paths.styles.dest))
+        .pipe(browserSync.reload({stream: true}));
 }
 //del
 function clean(){
@@ -120,7 +121,7 @@ function reload(done) {
 }
 
 function watch(){
-    gulp.watch(paths.styles.src, gulp.series(styles, reload));
+    gulp.watch(paths.styles.src, styles);
     gulp.watch(paths.templates.src, gulp.series(templates, reload));
     gulp.watch(paths.images.src, gulp.series(images, reload));
     gulp.watch(paths.scripts.src, gulp.series(scripts, reload));

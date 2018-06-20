@@ -259,19 +259,15 @@
     position: relative;
     margin-bottom: 20px;
     border-radius: 5px;
-    overflow: hidden;
+    display: flex;
 }
 .form__label{
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 45px;
-    height: 100%;
-    margin: auto;
+    border-radius: 5px 0 0 5px;
     background-color: #f0efe9;
 }
 .form__input{
@@ -280,10 +276,13 @@
     border-radius: 5px;
     color: $darkgray;
     width: 100%;
-    padding-left: 65px;
+    padding-left: 10px;
     padding-right: 20px;
     background-color: #fff;
     border: 1px solid transparent;
+    &.form__input_icon{
+        border-radius: 0 5px 5px 0;
+    }
     &:focus{
         outline: none;
         border: 1px solid rgba($green, .35);
@@ -293,8 +292,8 @@
     }
 }
 .form__icon{
-font-size: 17px;
-color: #c4cbcd;
+    font-size: 17px;
+    color: #c4cbcd;
 }
 input[type=checkbox], input[type=radio] {
 	visibility: hidden;
@@ -416,5 +415,6 @@ input[type=checkbox], input[type=radio] {
     color: transparent;
 }
 .form__input_error, .form__input_error:focus {
-    border: 1px solid rgba(red, .35);
+    box-shadow: 0 0 80px rgba(red, .35);
+    border: none;
 }

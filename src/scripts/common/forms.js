@@ -5,6 +5,10 @@ var Form = function Form() {
     var front = document.querySelector('.welcome-form__front');
     var back = document.querySelector('.welcome-form__back');
     var btn = document.getElementById('onmain');
+    var ERROR = 1;
+    var POPUP_WRAP_SELECTOR = '.popup-wrapper';
+    var POPUP_MSG_SELECTOR = '.popup__message';
+    var POPUP_CLOSE_SELECTOR = '.popup__close';
 
     function flipFront() {
         formCard.style.transform = "rotateY(0deg)";
@@ -19,7 +23,7 @@ var Form = function Form() {
         formCard.classList.add('active');
     }
     function flipBackOnClick(e) {
-        if (formCard.classList.contains('active') === true && e.target != formCard) {
+        if (formCard.classList.contains('active') === true && e.target != formCard && !e.target.closest(POPUP_WRAP_SELECTOR)) {
             flipFront();
             auth.style.display = "block";
         }
@@ -44,16 +48,17 @@ var Form = function Form() {
             auth.style.display = "block";
         });
     }
-    var popupTxt = document.querySelector('.popup__message');
-    var popupWrap = document.querySelector('.popup-wrapper');
-    var popupClose = document.querySelector('.popup__close');
+    var popupTxt = document.querySelector(POPUP_MSG_SELECTOR);
+    var popupWrap = document.querySelector(POPUP_WRAP_SELECTOR);
+    var popupClose = document.querySelector(POPUP_CLOSE_SELECTOR);
 
-    function alertMessage(message) {
+    function alertMessage(message, isError) {
+        if (isError === ERROR) {
+            popupTxt.classList.add('error');
+        }
         popupWrap.classList.add('show');
         popupTxt.innerHTML = message;
-        if (auth) {
-            document.removeEventListener('click', flipBackOnClick);
-        }
+        setTimeout(closePopup, 3000);
     }
     function authValidate() {
         var formCard = document.forms['form_auth'];
@@ -92,7 +97,7 @@ var Form = function Form() {
                 return false;
             }
             if (robot.checked == false || confim_robot.value == 0 || confim_robot.checked == false) {
-                alertMessage('Роботам тут не место!');
+                alertMessage('Роботам тут не место!', ERROR);
                 return false;
             }
             return true;
@@ -108,21 +113,18 @@ var Form = function Form() {
                     window.location.replace("/admin");
                 }).catch(function (err) {
                     console.warn(err.status + err.message);
-                    alertMessage(err.message);
+                    alertMessage(err.message, ERROR);
                 });
             }
         });
     }
+    function closePopup(e) {
+        e && e.preventDefault();
+        popupWrap.classList.remove('show');
+        popupTxt.classList.remove('error');
+    }
     if (popupClose) {
-        popupClose.addEventListener('click', function (e) {
-            e.preventDefault();
-            popupWrap.classList.remove('show');
-            if (auth) {
-                setTimeout(function () {
-                    document.addEventListener('click', flipBackOnClick);
-                }, 500);
-            }
-        });
+        popupClose.addEventListener('click', closePopup);
     }
 
     var contactForm = document.forms['contact_form'];
