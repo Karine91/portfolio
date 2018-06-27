@@ -180,8 +180,17 @@ var Form = function Form() {
         btnSubmit.addEventListener('click', function (e) {
             e.preventDefault();
             if (validate()) {
-                alertMessage('Ваше сообщение успешно отправлено!');
-                form.submit();
+                var data = {
+                    name: name.value,
+                    email: email.value,
+                    message: message.value,
+                };
+                sendData('/api/contact', data).then(function (response) {
+                    alertMessage(response.message);
+                }).catch(function (err) {
+                    console.warn(err.status + err.message);
+                    alertMessage(err.message, ERROR);
+                });
             }
         });
         btnReset.addEventListener('click', function (e) {
