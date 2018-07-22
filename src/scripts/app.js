@@ -9,7 +9,6 @@ const parallaxPage = require('./common/parallaxPage.js');
 import { sidebarinit, spySidebarLinks, spyPostScroll, sidebarMenu } from './common/sidebarScroll.js';
 import { arrScroll } from './common/arrowScroll.js';
 import { parallaxMain } from './common/parallaxMain.js';
-import { ajaxValidate } from './common/validation.js';
 const skillAnimate = require('./common/skills.js');
 
 

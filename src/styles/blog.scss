@@ -11,6 +11,9 @@
     margin-top: 175px;
     display: flex;
     padding-bottom: 145px;
+    @include mobile{
+        padding-bottom: 270px; 
+    }
 }
 .sidebar{
   width: 390px;
@@ -99,10 +102,12 @@
      }
 }
 .post-content{
+    width: 100%;
     text-align: left;
     flex-direction: column;
     margin-left: 390px;
     padding-left: 120px;
+    padding-right: 30px;
     background: #fff;
     @include tablets{
         margin-left: 0;

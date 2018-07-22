@@ -51,6 +51,15 @@ var spyPostScroll = function spyPostScroll() {
 };
 var spySidebarPosition = function spySidebarPosition(winScroll) {
     var blog = document.querySelector('.blog');
+    if (window.matchMedia("(max-width: 768px)").matches) {
+        if (blog.getBoundingClientRect().top > 0) {
+            sidebar.style.display = 'none';
+        } else {
+            sidebar.style.display = 'block';
+        }
+    } else {
+        sidebar.style.display = 'block';
+    }
     if (winScroll >= blog.offsetTop) {
         sidebar.classList.add('sidebar_sticky');
     } else {

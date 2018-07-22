@@ -11,11 +11,12 @@ const webpackConfig = require('./webpack.config.js'),
     svgmin = require('gulp-svgmin'),
     cheerio = require('gulp-cheerio'),
     replace = require('gulp-replace'),
-    plumber = require('gulp-plumber'),
     gcmq = require('gulp-group-css-media-queries'),
     ghPages = require('gulp-gh-pages'),
     postcss    = require('gulp-postcss'),
-    babel = require('gulp-babel');
+    imagemin = require('gulp-imagemin'),
+    cssnano = require('gulp-cssnano'),
+    uglify = require('gulp-uglify');
 
 const paths = {
     root: './build',
@@ -57,26 +58,26 @@ const paths = {
 //pug
 function templates(){
     return gulp.src(paths.templates.pages)
-        .pipe(plumber({
-            errorHandler: function(error){console.log(error); this.end();}
-         }))
         .pipe(pug({pretty: true}))
+        .on('error', function (err) {
+            console.log(err.toString());
+            this.emit('end');
+        })
         .pipe(gulp.dest(paths.root));
 }
 
 //scss
 function styles(){
     return gulp.src('./src/styles/app.scss')
-        .pipe(plumber({
-            errorHandler: function(error){console.log(error); this.end();}
-         }))
         .pipe(sourcemaps.init())
-        .pipe(sass({outputStyle: 'compressed'}))
+        .pipe(sass())
         .pipe( postcss([ require('precss'), require('autoprefixer')]) )
         .pipe(sourcemaps.write())
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest(paths.styles.dest))
-        .pipe(browserSync.reload({stream: true}));
+        .on('error', function (err) {
+            console.log(err.toString());
+            this.emit('end');
+        })
+        .pipe(gulp.dest(paths.styles.dest));
 }
 //del
 function clean(){
@@ -85,6 +86,11 @@ function clean(){
 //images
 function images(){
     return gulp.src(paths.images.src)
+        .pipe(imagemin({
+            progressive: true,
+            interlaced: true,
+            multipass: true,
+        }))
         .pipe(gulp.dest(paths.images.dest));
 }
 //userfiles
@@ -94,13 +100,13 @@ function userfiles(){
 }
 //icons
 function icons(){
-    return gulp.src(paths.icons.dest + "*.svg")
+    return gulp.src('src/images/icons/*.svg')
         .pipe(gulp.dest(paths.images.dest + "icons/"));
 }
 
 //webpack
 function scripts(){
-    return gulp.src(paths.scripts.src)
+    return gulp.src('src/scripts/app.js')
         .pipe(gulpWebpack(webpackConfig))
         .pipe(gulp.dest(paths.scripts.dest));
 }
@@ -108,22 +114,19 @@ function scripts(){
 
 //reload and watch
 
-function server(done){
+function reload(done) {
+    browserSync.reload();
+    done();
+}
+
+function watch(){
     browserSync.init({
         server: {
             baseDir: paths.root
         },
     });
-}
-
-function reload(done) {
-    browserSync.reload();
-}
-
-function watch(){
-    gulp.watch(paths.styles.src, styles);
-    gulp.watch(paths.templates.src, gulp.series(templates, reload));
-    gulp.watch(paths.images.src, gulp.series(images, reload));
+    gulp.watch(paths.styles.src, gulp.series(styles, cssInject));
+    gulp.watch(paths.templates.src, gulp.series(templates)).on('change', browserSync.reload);
     gulp.watch(paths.scripts.src, gulp.series(scripts, reload));
 }
 
@@ -177,6 +180,11 @@ function svgSpriteBuild()   {
             .pipe(gulp.dest(paths.icons.dest));
 }
 
+function cssInject () {
+    return gulp.src(paths.styles.src)
+        .pipe(browserSync.stream());
+}
+
 
 exports.templates = templates;
 exports.styles = styles;
@@ -187,10 +195,28 @@ exports.fonts = fonts;
 exports.media = media;
 exports.svgsprite = svgSpriteBuild;
 exports.icons = icons;
+
 //build
+gulp.task('compressedScripts', function () {
+    return gulp.src('./build/assets/scripts/*.js')
+        .pipe(uglify())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('./build/assets/scripts/'));
+});
+
+gulp.task('compressedStyles', function () {
+    return gulp.src('./build/assets/styles/*.css')
+        .pipe(cssnano())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('./build/assets/styles/'));
+});
+
+gulp.task('preparebuild', gulp.parallel('compressedScripts', 'compressedStyles'));
+
 gulp.task('build', gulp.series(
     clean,
-    gulp.parallel(styles, templates, scripts, images, userfiles, fonts)
+    gulp.parallel(styles, templates, scripts, images, userfiles, fonts, icons),
+    'preparebuild'
 ));
 
 gulp.task('deploy', function() {
@@ -199,6 +225,14 @@ gulp.task('deploy', function() {
   });
 
 gulp.task('default',gulp.series(
-    gulp.parallel(styles, templates, scripts, images, userfiles, fonts),
-    gulp.parallel(server, watch)
+    gulp.parallel(styles, templates, scripts),
+    watch
 ));
+
+gulp.task('previewBuild', function() {
+    browserSync.init({
+        server: {
+            baseDir: "build"
+        }
+    });
+});

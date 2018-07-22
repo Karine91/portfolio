@@ -173,6 +173,10 @@ transition: transform ease .6s;
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.slider-preview__image{
+    max-width: none;
+    height: 100%;
+}
 .slider-preview__wrapper-img{
     overflow: hidden;
     height: 100%;
